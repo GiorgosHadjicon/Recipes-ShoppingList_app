@@ -1,0 +1,257 @@
+[
+  { "id": "p001", "ingredientKey": "tomatoes", "supermarketId": "alphamega", "displayName": "Fresh Vine Tomatoes (1kg)", "priceEur": 1.99, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p002", "ingredientKey": "tomatoes", "supermarketId": "sklavenitis", "displayName": "Ripe Tomatoes (1kg)", "priceEur": 1.79, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p003", "ingredientKey": "tomatoes", "supermarketId": "lidl", "displayName": "Freshona Tomatoes (1kg)", "priceEur": 1.49, "priceUnit": "per kg", "aisle": "produce" },
+
+  { "id": "p004", "ingredientKey": "cherry tomatoes", "supermarketId": "alphamega", "displayName": "Cherry Tomatoes (250g)", "priceEur": 1.49, "priceUnit": "per 250g", "aisle": "produce" },
+  { "id": "p005", "ingredientKey": "cherry tomatoes", "supermarketId": "sklavenitis", "displayName": "Cherry Tomatoes (250g)", "priceEur": 1.39, "priceUnit": "per 250g", "aisle": "produce" },
+  { "id": "p006", "ingredientKey": "cherry tomatoes", "supermarketId": "lidl", "displayName": "Freshona Cherry Tomatoes (250g)", "priceEur": 1.19, "priceUnit": "per 250g", "aisle": "produce" },
+
+  { "id": "p007", "ingredientKey": "cucumber", "supermarketId": "alphamega", "displayName": "Cucumber (each)", "priceEur": 0.79, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p008", "ingredientKey": "cucumber", "supermarketId": "sklavenitis", "displayName": "Cucumber (each)", "priceEur": 0.69, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p009", "ingredientKey": "cucumber", "supermarketId": "lidl", "displayName": "Cucumber (each)", "priceEur": 0.59, "priceUnit": "each", "aisle": "produce" },
+
+  { "id": "p010", "ingredientKey": "red onion", "supermarketId": "alphamega", "displayName": "Red Onions (1kg bag)", "priceEur": 1.49, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p011", "ingredientKey": "red onion", "supermarketId": "sklavenitis", "displayName": "Red Onions (1kg)", "priceEur": 1.29, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p012", "ingredientKey": "red onion", "supermarketId": "lidl", "displayName": "Red Onions (1kg)", "priceEur": 0.99, "priceUnit": "per kg", "aisle": "produce" },
+
+  { "id": "p013", "ingredientKey": "onion", "supermarketId": "alphamega", "displayName": "Brown Onions (1kg)", "priceEur": 1.19, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p014", "ingredientKey": "onion", "supermarketId": "sklavenitis", "displayName": "Brown Onions (1kg)", "priceEur": 0.99, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p015", "ingredientKey": "onion", "supermarketId": "lidl", "displayName": "Onions (1kg)", "priceEur": 0.79, "priceUnit": "per kg", "aisle": "produce" },
+
+  { "id": "p016", "ingredientKey": "green bell pepper", "supermarketId": "alphamega", "displayName": "Green Bell Pepper (each)", "priceEur": 0.69, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p017", "ingredientKey": "green bell pepper", "supermarketId": "sklavenitis", "displayName": "Green Pepper (each)", "priceEur": 0.59, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p018", "ingredientKey": "green bell pepper", "supermarketId": "lidl", "displayName": "Green Pepper (each)", "priceEur": 0.49, "priceUnit": "each", "aisle": "produce" },
+
+  { "id": "p019", "ingredientKey": "red bell pepper", "supermarketId": "alphamega", "displayName": "Red Bell Pepper (each)", "priceEur": 0.89, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p020", "ingredientKey": "red bell pepper", "supermarketId": "sklavenitis", "displayName": "Red Pepper (each)", "priceEur": 0.79, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p021", "ingredientKey": "red bell pepper", "supermarketId": "lidl", "displayName": "Red Pepper (each)", "priceEur": 0.65, "priceUnit": "each", "aisle": "produce" },
+
+  { "id": "p022", "ingredientKey": "eggplant", "supermarketId": "alphamega", "displayName": "Aubergine / Eggplant (each)", "priceEur": 0.89, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p023", "ingredientKey": "eggplant", "supermarketId": "sklavenitis", "displayName": "Aubergine (each)", "priceEur": 0.79, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p024", "ingredientKey": "eggplant", "supermarketId": "lidl", "displayName": "Aubergine (each)", "priceEur": 0.65, "priceUnit": "each", "aisle": "produce" },
+
+  { "id": "p025", "ingredientKey": "spinach", "supermarketId": "alphamega", "displayName": "Fresh Spinach (250g bag)", "priceEur": 1.99, "priceUnit": "per 250g", "aisle": "produce" },
+  { "id": "p026", "ingredientKey": "spinach", "supermarketId": "sklavenitis", "displayName": "Baby Spinach (250g)", "priceEur": 1.79, "priceUnit": "per 250g", "aisle": "produce" },
+  { "id": "p027", "ingredientKey": "spinach", "supermarketId": "lidl", "displayName": "Freshona Spinach (250g)", "priceEur": 1.49, "priceUnit": "per 250g", "aisle": "produce" },
+
+  { "id": "p028", "ingredientKey": "avocado", "supermarketId": "alphamega", "displayName": "Avocado (each)", "priceEur": 1.49, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p029", "ingredientKey": "avocado", "supermarketId": "sklavenitis", "displayName": "Avocado (each)", "priceEur": 1.39, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p030", "ingredientKey": "avocado", "supermarketId": "lidl", "displayName": "Avocado (each)", "priceEur": 1.19, "priceUnit": "each", "aisle": "produce" },
+
+  { "id": "p031", "ingredientKey": "potatoes", "supermarketId": "alphamega", "displayName": "Potatoes (1kg)", "priceEur": 1.29, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p032", "ingredientKey": "potatoes", "supermarketId": "sklavenitis", "displayName": "Potatoes (1kg)", "priceEur": 1.09, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p033", "ingredientKey": "potatoes", "supermarketId": "lidl", "displayName": "Potatoes (1kg)", "priceEur": 0.89, "priceUnit": "per kg", "aisle": "produce" },
+
+  { "id": "p034", "ingredientKey": "lemon", "supermarketId": "alphamega", "displayName": "Lemons (500g bag)", "priceEur": 0.99, "priceUnit": "per 500g", "aisle": "produce" },
+  { "id": "p035", "ingredientKey": "lemon", "supermarketId": "sklavenitis", "displayName": "Lemons (500g)", "priceEur": 0.89, "priceUnit": "per 500g", "aisle": "produce" },
+  { "id": "p036", "ingredientKey": "lemon", "supermarketId": "lidl", "displayName": "Lemons (500g)", "priceEur": 0.75, "priceUnit": "per 500g", "aisle": "produce" },
+
+  { "id": "p037", "ingredientKey": "garlic", "supermarketId": "alphamega", "displayName": "Garlic Bulb (each)", "priceEur": 0.59, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p038", "ingredientKey": "garlic", "supermarketId": "sklavenitis", "displayName": "Garlic (each)", "priceEur": 0.49, "priceUnit": "each", "aisle": "produce" },
+  { "id": "p039", "ingredientKey": "garlic", "supermarketId": "lidl", "displayName": "Garlic Bulb (each)", "priceEur": 0.39, "priceUnit": "each", "aisle": "produce" },
+
+  { "id": "p040", "ingredientKey": "fresh basil", "supermarketId": "alphamega", "displayName": "Fresh Basil (30g pot)", "priceEur": 1.49, "priceUnit": "per pot", "aisle": "produce" },
+  { "id": "p041", "ingredientKey": "fresh basil", "supermarketId": "sklavenitis", "displayName": "Fresh Basil (30g)", "priceEur": 1.29, "priceUnit": "per pot", "aisle": "produce" },
+  { "id": "p042", "ingredientKey": "fresh basil", "supermarketId": "lidl", "displayName": "Fresh Basil (25g)", "priceEur": 0.99, "priceUnit": "per pot", "aisle": "produce" },
+
+  { "id": "p043", "ingredientKey": "fresh parsley", "supermarketId": "alphamega", "displayName": "Fresh Flat-Leaf Parsley (30g)", "priceEur": 0.99, "priceUnit": "per bunch", "aisle": "produce" },
+  { "id": "p044", "ingredientKey": "fresh parsley", "supermarketId": "sklavenitis", "displayName": "Fresh Parsley (30g)", "priceEur": 0.89, "priceUnit": "per bunch", "aisle": "produce" },
+  { "id": "p045", "ingredientKey": "fresh parsley", "supermarketId": "lidl", "displayName": "Parsley (25g)", "priceEur": 0.75, "priceUnit": "per bunch", "aisle": "produce" },
+
+  { "id": "p046", "ingredientKey": "fresh dill", "supermarketId": "alphamega", "displayName": "Fresh Dill (25g)", "priceEur": 0.99, "priceUnit": "per bunch", "aisle": "produce" },
+  { "id": "p047", "ingredientKey": "fresh dill", "supermarketId": "sklavenitis", "displayName": "Fresh Dill (25g)", "priceEur": 0.89, "priceUnit": "per bunch", "aisle": "produce" },
+  { "id": "p048", "ingredientKey": "fresh dill", "supermarketId": "lidl", "displayName": "Fresh Dill (20g)", "priceEur": 0.75, "priceUnit": "per bunch", "aisle": "produce" },
+
+  { "id": "p049", "ingredientKey": "fresh chives", "supermarketId": "alphamega", "displayName": "Fresh Chives (20g)", "priceEur": 0.99, "priceUnit": "per pack", "aisle": "produce" },
+  { "id": "p050", "ingredientKey": "fresh chives", "supermarketId": "sklavenitis", "displayName": "Chives (20g)", "priceEur": 0.89, "priceUnit": "per pack", "aisle": "produce" },
+  { "id": "p051", "ingredientKey": "fresh chives", "supermarketId": "lidl", "displayName": "Fresh Chives (15g)", "priceEur": 0.75, "priceUnit": "per pack", "aisle": "produce" },
+
+  { "id": "p052", "ingredientKey": "fresh thyme", "supermarketId": "alphamega", "displayName": "Fresh Thyme (25g)", "priceEur": 1.19, "priceUnit": "per pack", "aisle": "produce" },
+  { "id": "p053", "ingredientKey": "fresh thyme", "supermarketId": "sklavenitis", "displayName": "Fresh Thyme (25g)", "priceEur": 0.99, "priceUnit": "per pack", "aisle": "produce" },
+  { "id": "p054", "ingredientKey": "fresh thyme", "supermarketId": "lidl", "displayName": "Fresh Thyme (20g)", "priceEur": 0.89, "priceUnit": "per pack", "aisle": "produce" },
+
+  { "id": "p055", "ingredientKey": "fresh rosemary", "supermarketId": "alphamega", "displayName": "Fresh Rosemary (25g)", "priceEur": 1.19, "priceUnit": "per pack", "aisle": "produce" },
+  { "id": "p056", "ingredientKey": "fresh rosemary", "supermarketId": "sklavenitis", "displayName": "Fresh Rosemary (25g)", "priceEur": 0.99, "priceUnit": "per pack", "aisle": "produce" },
+  { "id": "p057", "ingredientKey": "fresh rosemary", "supermarketId": "lidl", "displayName": "Fresh Rosemary (20g)", "priceEur": 0.89, "priceUnit": "per pack", "aisle": "produce" },
+
+  { "id": "p058", "ingredientKey": "fresh mint", "supermarketId": "alphamega", "displayName": "Fresh Mint (25g)", "priceEur": 0.99, "priceUnit": "per bunch", "aisle": "produce" },
+  { "id": "p059", "ingredientKey": "fresh mint", "supermarketId": "sklavenitis", "displayName": "Fresh Mint (25g)", "priceEur": 0.89, "priceUnit": "per bunch", "aisle": "produce" },
+  { "id": "p060", "ingredientKey": "fresh mint", "supermarketId": "lidl", "displayName": "Fresh Mint (20g)", "priceEur": 0.79, "priceUnit": "per bunch", "aisle": "produce" },
+
+  { "id": "p061", "ingredientKey": "portobello mushrooms", "supermarketId": "alphamega", "displayName": "Portobello Mushrooms (4 pack)", "priceEur": 2.49, "priceUnit": "per 4 pack", "aisle": "produce" },
+  { "id": "p062", "ingredientKey": "portobello mushrooms", "supermarketId": "sklavenitis", "displayName": "Large Mushrooms (4 pack)", "priceEur": 2.19, "priceUnit": "per 4 pack", "aisle": "produce" },
+  { "id": "p063", "ingredientKey": "portobello mushrooms", "supermarketId": "lidl", "displayName": "Portobello Mushrooms (300g)", "priceEur": 1.89, "priceUnit": "per 300g", "aisle": "produce" },
+
+  { "id": "p064", "ingredientKey": "feta cheese", "supermarketId": "alphamega", "displayName": "PDO Feta Cheese (200g)", "priceEur": 3.20, "priceUnit": "per 200g", "aisle": "dairy" },
+  { "id": "p065", "ingredientKey": "feta cheese", "supermarketId": "sklavenitis", "displayName": "Greek Feta (200g)", "priceEur": 2.90, "priceUnit": "per 200g", "aisle": "dairy" },
+  { "id": "p066", "ingredientKey": "feta cheese", "supermarketId": "lidl", "displayName": "Feta Cheese (200g)", "priceEur": 2.49, "priceUnit": "per 200g", "aisle": "dairy" },
+
+  { "id": "p067", "ingredientKey": "halloumi", "supermarketId": "alphamega", "displayName": "Halloumi PDO (250g)", "priceEur": 4.80, "priceUnit": "per 250g", "aisle": "dairy" },
+  { "id": "p068", "ingredientKey": "halloumi", "supermarketId": "sklavenitis", "displayName": "Halloumi (250g)", "priceEur": 4.50, "priceUnit": "per 250g", "aisle": "dairy" },
+  { "id": "p069", "ingredientKey": "halloumi", "supermarketId": "lidl", "displayName": "Halloumi Cheese (250g)", "priceEur": 3.79, "priceUnit": "per 250g", "aisle": "dairy" },
+
+  { "id": "p070", "ingredientKey": "parmesan", "supermarketId": "alphamega", "displayName": "Parmigiano Reggiano (100g)", "priceEur": 2.99, "priceUnit": "per 100g", "aisle": "dairy" },
+  { "id": "p071", "ingredientKey": "parmesan", "supermarketId": "sklavenitis", "displayName": "Parmesan Grated (100g)", "priceEur": 2.69, "priceUnit": "per 100g", "aisle": "dairy" },
+  { "id": "p072", "ingredientKey": "parmesan", "supermarketId": "lidl", "displayName": "Grana Padano (100g)", "priceEur": 2.29, "priceUnit": "per 100g", "aisle": "dairy" },
+
+  { "id": "p073", "ingredientKey": "eggs", "supermarketId": "alphamega", "displayName": "Free-Range Eggs (6 pack)", "priceEur": 2.49, "priceUnit": "per 6", "aisle": "dairy" },
+  { "id": "p074", "ingredientKey": "eggs", "supermarketId": "sklavenitis", "displayName": "Eggs (6 pack)", "priceEur": 2.19, "priceUnit": "per 6", "aisle": "dairy" },
+  { "id": "p075", "ingredientKey": "eggs", "supermarketId": "lidl", "displayName": "Eggs (6 pack)", "priceEur": 1.89, "priceUnit": "per 6", "aisle": "dairy" },
+
+  { "id": "p076", "ingredientKey": "egg yolks", "supermarketId": "alphamega", "displayName": "Free-Range Eggs (6 pack)", "priceEur": 2.49, "priceUnit": "per 6", "aisle": "dairy" },
+  { "id": "p077", "ingredientKey": "egg yolks", "supermarketId": "sklavenitis", "displayName": "Eggs (6 pack)", "priceEur": 2.19, "priceUnit": "per 6", "aisle": "dairy" },
+  { "id": "p078", "ingredientKey": "egg yolks", "supermarketId": "lidl", "displayName": "Eggs (6 pack)", "priceEur": 1.89, "priceUnit": "per 6", "aisle": "dairy" },
+
+  { "id": "p079", "ingredientKey": "butter", "supermarketId": "alphamega", "displayName": "Unsalted Butter (250g)", "priceEur": 2.99, "priceUnit": "per 250g", "aisle": "dairy" },
+  { "id": "p080", "ingredientKey": "butter", "supermarketId": "sklavenitis", "displayName": "Butter (250g)", "priceEur": 2.69, "priceUnit": "per 250g", "aisle": "dairy" },
+  { "id": "p081", "ingredientKey": "butter", "supermarketId": "lidl", "displayName": "Butter (250g)", "priceEur": 2.29, "priceUnit": "per 250g", "aisle": "dairy" },
+
+  { "id": "p082", "ingredientKey": "milk", "supermarketId": "alphamega", "displayName": "Full Fat Milk (1L)", "priceEur": 1.49, "priceUnit": "per litre", "aisle": "dairy" },
+  { "id": "p083", "ingredientKey": "milk", "supermarketId": "sklavenitis", "displayName": "Whole Milk (1L)", "priceEur": 1.35, "priceUnit": "per litre", "aisle": "dairy" },
+  { "id": "p084", "ingredientKey": "milk", "supermarketId": "lidl", "displayName": "Milk (1L)", "priceEur": 1.19, "priceUnit": "per litre", "aisle": "dairy" },
+
+  { "id": "p085", "ingredientKey": "yogurt", "supermarketId": "alphamega", "displayName": "Greek Strained Yogurt (500g)", "priceEur": 2.49, "priceUnit": "per 500g", "aisle": "dairy" },
+  { "id": "p086", "ingredientKey": "yogurt", "supermarketId": "sklavenitis", "displayName": "Greek Yogurt (500g)", "priceEur": 2.19, "priceUnit": "per 500g", "aisle": "dairy" },
+  { "id": "p087", "ingredientKey": "yogurt", "supermarketId": "lidl", "displayName": "Greek Yogurt (500g)", "priceEur": 1.89, "priceUnit": "per 500g", "aisle": "dairy" },
+
+  { "id": "p088", "ingredientKey": "chicken breast", "supermarketId": "alphamega", "displayName": "Chicken Breast Fillets (500g)", "priceEur": 5.49, "priceUnit": "per 500g", "aisle": "meat" },
+  { "id": "p089", "ingredientKey": "chicken breast", "supermarketId": "sklavenitis", "displayName": "Chicken Breasts (500g)", "priceEur": 4.99, "priceUnit": "per 500g", "aisle": "meat" },
+  { "id": "p090", "ingredientKey": "chicken breast", "supermarketId": "lidl", "displayName": "Chicken Breast (500g)", "priceEur": 4.29, "priceUnit": "per 500g", "aisle": "meat" },
+
+  { "id": "p091", "ingredientKey": "beef mince", "supermarketId": "alphamega", "displayName": "Lean Beef Mince (500g)", "priceEur": 5.99, "priceUnit": "per 500g", "aisle": "meat" },
+  { "id": "p092", "ingredientKey": "beef mince", "supermarketId": "sklavenitis", "displayName": "Beef Mince (500g)", "priceEur": 5.49, "priceUnit": "per 500g", "aisle": "meat" },
+  { "id": "p093", "ingredientKey": "beef mince", "supermarketId": "lidl", "displayName": "Beef Mince (500g)", "priceEur": 4.79, "priceUnit": "per 500g", "aisle": "meat" },
+
+  { "id": "p094", "ingredientKey": "lamb shoulder", "supermarketId": "alphamega", "displayName": "Lamb Shoulder (per kg)", "priceEur": 9.99, "priceUnit": "per kg", "aisle": "meat" },
+  { "id": "p095", "ingredientKey": "lamb shoulder", "supermarketId": "sklavenitis", "displayName": "Lamb Shoulder (per kg)", "priceEur": 9.49, "priceUnit": "per kg", "aisle": "meat" },
+  { "id": "p096", "ingredientKey": "lamb shoulder", "supermarketId": "lidl", "displayName": "Lamb Shoulder (per kg)", "priceEur": 8.99, "priceUnit": "per kg", "aisle": "meat" },
+
+  { "id": "p097", "ingredientKey": "guanciale", "supermarketId": "alphamega", "displayName": "Pancetta Cubed (150g)", "priceEur": 3.49, "priceUnit": "per 150g", "aisle": "deli" },
+  { "id": "p098", "ingredientKey": "guanciale", "supermarketId": "sklavenitis", "displayName": "Pancetta (150g)", "priceEur": 3.19, "priceUnit": "per 150g", "aisle": "deli" },
+  { "id": "p099", "ingredientKey": "guanciale", "supermarketId": "lidl", "displayName": "Pancetta (150g)", "priceEur": 2.79, "priceUnit": "per 150g", "aisle": "deli" },
+
+  { "id": "p100", "ingredientKey": "sourdough bread", "supermarketId": "alphamega", "displayName": "Sourdough Loaf (400g)", "priceEur": 2.49, "priceUnit": "per loaf", "aisle": "bakery" },
+  { "id": "p101", "ingredientKey": "sourdough bread", "supermarketId": "sklavenitis", "displayName": "Sourdough Bread (400g)", "priceEur": 2.29, "priceUnit": "per loaf", "aisle": "bakery" },
+  { "id": "p102", "ingredientKey": "sourdough bread", "supermarketId": "lidl", "displayName": "Sourdough Bread (400g)", "priceEur": 1.99, "priceUnit": "per loaf", "aisle": "bakery" },
+
+  { "id": "p103", "ingredientKey": "pita bread", "supermarketId": "alphamega", "displayName": "Pita Breads (6 pack)", "priceEur": 1.79, "priceUnit": "per 6 pack", "aisle": "bakery" },
+  { "id": "p104", "ingredientKey": "pita bread", "supermarketId": "sklavenitis", "displayName": "Pita (6 pack)", "priceEur": 1.59, "priceUnit": "per 6 pack", "aisle": "bakery" },
+  { "id": "p105", "ingredientKey": "pita bread", "supermarketId": "lidl", "displayName": "Pita Breads (6 pack)", "priceEur": 1.29, "priceUnit": "per 6 pack", "aisle": "bakery" },
+
+  { "id": "p106", "ingredientKey": "phyllo pastry", "supermarketId": "alphamega", "displayName": "Phyllo Pastry Sheets (400g)", "priceEur": 3.49, "priceUnit": "per 400g", "aisle": "bakery" },
+  { "id": "p107", "ingredientKey": "phyllo pastry", "supermarketId": "sklavenitis", "displayName": "Filo Pastry (400g)", "priceEur": 3.19, "priceUnit": "per 400g", "aisle": "bakery" },
+  { "id": "p108", "ingredientKey": "phyllo pastry", "supermarketId": "lidl", "displayName": "Filo Pastry Sheets (450g)", "priceEur": 2.79, "priceUnit": "per 450g", "aisle": "bakery" },
+
+  { "id": "p109", "ingredientKey": "breadcrumbs", "supermarketId": "alphamega", "displayName": "Dried Breadcrumbs (200g)", "priceEur": 1.29, "priceUnit": "per 200g", "aisle": "bakery" },
+  { "id": "p110", "ingredientKey": "breadcrumbs", "supermarketId": "sklavenitis", "displayName": "Breadcrumbs (200g)", "priceEur": 1.09, "priceUnit": "per 200g", "aisle": "bakery" },
+  { "id": "p111", "ingredientKey": "breadcrumbs", "supermarketId": "lidl", "displayName": "Golden Breadcrumbs (200g)", "priceEur": 0.89, "priceUnit": "per 200g", "aisle": "bakery" },
+
+  { "id": "p112", "ingredientKey": "spaghetti", "supermarketId": "alphamega", "displayName": "Barilla Spaghetti No.5 (500g)", "priceEur": 1.89, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p113", "ingredientKey": "spaghetti", "supermarketId": "sklavenitis", "displayName": "Spaghetti (500g)", "priceEur": 1.59, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p114", "ingredientKey": "spaghetti", "supermarketId": "lidl", "displayName": "Combino Spaghetti (500g)", "priceEur": 0.99, "priceUnit": "per 500g", "aisle": "pantry" },
+
+  { "id": "p115", "ingredientKey": "penne pasta", "supermarketId": "alphamega", "displayName": "Barilla Penne Rigate (500g)", "priceEur": 1.89, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p116", "ingredientKey": "penne pasta", "supermarketId": "sklavenitis", "displayName": "Penne (500g)", "priceEur": 1.59, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p117", "ingredientKey": "penne pasta", "supermarketId": "lidl", "displayName": "Combino Penne (500g)", "priceEur": 0.99, "priceUnit": "per 500g", "aisle": "pantry" },
+
+  { "id": "p118", "ingredientKey": "rice", "supermarketId": "alphamega", "displayName": "Long Grain Rice (1kg)", "priceEur": 1.79, "priceUnit": "per kg", "aisle": "pantry" },
+  { "id": "p119", "ingredientKey": "rice", "supermarketId": "sklavenitis", "displayName": "Long Grain Rice (1kg)", "priceEur": 1.59, "priceUnit": "per kg", "aisle": "pantry" },
+  { "id": "p120", "ingredientKey": "rice", "supermarketId": "lidl", "displayName": "Long Grain Rice (1kg)", "priceEur": 1.29, "priceUnit": "per kg", "aisle": "pantry" },
+
+  { "id": "p121", "ingredientKey": "green lentils", "supermarketId": "alphamega", "displayName": "Green Lentils (500g)", "priceEur": 1.49, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p122", "ingredientKey": "green lentils", "supermarketId": "sklavenitis", "displayName": "Lentils (500g)", "priceEur": 1.29, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p123", "ingredientKey": "green lentils", "supermarketId": "lidl", "displayName": "Green Lentils (500g)", "priceEur": 0.99, "priceUnit": "per 500g", "aisle": "pantry" },
+
+  { "id": "p124", "ingredientKey": "canned chickpeas", "supermarketId": "alphamega", "displayName": "Chickpeas in Water (400g)", "priceEur": 1.19, "priceUnit": "per 400g can", "aisle": "pantry" },
+  { "id": "p125", "ingredientKey": "canned chickpeas", "supermarketId": "sklavenitis", "displayName": "Chickpeas (400g)", "priceEur": 0.99, "priceUnit": "per 400g can", "aisle": "pantry" },
+  { "id": "p126", "ingredientKey": "canned chickpeas", "supermarketId": "lidl", "displayName": "Chickpeas (400g)", "priceEur": 0.79, "priceUnit": "per 400g can", "aisle": "pantry" },
+
+  { "id": "p127", "ingredientKey": "canned tomatoes", "supermarketId": "alphamega", "displayName": "Mutti Chopped Tomatoes (400g)", "priceEur": 1.39, "priceUnit": "per 400g can", "aisle": "pantry" },
+  { "id": "p128", "ingredientKey": "canned tomatoes", "supermarketId": "sklavenitis", "displayName": "Chopped Tomatoes (400g)", "priceEur": 1.09, "priceUnit": "per 400g can", "aisle": "pantry" },
+  { "id": "p129", "ingredientKey": "canned tomatoes", "supermarketId": "lidl", "displayName": "Cirio Chopped Tomatoes (400g)", "priceEur": 0.89, "priceUnit": "per 400g can", "aisle": "pantry" },
+
+  { "id": "p130", "ingredientKey": "tomato paste", "supermarketId": "alphamega", "displayName": "Tomato Paste (140g)", "priceEur": 0.89, "priceUnit": "per 140g", "aisle": "pantry" },
+  { "id": "p131", "ingredientKey": "tomato paste", "supermarketId": "sklavenitis", "displayName": "Tomato Puree (140g)", "priceEur": 0.79, "priceUnit": "per 140g", "aisle": "pantry" },
+  { "id": "p132", "ingredientKey": "tomato paste", "supermarketId": "lidl", "displayName": "Tomato Paste (140g)", "priceEur": 0.65, "priceUnit": "per 140g", "aisle": "pantry" },
+
+  { "id": "p133", "ingredientKey": "tahini", "supermarketId": "alphamega", "displayName": "Tahini Sesame Paste (300g)", "priceEur": 3.49, "priceUnit": "per 300g", "aisle": "pantry" },
+  { "id": "p134", "ingredientKey": "tahini", "supermarketId": "sklavenitis", "displayName": "Tahini (300g)", "priceEur": 3.19, "priceUnit": "per 300g", "aisle": "pantry" },
+  { "id": "p135", "ingredientKey": "tahini", "supermarketId": "lidl", "displayName": "Tahini (300g)", "priceEur": 2.79, "priceUnit": "per 300g", "aisle": "pantry" },
+
+  { "id": "p136", "ingredientKey": "flour", "supermarketId": "alphamega", "displayName": "Plain Flour (1kg)", "priceEur": 1.19, "priceUnit": "per kg", "aisle": "pantry" },
+  { "id": "p137", "ingredientKey": "flour", "supermarketId": "sklavenitis", "displayName": "All-Purpose Flour (1kg)", "priceEur": 0.99, "priceUnit": "per kg", "aisle": "pantry" },
+  { "id": "p138", "ingredientKey": "flour", "supermarketId": "lidl", "displayName": "Plain Flour (1kg)", "priceEur": 0.79, "priceUnit": "per kg", "aisle": "pantry" },
+
+  { "id": "p139", "ingredientKey": "red wine", "supermarketId": "alphamega", "displayName": "Keo Red Wine (750ml)", "priceEur": 4.99, "priceUnit": "per bottle", "aisle": "beverages" },
+  { "id": "p140", "ingredientKey": "red wine", "supermarketId": "sklavenitis", "displayName": "Local Red Wine (750ml)", "priceEur": 4.49, "priceUnit": "per bottle", "aisle": "beverages" },
+  { "id": "p141", "ingredientKey": "red wine", "supermarketId": "lidl", "displayName": "Red Wine (750ml)", "priceEur": 3.99, "priceUnit": "per bottle", "aisle": "beverages" },
+
+  { "id": "p142", "ingredientKey": "olive oil", "supermarketId": "alphamega", "displayName": "Extra Virgin Olive Oil (500ml)", "priceEur": 5.49, "priceUnit": "per 500ml", "aisle": "condiments" },
+  { "id": "p143", "ingredientKey": "olive oil", "supermarketId": "sklavenitis", "displayName": "Olive Oil EVOO (500ml)", "priceEur": 4.99, "priceUnit": "per 500ml", "aisle": "condiments" },
+  { "id": "p144", "ingredientKey": "olive oil", "supermarketId": "lidl", "displayName": "Extra Virgin Olive Oil (500ml)", "priceEur": 4.29, "priceUnit": "per 500ml", "aisle": "condiments" },
+
+  { "id": "p145", "ingredientKey": "kalamata olives", "supermarketId": "alphamega", "displayName": "Kalamata Olives (200g)", "priceEur": 2.49, "priceUnit": "per 200g", "aisle": "condiments" },
+  { "id": "p146", "ingredientKey": "kalamata olives", "supermarketId": "sklavenitis", "displayName": "Kalamata Olives (200g)", "priceEur": 2.19, "priceUnit": "per 200g", "aisle": "condiments" },
+  { "id": "p147", "ingredientKey": "kalamata olives", "supermarketId": "lidl", "displayName": "Kalamata Olives (200g)", "priceEur": 1.89, "priceUnit": "per 200g", "aisle": "condiments" },
+
+  { "id": "p148", "ingredientKey": "honey", "supermarketId": "alphamega", "displayName": "Cypriot Thyme Honey (500g)", "priceEur": 5.99, "priceUnit": "per 500g", "aisle": "condiments" },
+  { "id": "p149", "ingredientKey": "honey", "supermarketId": "sklavenitis", "displayName": "Honey (500g)", "priceEur": 4.99, "priceUnit": "per 500g", "aisle": "condiments" },
+  { "id": "p150", "ingredientKey": "honey", "supermarketId": "lidl", "displayName": "Pure Honey (500g)", "priceEur": 3.99, "priceUnit": "per 500g", "aisle": "condiments" },
+
+  { "id": "p151", "ingredientKey": "red wine vinegar", "supermarketId": "alphamega", "displayName": "Red Wine Vinegar (500ml)", "priceEur": 1.99, "priceUnit": "per 500ml", "aisle": "condiments" },
+  { "id": "p152", "ingredientKey": "red wine vinegar", "supermarketId": "sklavenitis", "displayName": "Red Wine Vinegar (500ml)", "priceEur": 1.79, "priceUnit": "per 500ml", "aisle": "condiments" },
+  { "id": "p153", "ingredientKey": "red wine vinegar", "supermarketId": "lidl", "displayName": "Red Wine Vinegar (500ml)", "priceEur": 1.49, "priceUnit": "per 500ml", "aisle": "condiments" },
+
+  { "id": "p154", "ingredientKey": "dried oregano", "supermarketId": "alphamega", "displayName": "Dried Oregano (25g)", "priceEur": 1.29, "priceUnit": "per 25g", "aisle": "condiments" },
+  { "id": "p155", "ingredientKey": "dried oregano", "supermarketId": "sklavenitis", "displayName": "Oregano (25g)", "priceEur": 1.09, "priceUnit": "per 25g", "aisle": "condiments" },
+  { "id": "p156", "ingredientKey": "dried oregano", "supermarketId": "lidl", "displayName": "Dried Oregano (20g)", "priceEur": 0.89, "priceUnit": "per 20g", "aisle": "condiments" },
+
+  { "id": "p157", "ingredientKey": "dried thyme", "supermarketId": "alphamega", "displayName": "Dried Thyme (20g)", "priceEur": 1.19, "priceUnit": "per 20g", "aisle": "condiments" },
+  { "id": "p158", "ingredientKey": "dried thyme", "supermarketId": "sklavenitis", "displayName": "Dried Thyme (20g)", "priceEur": 0.99, "priceUnit": "per 20g", "aisle": "condiments" },
+  { "id": "p159", "ingredientKey": "dried thyme", "supermarketId": "lidl", "displayName": "Dried Thyme (15g)", "priceEur": 0.79, "priceUnit": "per 15g", "aisle": "condiments" },
+
+  { "id": "p160", "ingredientKey": "cumin", "supermarketId": "alphamega", "displayName": "Ground Cumin (35g)", "priceEur": 1.29, "priceUnit": "per 35g", "aisle": "condiments" },
+  { "id": "p161", "ingredientKey": "cumin", "supermarketId": "sklavenitis", "displayName": "Cumin (35g)", "priceEur": 1.09, "priceUnit": "per 35g", "aisle": "condiments" },
+  { "id": "p162", "ingredientKey": "cumin", "supermarketId": "lidl", "displayName": "Ground Cumin (30g)", "priceEur": 0.89, "priceUnit": "per 30g", "aisle": "condiments" },
+
+  { "id": "p163", "ingredientKey": "paprika", "supermarketId": "alphamega", "displayName": "Smoked Paprika (40g)", "priceEur": 1.49, "priceUnit": "per 40g", "aisle": "condiments" },
+  { "id": "p164", "ingredientKey": "paprika", "supermarketId": "sklavenitis", "displayName": "Paprika (40g)", "priceEur": 1.19, "priceUnit": "per 40g", "aisle": "condiments" },
+  { "id": "p165", "ingredientKey": "paprika", "supermarketId": "lidl", "displayName": "Paprika (35g)", "priceEur": 0.99, "priceUnit": "per 35g", "aisle": "condiments" },
+
+  { "id": "p166", "ingredientKey": "cayenne pepper", "supermarketId": "alphamega", "displayName": "Cayenne Pepper (35g)", "priceEur": 1.29, "priceUnit": "per 35g", "aisle": "condiments" },
+  { "id": "p167", "ingredientKey": "cayenne pepper", "supermarketId": "sklavenitis", "displayName": "Cayenne Pepper (35g)", "priceEur": 1.09, "priceUnit": "per 35g", "aisle": "condiments" },
+  { "id": "p168", "ingredientKey": "cayenne pepper", "supermarketId": "lidl", "displayName": "Cayenne Pepper (30g)", "priceEur": 0.89, "priceUnit": "per 30g", "aisle": "condiments" },
+
+  { "id": "p169", "ingredientKey": "red chili flakes", "supermarketId": "alphamega", "displayName": "Chili Flakes (30g)", "priceEur": 1.29, "priceUnit": "per 30g", "aisle": "condiments" },
+  { "id": "p170", "ingredientKey": "red chili flakes", "supermarketId": "sklavenitis", "displayName": "Red Chili Flakes (30g)", "priceEur": 1.09, "priceUnit": "per 30g", "aisle": "condiments" },
+  { "id": "p171", "ingredientKey": "red chili flakes", "supermarketId": "lidl", "displayName": "Chili Flakes (25g)", "priceEur": 0.89, "priceUnit": "per 25g", "aisle": "condiments" },
+
+  { "id": "p172", "ingredientKey": "cinnamon", "supermarketId": "alphamega", "displayName": "Ground Cinnamon (45g)", "priceEur": 1.29, "priceUnit": "per 45g", "aisle": "condiments" },
+  { "id": "p173", "ingredientKey": "cinnamon", "supermarketId": "sklavenitis", "displayName": "Cinnamon (45g)", "priceEur": 1.09, "priceUnit": "per 45g", "aisle": "condiments" },
+  { "id": "p174", "ingredientKey": "cinnamon", "supermarketId": "lidl", "displayName": "Cinnamon (40g)", "priceEur": 0.89, "priceUnit": "per 40g", "aisle": "condiments" },
+
+  { "id": "p175", "ingredientKey": "allspice", "supermarketId": "alphamega", "displayName": "Ground Allspice (35g)", "priceEur": 1.49, "priceUnit": "per 35g", "aisle": "condiments" },
+  { "id": "p176", "ingredientKey": "allspice", "supermarketId": "sklavenitis", "displayName": "Allspice (35g)", "priceEur": 1.29, "priceUnit": "per 35g", "aisle": "condiments" },
+  { "id": "p177", "ingredientKey": "allspice", "supermarketId": "lidl", "displayName": "Ground Allspice (30g)", "priceEur": 1.09, "priceUnit": "per 30g", "aisle": "condiments" },
+
+  { "id": "p178", "ingredientKey": "nutmeg", "supermarketId": "alphamega", "displayName": "Ground Nutmeg (30g)", "priceEur": 1.49, "priceUnit": "per 30g", "aisle": "condiments" },
+  { "id": "p179", "ingredientKey": "nutmeg", "supermarketId": "sklavenitis", "displayName": "Nutmeg (30g)", "priceEur": 1.29, "priceUnit": "per 30g", "aisle": "condiments" },
+  { "id": "p180", "ingredientKey": "nutmeg", "supermarketId": "lidl", "displayName": "Ground Nutmeg (25g)", "priceEur": 1.09, "priceUnit": "per 25g", "aisle": "condiments" },
+
+  { "id": "p181", "ingredientKey": "ground cloves", "supermarketId": "alphamega", "displayName": "Ground Cloves (25g)", "priceEur": 1.49, "priceUnit": "per 25g", "aisle": "condiments" },
+  { "id": "p182", "ingredientKey": "ground cloves", "supermarketId": "sklavenitis", "displayName": "Ground Cloves (25g)", "priceEur": 1.29, "priceUnit": "per 25g", "aisle": "condiments" },
+  { "id": "p183", "ingredientKey": "ground cloves", "supermarketId": "lidl", "displayName": "Ground Cloves (20g)", "priceEur": 1.09, "priceUnit": "per 20g", "aisle": "condiments" },
+
+  { "id": "p184", "ingredientKey": "bay leaves", "supermarketId": "alphamega", "displayName": "Dried Bay Leaves (8g)", "priceEur": 0.99, "priceUnit": "per pack", "aisle": "condiments" },
+  { "id": "p185", "ingredientKey": "bay leaves", "supermarketId": "sklavenitis", "displayName": "Bay Leaves (8g)", "priceEur": 0.89, "priceUnit": "per pack", "aisle": "condiments" },
+  { "id": "p186", "ingredientKey": "bay leaves", "supermarketId": "lidl", "displayName": "Bay Leaves (5g)", "priceEur": 0.69, "priceUnit": "per pack", "aisle": "condiments" },
+
+  { "id": "p187", "ingredientKey": "salt", "supermarketId": "alphamega", "displayName": "Sea Salt (500g)", "priceEur": 0.99, "priceUnit": "per 500g", "aisle": "condiments" },
+  { "id": "p188", "ingredientKey": "salt", "supermarketId": "sklavenitis", "displayName": "Salt (500g)", "priceEur": 0.79, "priceUnit": "per 500g", "aisle": "condiments" },
+  { "id": "p189", "ingredientKey": "salt", "supermarketId": "lidl", "displayName": "Salt (500g)", "priceEur": 0.59, "priceUnit": "per 500g", "aisle": "condiments" },
+
+  { "id": "p190", "ingredientKey": "black pepper", "supermarketId": "alphamega", "displayName": "Black Pepper (50g)", "priceEur": 1.79, "priceUnit": "per 50g", "aisle": "condiments" },
+  { "id": "p191", "ingredientKey": "black pepper", "supermarketId": "sklavenitis", "displayName": "Black Pepper (50g)", "priceEur": 1.49, "priceUnit": "per 50g", "aisle": "condiments" },
+  { "id": "p192", "ingredientKey": "black pepper", "supermarketId": "lidl", "displayName": "Ground Black Pepper (40g)", "priceEur": 1.19, "priceUnit": "per 40g", "aisle": "condiments" }
+]
