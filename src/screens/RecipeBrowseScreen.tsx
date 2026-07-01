@@ -22,6 +22,7 @@ export function RecipeBrowseScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RecipesStackParamList>>();
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [filter, setFilter] = useState<Difficulty | 'All'>('All');
+  const [healthyOnly, setHealthyOnly] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +32,9 @@ export function RecipeBrowseScreen() {
     });
   }, []);
 
-  const filtered = filter === 'All' ? recipes : recipes.filter((r) => r.difficulty === filter);
+  const filtered = recipes
+    .filter((r) => filter === 'All' || r.difficulty === filter)
+    .filter((r) => !healthyOnly || r.healthy);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -51,6 +54,12 @@ export function RecipeBrowseScreen() {
             <Text style={[styles.filterText, filter === f && styles.filterTextActive]}>{f}</Text>
           </Pressable>
         ))}
+        <Pressable
+          onPress={() => setHealthyOnly((v) => !v)}
+          style={[styles.filterPill, healthyOnly && styles.filterPillActive]}
+        >
+          <Text style={[styles.filterText, healthyOnly && styles.filterTextActive]}>🥗 Healthy</Text>
+        </Pressable>
       </View>
 
       {loading ? (
@@ -95,6 +104,7 @@ const styles = StyleSheet.create({
   },
   filterRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     paddingHorizontal: spacing.md,
     gap: spacing.sm,
     marginBottom: spacing.md,

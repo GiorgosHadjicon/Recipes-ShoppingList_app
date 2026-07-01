@@ -54,7 +54,10 @@ export interface Recipe {
   cookTimeMinutes: number;
   servings: number;
   estimatedCostEur: number;
+  healthy: boolean;
+  totalCalories: number;
   dietaryTags: DietaryTag[];
+  possibleAdditions: string[];
   description: string;
   ingredients: Ingredient[];
   instructions: string[];

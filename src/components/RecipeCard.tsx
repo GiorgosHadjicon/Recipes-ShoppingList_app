@@ -1,7 +1,8 @@
 import React from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../theme';
 import type { Recipe } from '../types';
+import { getRecipeImageUrl } from '../utils/recipeImage';
 import { DifficultyBadge } from './DifficultyBadge';
 
 interface Props {
@@ -15,11 +16,9 @@ export function RecipeCard({ recipe, onPress }: Props) {
 
   return (
     <Pressable style={({ pressed }) => [styles.card, pressed && styles.pressed]} onPress={onPress}>
-      {/* Image placeholder */}
-      <View style={styles.imagePlaceholder}>
-        <Text style={styles.emoji}>🍽️</Text>
+      <ImageBackground source={{ uri: getRecipeImageUrl(recipe.title) }} style={styles.imagePlaceholder}>
         <Text style={styles.cuisineOverlay}>{recipe.cuisine}</Text>
-      </View>
+      </ImageBackground>
 
       <View style={styles.body}>
         <DifficultyBadge difficulty={recipe.difficulty} />
@@ -67,9 +66,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0EDE8',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  emoji: {
-    fontSize: 48,
   },
   cuisineOverlay: {
     position: 'absolute',

@@ -3,6 +3,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
+  ImageBackground,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -16,6 +17,7 @@ import type { RootStackParamList } from '../navigation/types';
 import { getRecipeById } from '../services/recipeService';
 import { colors, radius, spacing } from '../theme';
 import type { Recipe } from '../types';
+import { getRecipeImageUrl } from '../utils/recipeImage';
 
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 
@@ -41,11 +43,9 @@ export function RecipeDetailScreen() {
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Hero placeholder */}
-        <View style={styles.hero}>
-          <Text style={styles.heroEmoji}>🍽️</Text>
+        <ImageBackground source={{ uri: getRecipeImageUrl(recipe.title, 800, 600) }} style={styles.hero}>
           <Text style={styles.heroCuisine}>{recipe.cuisine}</Text>
-        </View>
+        </ImageBackground>
 
         <View style={styles.content}>
           <DifficultyBadge difficulty={recipe.difficulty} />
@@ -59,6 +59,7 @@ export function RecipeDetailScreen() {
             <Stat label="Total" value={totalMin < 60 ? `${totalMin}m` : `${Math.floor(totalMin / 60)}h ${totalMin % 60 > 0 ? `${totalMin % 60}m` : ''}`.trim()} />
             <Stat label="Serves" value={String(recipe.servings)} />
             <Stat label="Est. Cost" value={`€${recipe.estimatedCostEur}`} />
+            <Stat label="Calories" value={String(recipe.totalCalories)} />
           </View>
 
           {/* Dietary tags */}
@@ -100,6 +101,18 @@ export function RecipeDetailScreen() {
             ))}
           </View>
 
+          {/* Possible additions */}
+          {recipe.possibleAdditions.length > 0 && (
+            <>
+              <Text style={styles.sectionTitle}>Possible Additions</Text>
+              <View style={styles.section}>
+                {recipe.possibleAdditions.map((addition, i) => (
+                  <Text key={i} style={styles.additionText}>• {addition}</Text>
+                ))}
+              </View>
+            </>
+          )}
+
           <View style={styles.ctaSpace} />
         </View>
       </ScrollView>
@@ -135,7 +148,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heroEmoji: { fontSize: 72 },
   heroCuisine: {
     position: 'absolute',
     bottom: spacing.sm,
@@ -149,12 +161,14 @@ const styles = StyleSheet.create({
   description: { fontSize: 15, color: colors.textSecondary, lineHeight: 22 },
   statsRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
+    rowGap: spacing.sm,
     backgroundColor: colors.card,
     borderRadius: radius.md,
     padding: spacing.md,
   },
-  stat: { alignItems: 'center', gap: 2 },
+  stat: { alignItems: 'center', gap: 2, flexBasis: '30%' },
   statValue: { fontSize: 15, fontWeight: '700', color: colors.text },
   statLabel: { fontSize: 11, color: colors.textMuted },
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
@@ -199,6 +213,7 @@ const styles = StyleSheet.create({
   },
   stepNumberText: { fontSize: 13, fontWeight: '700', color: '#fff' },
   stepText: { fontSize: 14, color: colors.text, lineHeight: 22, flex: 1 },
+  additionText: { fontSize: 14, color: colors.text, lineHeight: 22 },
   ctaSpace: { height: spacing.xl },
   ctaBar: {
     padding: spacing.md,
