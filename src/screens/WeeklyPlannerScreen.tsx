@@ -3,12 +3,21 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useTheme } from '../context/ThemeContext';
 import type { RootStackParamList } from '../navigation/types';
 import { getRecipes } from '../services/recipeService';
-import { colors, radius, spacing } from '../theme';
+import { radius, spacing, type Colors } from '../theme';
 import type { Recipe } from '../types';
 
 const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+function perServing(recipe: Recipe): string {
+  const kcal = Math.round(recipe.totalCalories / recipe.servings);
+  const p = Math.round(recipe.proteinG / recipe.servings);
+  const c = Math.round(recipe.carbsG / recipe.servings);
+  const f = Math.round(recipe.fatG / recipe.servings);
+  return `${kcal} kcal · P${p}g C${c}g F${f}g`;
+}
 
 type Plan = Record<string, string | null>;
 
@@ -17,6 +26,8 @@ export function WeeklyPlannerScreen() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [plan, setPlan] = useState<Plan>(() => Object.fromEntries(DAYS.map((d) => [d, null])));
   const [pickerDay, setPickerDay] = useState<string | null>(null);
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
 
   useEffect(() => {
     getRecipes().then(setRecipes);
@@ -62,7 +73,10 @@ export function WeeklyPlannerScreen() {
               <Text style={styles.dayLabel}>{day}</Text>
               {recipe ? (
                 <Pressable style={styles.filledSlot} onPress={() => setPickerDay(day)}>
-                  <Text style={styles.filledSlotText} numberOfLines={1}>{recipe.title}</Text>
+                  <View style={styles.filledSlotBody}>
+                    <Text style={styles.filledSlotText} numberOfLines={1}>{recipe.title}</Text>
+                    <Text style={styles.filledSlotMeta} numberOfLines={1}>{perServing(recipe)} per serving</Text>
+                  </View>
                   <Pressable hitSlop={8} onPress={() => clearDay(day)}>
                     <Text style={styles.clearX}>✕</Text>
                   </Pressable>
@@ -109,7 +123,7 @@ export function WeeklyPlannerScreen() {
             renderItem={({ item }) => (
               <Pressable style={styles.pickerRow} onPress={() => selectRecipe(item.id)}>
                 <Text style={styles.pickerRowTitle}>{item.title}</Text>
-                <Text style={styles.pickerRowMeta}>{item.cuisine} · {item.totalCalories} kcal</Text>
+                <Text style={styles.pickerRowMeta}>{item.cuisine} · {perServing(item)}</Text>
               </Pressable>
             )}
           />
@@ -119,7 +133,8 @@ export function WeeklyPlannerScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+function makeStyles(colors: Colors) {
+  return StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
   header: { paddingHorizontal: spacing.md, paddingTop: spacing.sm, paddingBottom: spacing.md },
   heading: { fontSize: 30, fontWeight: '800', color: colors.text },
@@ -146,7 +161,9 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     gap: spacing.sm,
   },
-  filledSlotText: { flex: 1, fontSize: 15, fontWeight: '600', color: colors.text },
+  filledSlotBody: { flex: 1, gap: 1 },
+  filledSlotText: { fontSize: 15, fontWeight: '600', color: colors.text },
+  filledSlotMeta: { fontSize: 12, color: colors.textSecondary },
   clearX: { fontSize: 16, color: colors.textMuted, paddingHorizontal: 4 },
   footer: { marginTop: spacing.md, gap: spacing.sm },
   generateBtn: {
@@ -158,7 +175,7 @@ const styles = StyleSheet.create({
   generateBtnDisabled: { opacity: 0.5 },
   generateBtnText: { fontSize: 16, fontWeight: '700', color: '#fff' },
   clearWeekBtn: { alignItems: 'center', paddingVertical: spacing.sm },
-  clearWeekText: { fontSize: 14, color: '#DC3545', fontWeight: '600' },
+  clearWeekText: { fontSize: 14, color: colors.difficulty.Hard, fontWeight: '600' },
   modalContainer: { flex: 1, backgroundColor: colors.background },
   modalHeader: {
     flexDirection: 'row',
@@ -178,4 +195,5 @@ const styles = StyleSheet.create({
   },
   pickerRowTitle: { fontSize: 16, fontWeight: '600', color: colors.text },
   pickerRowMeta: { fontSize: 13, color: colors.textSecondary, marginTop: 2 },
-});
+  });
+}

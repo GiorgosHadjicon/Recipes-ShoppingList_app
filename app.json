@@ -20,6 +20,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow this app to use your location to suggest your nearest saved supermarket."
+        }
+      ]
+    ]
   }
 }

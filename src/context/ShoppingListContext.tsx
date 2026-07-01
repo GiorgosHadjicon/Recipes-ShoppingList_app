@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
-import type { ShoppingList } from '../types';
+import type { Ingredient, ShoppingList } from '../types';
 import { buildShoppingList, buildWeeklyShoppingList } from '../services/groceryListService';
 
 interface ShoppingListState {
@@ -9,8 +9,8 @@ interface ShoppingListState {
 }
 
 interface ShoppingListActions {
-  generateList: (recipeId: string, supermarketId: string) => Promise<void>;
-  generateWeeklyList: (recipeIds: string[], supermarketId: string) => Promise<void>;
+  generateList: (recipeId: string, supermarketId: string, supermarketName: string, ingredientsOverride?: Ingredient[]) => Promise<void>;
+  generateWeeklyList: (recipeIds: string[], supermarketId: string, supermarketName: string) => Promise<void>;
   toggleItem: (aisleIndex: number, itemIndex: number) => void;
   clearList: () => void;
   setSelectedSupermarket: (id: string) => void;
@@ -25,15 +25,15 @@ export function ShoppingListProvider({ children }: { children: React.ReactNode }
     loading: false,
   });
 
-  const generateList = useCallback(async (recipeId: string, supermarketId: string) => {
+  const generateList = useCallback(async (recipeId: string, supermarketId: string, supermarketName: string, ingredientsOverride?: Ingredient[]) => {
     setState((s) => ({ ...s, loading: true }));
-    const list = await buildShoppingList(recipeId, supermarketId);
+    const list = await buildShoppingList(recipeId, supermarketId, supermarketName, ingredientsOverride);
     setState((s) => ({ ...s, list, selectedSupermarketId: supermarketId, loading: false }));
   }, []);
 
-  const generateWeeklyList = useCallback(async (recipeIds: string[], supermarketId: string) => {
+  const generateWeeklyList = useCallback(async (recipeIds: string[], supermarketId: string, supermarketName: string) => {
     setState((s) => ({ ...s, loading: true }));
-    const list = await buildWeeklyShoppingList(recipeIds, supermarketId);
+    const list = await buildWeeklyShoppingList(recipeIds, supermarketId, supermarketName);
     setState((s) => ({ ...s, list, selectedSupermarketId: supermarketId, loading: false }));
   }, []);
 

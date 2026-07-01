@@ -12,9 +12,10 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useShoppingList } from '../context/ShoppingListContext';
+import { useTheme } from '../context/ThemeContext';
 import type { RootStackParamList } from '../navigation/types';
 import supermarketsData from '../data/supermarkets.json';
-import { colors, radius, spacing } from '../theme';
+import { radius, spacing, type Colors } from '../theme';
 import type { ShoppingListItem, Supermarket } from '../types';
 
 const supermarkets = supermarketsData as Supermarket[];
@@ -22,6 +23,8 @@ const supermarkets = supermarketsData as Supermarket[];
 export function ShoppingListScreen() {
   const { list, toggleItem, clearList } = useShoppingList();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
 
   if (!list) {
     return (
@@ -47,12 +50,12 @@ export function ShoppingListScreen() {
   const totalCount = currentList.groups.flatMap((g) => g.items).length;
 
   async function handleShare() {
-    const lines: string[] = [`🛒 Shopping List — ${currentList.recipeTitle}`, `📍 ${supermarket?.name ?? currentList.supermarketId}`, ''];
+    const lines: string[] = [`🛒 Shopping List — ${currentList.recipeTitle}`, `📍 ${currentList.supermarketName}`, ''];
     for (const group of currentList.groups) {
       lines.push(group.aisleLabel);
       for (const item of group.items) {
         const check = item.checked ? '✅' : '☐';
-        const price = item.product ? ` (€${item.product.priceEur.toFixed(2)})` : '';
+        const price = item.product ? ` (${item.product.estimated ? '~' : ''}€${item.product.priceEur.toFixed(2)})` : '';
         lines.push(`  ${check} ${item.ingredient.quantity} ${item.ingredient.unit} ${item.ingredient.name}${price}`);
       }
       lines.push('');
@@ -74,10 +77,8 @@ export function ShoppingListScreen() {
         <View style={styles.headerLeft}>
           <Text style={styles.heading} numberOfLines={1}>{list.recipeTitle}</Text>
           <View style={styles.supermarketRow}>
-            {supermarket && (
-              <View style={[styles.smDot, { backgroundColor: supermarket.accentColor }]} />
-            )}
-            <Text style={styles.supermarketName}>{supermarket?.name}</Text>
+            <View style={[styles.smDot, { backgroundColor: supermarket?.accentColor ?? colors.textMuted }]} />
+            <Text style={styles.supermarketName}>{currentList.supermarketName}</Text>
             <Text style={styles.progress}> · {checkedCount}/{totalCount} done</Text>
           </View>
         </View>
@@ -85,6 +86,14 @@ export function ShoppingListScreen() {
           <Text style={styles.shareIcon}>↑</Text>
         </TouchableOpacity>
       </View>
+
+      {!supermarket && (
+        <View style={styles.noPricingBanner}>
+          <Text style={styles.noPricingText}>
+            No real price data for this store — prices below are estimated from the average at AlphaMega, Sklavenitis, and Lidl.
+          </Text>
+        </View>
+      )}
 
       <SectionList
         sections={sections}
@@ -117,6 +126,8 @@ export function ShoppingListScreen() {
 }
 
 function ListItem({ item, onToggle }: { item: ShoppingListItem; onToggle: () => void }) {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
   return (
     <Pressable
       style={[styles.item, item.checked && styles.itemChecked]}
@@ -130,121 +141,133 @@ function ListItem({ item, onToggle }: { item: ShoppingListItem; onToggle: () => 
           {item.ingredient.quantity} {item.ingredient.unit} {item.ingredient.name}
         </Text>
         {item.product ? (
-          <Text style={styles.itemSub}>{item.product.displayName}</Text>
+          <Text style={styles.itemSub}>
+            {item.product.displayName}{item.product.estimated ? ' · estimated' : ''}
+          </Text>
         ) : (
           <Text style={[styles.itemSub, styles.itemSubMissing]}>Not found at this store</Text>
         )}
       </View>
       {item.product && (
         <Text style={[styles.itemPrice, item.checked && styles.itemPriceChecked]}>
-          €{item.product.priceEur.toFixed(2)}
+          {item.product.estimated ? '~' : ''}€{item.product.priceEur.toFixed(2)}
         </Text>
       )}
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
-  empty: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: spacing.xl,
-    gap: spacing.md,
-    backgroundColor: colors.background,
-  },
-  emptyEmoji: { fontSize: 64 },
-  emptyTitle: { fontSize: 22, fontWeight: '700', color: colors.text },
-  emptySubtitle: { fontSize: 15, color: colors.textSecondary, textAlign: 'center', lineHeight: 22 },
-  browseButton: {
-    marginTop: spacing.sm,
-    backgroundColor: colors.primary,
-    paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.md,
-    borderRadius: radius.lg,
-  },
-  browseButtonText: { fontSize: 16, fontWeight: '700', color: '#fff' },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: colors.border,
-  },
-  headerLeft: { flex: 1 },
-  heading: { fontSize: 20, fontWeight: '800', color: colors.text },
-  supermarketRow: { flexDirection: 'row', alignItems: 'center', marginTop: 2 },
-  smDot: { width: 10, height: 10, borderRadius: 5, marginRight: spacing.xs },
-  supermarketName: { fontSize: 13, color: colors.textSecondary, fontWeight: '600' },
-  progress: { fontSize: 13, color: colors.textMuted },
-  shareBtn: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  shareIcon: { fontSize: 18, color: '#fff', fontWeight: '700' },
-  sectionHeader: {
-    paddingHorizontal: spacing.md,
-    paddingTop: spacing.lg,
-    paddingBottom: spacing.xs,
-  },
-  sectionTitle: { fontSize: 14, fontWeight: '700', color: colors.textSecondary, letterSpacing: 0.3 },
-  listContent: { paddingBottom: spacing.xl },
-  item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.card,
-    marginHorizontal: spacing.md,
-    marginBottom: 2,
-    padding: spacing.md,
-    borderRadius: radius.md,
-    gap: spacing.sm,
-  },
-  itemChecked: { opacity: 0.5 },
-  checkbox: {
-    width: 26,
-    height: 26,
-    borderRadius: 8,
-    borderWidth: 2,
-    borderColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-  },
-  checkboxChecked: { backgroundColor: colors.primary },
-  checkboxTick: { fontSize: 14, color: '#fff', fontWeight: '700' },
-  itemBody: { flex: 1 },
-  itemName: { fontSize: 15, color: colors.text, fontWeight: '500' },
-  itemNameChecked: { textDecorationLine: 'line-through' },
-  itemSub: { fontSize: 12, color: colors.textMuted, marginTop: 1 },
-  itemSubMissing: { color: '#DC3545' },
-  itemPrice: { fontSize: 15, fontWeight: '700', color: colors.primary },
-  itemPriceChecked: { color: colors.textMuted },
-  footer: {
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  totalRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: colors.card,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    borderWidth: 1,
-    borderColor: colors.primary,
-  },
-  totalLabel: { fontSize: 16, fontWeight: '700', color: colors.text },
-  totalValue: { fontSize: 20, fontWeight: '800', color: colors.primary },
-  totalNote: { fontSize: 11, color: colors.textMuted, textAlign: 'center' },
-  clearBtn: {
-    marginTop: spacing.sm,
-    paddingVertical: spacing.sm,
-    alignItems: 'center',
-  },
-  clearBtnText: { fontSize: 14, color: '#DC3545', fontWeight: '600' },
-});
+function makeStyles(colors: Colors) {
+  return StyleSheet.create({
+    container: { flex: 1, backgroundColor: colors.background },
+    empty: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: spacing.xl,
+      gap: spacing.md,
+      backgroundColor: colors.background,
+    },
+    emptyEmoji: { fontSize: 64 },
+    emptyTitle: { fontSize: 22, fontWeight: '700', color: colors.text },
+    emptySubtitle: { fontSize: 15, color: colors.textSecondary, textAlign: 'center', lineHeight: 22 },
+    browseButton: {
+      marginTop: spacing.sm,
+      backgroundColor: colors.primary,
+      paddingHorizontal: spacing.xl,
+      paddingVertical: spacing.md,
+      borderRadius: radius.lg,
+    },
+    browseButtonText: { fontSize: 16, fontWeight: '700', color: '#fff' },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.md,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderBottomColor: colors.border,
+    },
+    headerLeft: { flex: 1 },
+    heading: { fontSize: 20, fontWeight: '800', color: colors.text },
+    supermarketRow: { flexDirection: 'row', alignItems: 'center', marginTop: 2 },
+    smDot: { width: 10, height: 10, borderRadius: 5, marginRight: spacing.xs },
+    supermarketName: { fontSize: 13, color: colors.textSecondary, fontWeight: '600' },
+    progress: { fontSize: 13, color: colors.textMuted },
+    shareBtn: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: colors.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    shareIcon: { fontSize: 18, color: '#fff', fontWeight: '700' },
+    noPricingBanner: {
+      backgroundColor: colors.tagBg,
+      marginHorizontal: spacing.md,
+      marginTop: spacing.sm,
+      padding: spacing.sm,
+      borderRadius: radius.sm,
+    },
+    noPricingText: { fontSize: 12, color: colors.textSecondary },
+    sectionHeader: {
+      paddingHorizontal: spacing.md,
+      paddingTop: spacing.lg,
+      paddingBottom: spacing.xs,
+    },
+    sectionTitle: { fontSize: 14, fontWeight: '700', color: colors.textSecondary, letterSpacing: 0.3 },
+    listContent: { paddingBottom: spacing.xl },
+    item: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: colors.card,
+      marginHorizontal: spacing.md,
+      marginBottom: 2,
+      padding: spacing.md,
+      borderRadius: radius.md,
+      gap: spacing.sm,
+    },
+    itemChecked: { opacity: 0.5 },
+    checkbox: {
+      width: 26,
+      height: 26,
+      borderRadius: 8,
+      borderWidth: 2,
+      borderColor: colors.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
+    },
+    checkboxChecked: { backgroundColor: colors.primary },
+    checkboxTick: { fontSize: 14, color: '#fff', fontWeight: '700' },
+    itemBody: { flex: 1 },
+    itemName: { fontSize: 15, color: colors.text, fontWeight: '500' },
+    itemNameChecked: { textDecorationLine: 'line-through' },
+    itemSub: { fontSize: 12, color: colors.textMuted, marginTop: 1 },
+    itemSubMissing: { color: colors.difficulty.Hard },
+    itemPrice: { fontSize: 15, fontWeight: '700', color: colors.primary },
+    itemPriceChecked: { color: colors.textMuted },
+    footer: {
+      padding: spacing.md,
+      gap: spacing.sm,
+    },
+    totalRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      backgroundColor: colors.card,
+      borderRadius: radius.md,
+      padding: spacing.md,
+      borderWidth: 1,
+      borderColor: colors.primary,
+    },
+    totalLabel: { fontSize: 16, fontWeight: '700', color: colors.text },
+    totalValue: { fontSize: 20, fontWeight: '800', color: colors.primary },
+    totalNote: { fontSize: 11, color: colors.textMuted, textAlign: 'center' },
+    clearBtn: {
+      marginTop: spacing.sm,
+      paddingVertical: spacing.sm,
+      alignItems: 'center',
+    },
+    clearBtnText: { fontSize: 14, color: colors.difficulty.Hard, fontWeight: '600' },
+  });
+}

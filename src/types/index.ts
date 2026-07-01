@@ -54,14 +54,18 @@ export interface Recipe {
   cookTimeMinutes: number;
   servings: number;
   estimatedCostEur: number;
-  healthy: boolean;
   totalCalories: number;
+  proteinG: number;
+  carbsG: number;
+  fatG: number;
   dietaryTags: DietaryTag[];
   possibleAdditions: string[];
   calorieReductions: string[];
   description: string;
   ingredients: Ingredient[];
   instructions: string[];
+  authorId?: string; // present only for community recipes, absent for the bundled ones
+  authorName?: string;
 }
 
 export interface Product {
@@ -72,6 +76,9 @@ export interface Product {
   priceEur: number;
   priceUnit: string;
   aisle: Aisle;
+  estimated?: boolean; // true when priceEur is a fallback average, not a real price at this store
+  packageQuantity?: number; // how much one package/unit of priceEur actually buys, e.g. 1000 for "per kg"
+  packageUnit?: string; // unit packageQuantity is expressed in — must resolve via nutrition.json for the same ingredient
 }
 
 export interface ShoppingListItem {
@@ -90,6 +97,7 @@ export interface ShoppingList {
   recipeId: string;
   recipeTitle: string;
   supermarketId: string;
+  supermarketName: string;
   groups: ShoppingListGroup[];
   totalEur: number;
 }
