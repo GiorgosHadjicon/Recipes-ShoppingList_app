@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import type { ShoppingList } from '../types';
-import { buildShoppingList } from '../services/groceryListService';
+import { buildShoppingList, buildWeeklyShoppingList } from '../services/groceryListService';
 
 interface ShoppingListState {
   list: ShoppingList | null;
@@ -10,6 +10,7 @@ interface ShoppingListState {
 
 interface ShoppingListActions {
   generateList: (recipeId: string, supermarketId: string) => Promise<void>;
+  generateWeeklyList: (recipeIds: string[], supermarketId: string) => Promise<void>;
   toggleItem: (aisleIndex: number, itemIndex: number) => void;
   clearList: () => void;
   setSelectedSupermarket: (id: string) => void;
@@ -27,6 +28,12 @@ export function ShoppingListProvider({ children }: { children: React.ReactNode }
   const generateList = useCallback(async (recipeId: string, supermarketId: string) => {
     setState((s) => ({ ...s, loading: true }));
     const list = await buildShoppingList(recipeId, supermarketId);
+    setState((s) => ({ ...s, list, selectedSupermarketId: supermarketId, loading: false }));
+  }, []);
+
+  const generateWeeklyList = useCallback(async (recipeIds: string[], supermarketId: string) => {
+    setState((s) => ({ ...s, loading: true }));
+    const list = await buildWeeklyShoppingList(recipeIds, supermarketId);
     setState((s) => ({ ...s, list, selectedSupermarketId: supermarketId, loading: false }));
   }, []);
 
@@ -55,7 +62,7 @@ export function ShoppingListProvider({ children }: { children: React.ReactNode }
   }, []);
 
   return (
-    <Context.Provider value={{ ...state, generateList, toggleItem, clearList, setSelectedSupermarket }}>
+    <Context.Provider value={{ ...state, generateList, generateWeeklyList, toggleItem, clearList, setSelectedSupermarket }}>
       {children}
     </Context.Provider>
   );

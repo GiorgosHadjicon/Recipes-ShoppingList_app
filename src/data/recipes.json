@@ -12,6 +12,7 @@
     "totalCalories": 1080,
     "dietaryTags": ["Vegetarian", "Gluten-Free"],
     "possibleAdditions": ["Capers", "Sun-dried tomatoes", "A pinch of chili flakes"],
+    "calorieReductions": ["Use half the amount of feta", "Cut the olive oil to 2 tbsp and add a squeeze of lemon instead", "Skip the olives"],
     "description": "The classic village salad of Cyprus and Greece — ripe tomatoes, cool cucumber, sharp feta, and a drizzle of good olive oil. No lettuce, no frills.",
     "ingredients": [
       { "id": "i01-01", "name": "tomatoes", "quantity": 4, "unit": "large" },
@@ -46,6 +47,7 @@
     "totalCalories": 1240,
     "dietaryTags": ["Vegetarian"],
     "possibleAdditions": ["Balsamic glaze drizzle", "Rocket (arugula)", "Chili honey"],
+    "calorieReductions": ["Use light halloumi or reduce to 150g", "Swap sourdough for a thinner slice of bread", "Skip the oil in the pan — use a non-stick spray"],
     "description": "Pan-fried halloumi on thick sourdough with bursting cherry tomatoes and fresh basil. Simple, fast, and deeply satisfying.",
     "ingredients": [
       { "id": "i02-01", "name": "halloumi", "quantity": 250, "unit": "g" },
@@ -76,6 +78,7 @@
     "totalCalories": 520,
     "dietaryTags": ["Vegetarian", "Gluten-Free"],
     "possibleAdditions": ["Smoked salmon", "Grated Parmesan", "Sautéed mushrooms"],
+    "calorieReductions": ["Use 2 whole eggs plus 2 egg whites instead of all whole eggs", "Skip the butter, use a splash of milk instead", "Serve without toast for a lower-carb version"],
     "description": "Slow-cooked, creamy scrambled eggs finished with fresh chives and parsley. The technique — low heat, constant stirring — makes all the difference.",
     "ingredients": [
       { "id": "i03-01", "name": "eggs", "quantity": 6, "unit": "large" },
@@ -107,6 +110,7 @@
     "totalCalories": 1920,
     "dietaryTags": ["Vegan"],
     "possibleAdditions": ["Chili flakes", "Toasted breadcrumbs", "Grated Parmesan"],
+    "calorieReductions": ["Use half the olive oil", "Swap half the pasta for zucchini noodles", "Skip the extra parmesan"],
     "description": "The midnight pasta of Naples — spaghetti, garlic, chili, and your best olive oil. Nothing more, and nothing less.",
     "ingredients": [
       { "id": "i04-01", "name": "spaghetti", "quantity": 400, "unit": "g" },
@@ -139,6 +143,7 @@
     "totalCalories": 1520,
     "dietaryTags": ["Vegan", "Dairy-Free"],
     "possibleAdditions": ["Toasted pine nuts", "Extra sumac", "Roasted red pepper swirl"],
+    "calorieReductions": ["Reduce the tahini by half", "Skip the olive oil drizzle on top", "Serve with raw veggies instead of pita"],
     "description": "Silky, lemony homemade hummus — better than any shop-bought tub. The secret is blending the chickpeas while still warm and using plenty of tahini.",
     "ingredients": [
       { "id": "i05-01", "name": "canned chickpeas", "quantity": 2, "unit": "cans (400g each)" },
@@ -172,6 +177,7 @@
     "totalCalories": 760,
     "dietaryTags": ["Vegetarian"],
     "possibleAdditions": ["Poached egg", "Chili flakes", "Everything bagel seasoning"],
+    "calorieReductions": ["Use half an avocado per serving", "Skip the feta or use a light sprinkle", "Choose a thinner slice of bread"],
     "description": "Creamy avocado on sourdough, lifted with lemon, contrasted with salty feta and a pinch of chili. Ready in 8 minutes.",
     "ingredients": [
       { "id": "i06-01", "name": "avocado", "quantity": 2, "unit": "ripe" },
@@ -202,6 +208,7 @@
     "totalCalories": 1040,
     "dietaryTags": ["Vegetarian", "Gluten-Free"],
     "possibleAdditions": ["Toasted sesame seeds", "Fresh mint", "Splash of ouzo"],
+    "calorieReductions": ["Reduce the honey by half", "Pan-fry with a spray instead of oil", "Serve smaller 60g portions of halloumi"],
     "description": "Pan-fried halloumi that's crisp outside and soft within, finished with a drizzle of thyme honey and a squeeze of lemon. A Cypriot taverna staple.",
     "ingredients": [
       { "id": "i07-01", "name": "halloumi", "quantity": 250, "unit": "g" },
@@ -234,6 +241,7 @@
     "totalCalories": 2080,
     "dietaryTags": [],
     "possibleAdditions": ["Extra garlic in the tzatziki", "Grilled halloumi skewer", "Spicy harissa drizzle"],
+    "calorieReductions": ["Trim visible fat from the chicken breast", "Choose low-fat Greek yogurt for the tzatziki", "Go light on the pita — try lettuce wraps instead"],
     "description": "Marinated chicken skewers grilled until charred, served in warm pita with cool, garlicky tzatziki. The quintessential Cypriot street food.",
     "ingredients": [
       { "id": "i08-01", "name": "chicken breast", "quantity": 700, "unit": "g" },
@@ -271,6 +279,7 @@
     "totalCalories": 1280,
     "dietaryTags": ["Vegetarian", "Gluten-Free"],
     "possibleAdditions": ["Crumbled feta", "Fresh cilantro", "Toasted cumin seeds"],
+    "calorieReductions": ["Cut the olive oil in half", "Skip the feta topping", "Use fewer eggs and bulk up with extra vegetables"],
     "description": "Eggs poached directly in a spiced tomato and pepper sauce — one pan, bold flavour, deeply satisfying at any meal.",
     "ingredients": [
       { "id": "i09-01", "name": "canned tomatoes", "quantity": 2, "unit": "cans (400g each)" },
@@ -310,6 +319,7 @@
     "totalCalories": 2600,
     "dietaryTags": [],
     "possibleAdditions": ["Extra black pepper", "Crispy pancetta bits", "Fresh parsley"],
+    "calorieReductions": ["Reduce the pancetta to 100g", "Use one whole egg plus extra yolks instead of all yolks", "Cut the parmesan by a third"],
     "description": "Rome's most famous pasta — guanciale, egg yolks, and aged pecorino or parmesan. No cream. Technique is everything here.",
     "ingredients": [
       { "id": "i10-01", "name": "spaghetti", "quantity": 400, "unit": "g" },
@@ -342,6 +352,7 @@
     "totalCalories": 1680,
     "dietaryTags": ["Vegan", "Gluten-Free", "Dairy-Free"],
     "possibleAdditions": ["A splash of red wine vinegar", "Crusty bread", "Crumbled feta on top"],
+    "calorieReductions": ["Reduce the olive oil finish to 1 tbsp", "Skip the bread on the side", "Use less oil when sautéing the vegetables"],
     "description": "A humble, warming lentil soup that's a Greek household staple. The splash of red wine vinegar at the end is non-negotiable.",
     "ingredients": [
       { "id": "i11-01", "name": "green lentils", "quantity": 400, "unit": "g" },
@@ -376,6 +387,7 @@
     "totalCalories": 880,
     "dietaryTags": ["Vegetarian", "Gluten-Free"],
     "possibleAdditions": ["Breadcrumb topping for crunch", "Pine nuts", "Chili flakes"],
+    "calorieReductions": ["Use less feta filling", "Skip the breadcrumb topping", "Bake instead of adding extra oil to the tray"],
     "description": "Large portobello mushrooms filled with wilted spinach, garlic, and crumbled feta, then baked until golden. Great as a starter or light main.",
     "ingredients": [
       { "id": "i12-01", "name": "portobello mushrooms", "quantity": 8, "unit": "large" },
@@ -409,6 +421,7 @@
     "totalCalories": 2880,
     "dietaryTags": [],
     "possibleAdditions": ["Extra cinnamon in the meat sauce", "Grated kefalotyri on top", "Side of Greek salad"],
+    "calorieReductions": ["Salt-roast the eggplant instead of frying in oil", "Use a lighter béchamel with low-fat milk", "Use lean ground meat instead of regular mince"],
     "description": "The great baked dish of the Greek table — layered aubergine, spiced beef ragù, and a thick béchamel. Effort rewarded with flavour that improves overnight.",
     "ingredients": [
       { "id": "i13-01", "name": "eggplant", "quantity": 3, "unit": "large" },
@@ -455,6 +468,7 @@
     "totalCalories": 3300,
     "dietaryTags": ["Gluten-Free", "Dairy-Free"],
     "possibleAdditions": ["Extra bay leaves", "Roasted potatoes on the side", "A squeeze of fresh lemon"],
+    "calorieReductions": ["Trim visible fat from the lamb shoulder before cooking", "Reduce the olive oil in the marinade", "Serve smaller portions with extra roasted vegetables"],
     "description": "Lamb sealed with garlic, herbs and wine in parchment, then slow-roasted until it falls from the bone. Named after the 'kleftes' — outlaws who cooked meat buried in the ground to avoid detection.",
     "ingredients": [
       { "id": "i14-01", "name": "lamb shoulder", "quantity": 1800, "unit": "g", "notes": "bone-in, cut into large pieces" },
@@ -495,6 +509,7 @@
     "totalCalories": 2560,
     "dietaryTags": ["Vegetarian"],
     "possibleAdditions": ["Pine nuts in the filling", "Dill instead of parsley", "Side of tzatziki"],
+    "calorieReductions": ["Brush the phyllo with less butter, or use spray oil", "Reduce the feta by a quarter", "Bake instead of any pan-frying step"],
     "description": "Shatteringly crisp phyllo encasing a rich filling of spinach, feta, and dill. A labour of love with layers that snap satisfyingly at the table.",
     "ingredients": [
       { "id": "i15-01", "name": "phyllo pastry", "quantity": 400, "unit": "g", "notes": "thawed if frozen" },
@@ -533,6 +548,7 @@
     "totalCalories": 4160,
     "dietaryTags": [],
     "possibleAdditions": ["Extra nutmeg in the béchamel", "Grated kefalotyri topping", "Side of Greek salad"],
+    "calorieReductions": ["Use a lighter béchamel with low-fat milk and less butter", "Use lean ground meat", "Reduce the pasta layer slightly and add more vegetables"],
     "description": "Cyprus's answer to lasagne — tubes of pasta layered with spiced beef ragù and a deep béchamel. The cinnamon-scented meat sauce is what sets it apart from its Italian cousin.",
     "ingredients": [
       { "id": "i16-01", "name": "penne pasta", "quantity": 500, "unit": "g" },
@@ -578,6 +594,7 @@
     "totalCalories": 1200,
     "dietaryTags": ["Gluten-Free", "Dairy-Free"],
     "possibleAdditions": ["Ground meat mix-in", "Toasted pine nuts", "Fresh dill garnish"],
+    "calorieReductions": ["Skip the added oil drizzle before baking", "Use half the rice and bulk up with extra vegetables", "Serve one pepper instead of two per portion"],
     "description": "Peppers filled with spiced beef and rice, slow-baked in a rich tomato bath. A Sunday dish in Greek Cypriot homes, best eaten warm rather than piping hot.",
     "ingredients": [
       { "id": "i17-01", "name": "red bell pepper", "quantity": 4, "unit": "large" },
@@ -603,6 +620,95 @@
       "Replace the pepper lids. Pour remaining tomatoes, tomato paste, 2 tbsp olive oil, and 200ml water around the peppers.",
       "Cover with foil and bake 45 minutes. Remove foil and bake 20 more minutes until peppers are tender and sauce is reduced.",
       "Rest 10 minutes before serving. Spoon pan juices over the peppers."
+    ]
+  },
+  {
+    "id": "r18",
+    "title": "Protein Overnight Oats",
+    "cuisine": "Contemporary",
+    "difficulty": "Easy",
+    "prepTimeMinutes": 5,
+    "cookTimeMinutes": 0,
+    "servings": 1,
+    "estimatedCostEur": 3,
+    "healthy": true,
+    "totalCalories": 420,
+    "dietaryTags": ["Vegetarian", "Gluten-Free"],
+    "possibleAdditions": ["Fresh berries on top", "A drizzle of peanut butter", "Toasted almonds for crunch"],
+    "calorieReductions": ["Use unsweetened almond milk instead of whole milk", "Skip the honey — the banana adds natural sweetness", "Use a lower-calorie protein powder blend"],
+    "description": "A no-cook, high-protein breakfast you prep the night before. Creamy oats, a scoop of protein powder, and chia seeds for staying power.",
+    "ingredients": [
+      { "id": "i18-01", "name": "oats", "quantity": 50, "unit": "g" },
+      { "id": "i18-02", "name": "protein powder", "quantity": 30, "unit": "g" },
+      { "id": "i18-03", "name": "milk", "quantity": 200, "unit": "ml" },
+      { "id": "i18-04", "name": "chia seeds", "quantity": 1, "unit": "tbsp" },
+      { "id": "i18-05", "name": "honey", "quantity": 1, "unit": "tsp" },
+      { "id": "i18-06", "name": "banana", "quantity": 1, "unit": "sliced" }
+    ],
+    "instructions": [
+      "In a jar, whisk together the protein powder and milk until smooth.",
+      "Stir in the oats, chia seeds, and honey.",
+      "Cover and refrigerate overnight (or at least 4 hours).",
+      "Top with sliced banana before serving."
+    ]
+  },
+  {
+    "id": "r19",
+    "title": "Berry Protein Smoothie",
+    "cuisine": "Contemporary",
+    "difficulty": "Easy",
+    "prepTimeMinutes": 5,
+    "cookTimeMinutes": 0,
+    "servings": 1,
+    "estimatedCostEur": 3,
+    "healthy": true,
+    "totalCalories": 320,
+    "dietaryTags": ["Vegetarian", "Gluten-Free"],
+    "possibleAdditions": ["A spoon of peanut butter", "A handful of oats for thickness", "Ice cubes for a frostier texture"],
+    "calorieReductions": ["Swap whole milk for unsweetened almond milk", "Use half a banana instead of a whole one", "Skip added sweeteners — the berries provide natural sugar"],
+    "description": "A quick blender breakfast or post-workout drink — frozen berries, banana, spinach, and a scoop of protein powder.",
+    "ingredients": [
+      { "id": "i19-01", "name": "protein powder", "quantity": 30, "unit": "g" },
+      { "id": "i19-02", "name": "banana", "quantity": 1, "unit": "whole" },
+      { "id": "i19-03", "name": "mixed berries", "quantity": 100, "unit": "g" },
+      { "id": "i19-04", "name": "spinach", "quantity": 30, "unit": "g" },
+      { "id": "i19-05", "name": "milk", "quantity": 250, "unit": "ml" }
+    ],
+    "instructions": [
+      "Add all ingredients to a blender.",
+      "Blend on high for 45–60 seconds until smooth.",
+      "Pour into a glass and serve immediately."
+    ]
+  },
+  {
+    "id": "r20",
+    "title": "High-Protein Banana Pancakes",
+    "cuisine": "Contemporary",
+    "difficulty": "Easy",
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 10,
+    "servings": 2,
+    "estimatedCostEur": 4,
+    "healthy": true,
+    "totalCalories": 760,
+    "dietaryTags": ["Vegetarian", "Gluten-Free"],
+    "possibleAdditions": ["Greek yogurt on the side", "A drizzle of honey", "Fresh berries on top"],
+    "calorieReductions": ["Cook with a non-stick spray instead of butter or oil", "Skip the honey drizzle — the banana already sweetens the batter", "Use egg whites instead of whole eggs to cut fat"],
+    "description": "Blender pancakes made from oats, eggs, banana, and protein powder — no flour needed, and they hold together beautifully.",
+    "ingredients": [
+      { "id": "i20-01", "name": "oats", "quantity": 80, "unit": "g" },
+      { "id": "i20-02", "name": "protein powder", "quantity": 60, "unit": "g" },
+      { "id": "i20-03", "name": "eggs", "quantity": 2, "unit": "whole" },
+      { "id": "i20-04", "name": "banana", "quantity": 1, "unit": "whole" },
+      { "id": "i20-05", "name": "milk", "quantity": 100, "unit": "ml" },
+      { "id": "i20-06", "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
+      { "id": "i20-07", "name": "baking powder", "quantity": 1, "unit": "tsp" }
+    ],
+    "instructions": [
+      "Blend the oats, protein powder, eggs, banana, milk, cinnamon, and baking powder until smooth.",
+      "Heat a non-stick pan over medium heat.",
+      "Pour small rounds of batter and cook 2–3 minutes per side until golden.",
+      "Serve warm, stacked."
     ]
   }
 ]

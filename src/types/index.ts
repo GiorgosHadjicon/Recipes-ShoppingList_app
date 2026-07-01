@@ -58,6 +58,7 @@ export interface Recipe {
   totalCalories: number;
   dietaryTags: DietaryTag[];
   possibleAdditions: string[];
+  calorieReductions: string[];
   description: string;
   ingredients: Ingredient[];
   instructions: string[];

@@ -253,5 +253,29 @@
 
   { "id": "p190", "ingredientKey": "black pepper", "supermarketId": "alphamega", "displayName": "Black Pepper (50g)", "priceEur": 1.79, "priceUnit": "per 50g", "aisle": "condiments" },
   { "id": "p191", "ingredientKey": "black pepper", "supermarketId": "sklavenitis", "displayName": "Black Pepper (50g)", "priceEur": 1.49, "priceUnit": "per 50g", "aisle": "condiments" },
-  { "id": "p192", "ingredientKey": "black pepper", "supermarketId": "lidl", "displayName": "Ground Black Pepper (40g)", "priceEur": 1.19, "priceUnit": "per 40g", "aisle": "condiments" }
+  { "id": "p192", "ingredientKey": "black pepper", "supermarketId": "lidl", "displayName": "Ground Black Pepper (40g)", "priceEur": 1.19, "priceUnit": "per 40g", "aisle": "condiments" },
+
+  { "id": "p193", "ingredientKey": "protein powder", "supermarketId": "alphamega", "displayName": "Whey Protein Powder (900g)", "priceEur": 24.99, "priceUnit": "per 900g", "aisle": "pantry" },
+  { "id": "p194", "ingredientKey": "protein powder", "supermarketId": "sklavenitis", "displayName": "Whey Protein Powder (900g)", "priceEur": 22.99, "priceUnit": "per 900g", "aisle": "pantry" },
+  { "id": "p195", "ingredientKey": "protein powder", "supermarketId": "lidl", "displayName": "Protein Powder Vanilla (750g)", "priceEur": 17.99, "priceUnit": "per 750g", "aisle": "pantry" },
+
+  { "id": "p196", "ingredientKey": "oats", "supermarketId": "alphamega", "displayName": "Rolled Oats (500g)", "priceEur": 1.79, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p197", "ingredientKey": "oats", "supermarketId": "sklavenitis", "displayName": "Rolled Oats (500g)", "priceEur": 1.49, "priceUnit": "per 500g", "aisle": "pantry" },
+  { "id": "p198", "ingredientKey": "oats", "supermarketId": "lidl", "displayName": "Crownfield Oats (500g)", "priceEur": 0.99, "priceUnit": "per 500g", "aisle": "pantry" },
+
+  { "id": "p199", "ingredientKey": "banana", "supermarketId": "alphamega", "displayName": "Bananas (1kg)", "priceEur": 1.39, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p200", "ingredientKey": "banana", "supermarketId": "sklavenitis", "displayName": "Bananas (1kg)", "priceEur": 1.19, "priceUnit": "per kg", "aisle": "produce" },
+  { "id": "p201", "ingredientKey": "banana", "supermarketId": "lidl", "displayName": "Bananas (1kg)", "priceEur": 0.99, "priceUnit": "per kg", "aisle": "produce" },
+
+  { "id": "p202", "ingredientKey": "chia seeds", "supermarketId": "alphamega", "displayName": "Chia Seeds (200g)", "priceEur": 3.29, "priceUnit": "per 200g", "aisle": "pantry" },
+  { "id": "p203", "ingredientKey": "chia seeds", "supermarketId": "sklavenitis", "displayName": "Chia Seeds (200g)", "priceEur": 2.79, "priceUnit": "per 200g", "aisle": "pantry" },
+  { "id": "p204", "ingredientKey": "chia seeds", "supermarketId": "lidl", "displayName": "Chia Seeds (200g)", "priceEur": 2.29, "priceUnit": "per 200g", "aisle": "pantry" },
+
+  { "id": "p205", "ingredientKey": "mixed berries", "supermarketId": "alphamega", "displayName": "Frozen Mixed Berries (400g)", "priceEur": 2.99, "priceUnit": "per 400g", "aisle": "frozen" },
+  { "id": "p206", "ingredientKey": "mixed berries", "supermarketId": "sklavenitis", "displayName": "Frozen Mixed Berries (400g)", "priceEur": 2.69, "priceUnit": "per 400g", "aisle": "frozen" },
+  { "id": "p207", "ingredientKey": "mixed berries", "supermarketId": "lidl", "displayName": "Freshona Frozen Berries (400g)", "priceEur": 2.19, "priceUnit": "per 400g", "aisle": "frozen" },
+
+  { "id": "p208", "ingredientKey": "baking powder", "supermarketId": "alphamega", "displayName": "Baking Powder (170g)", "priceEur": 0.99, "priceUnit": "per 170g", "aisle": "pantry" },
+  { "id": "p209", "ingredientKey": "baking powder", "supermarketId": "sklavenitis", "displayName": "Baking Powder (170g)", "priceEur": 0.89, "priceUnit": "per 170g", "aisle": "pantry" },
+  { "id": "p210", "ingredientKey": "baking powder", "supermarketId": "lidl", "displayName": "Baking Powder (170g)", "priceEur": 0.75, "priceUnit": "per 170g", "aisle": "pantry" }
 ]

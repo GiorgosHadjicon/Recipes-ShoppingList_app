@@ -11,6 +11,7 @@ import { RecipeBrowseScreen } from './src/screens/RecipeBrowseScreen';
 import { RecipeDetailScreen } from './src/screens/RecipeDetailScreen';
 import { ShoppingListScreen } from './src/screens/ShoppingListScreen';
 import { SupermarketSelectorModal } from './src/screens/SupermarketSelectorModal';
+import { WeeklyPlannerScreen } from './src/screens/WeeklyPlannerScreen';
 import { colors } from './src/theme';
 
 const RecipesStack = createNativeStackNavigator<RecipesStackParamList>();
@@ -54,6 +55,14 @@ function MainTabs() {
         options={{
           tabBarLabel: 'Recipes',
           tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>🍳</Text>,
+        }}
+      />
+      <Tab.Screen
+        name="PlannerTab"
+        component={WeeklyPlannerScreen}
+        options={{
+          tabBarLabel: 'Planner',
+          tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>📅</Text>,
         }}
       />
       <Tab.Screen

@@ -7,10 +7,11 @@ export type RecipesStackParamList = {
 
 export type TabParamList = {
   RecipesTab: NavigatorScreenParams<RecipesStackParamList>;
+  PlannerTab: undefined;
   ShoppingListTab: undefined;
 };
 
 export type RootStackParamList = {
   MainTabs: NavigatorScreenParams<TabParamList>;
-  SupermarketSelector: { recipeId: string };
+  SupermarketSelector: { recipeId: string } | { recipeIds: string[] };
 };

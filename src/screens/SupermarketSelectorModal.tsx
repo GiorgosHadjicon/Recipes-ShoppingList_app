@@ -16,11 +16,15 @@ type Nav = NativeStackNavigationProp<RootStackParamList>;
 export function SupermarketSelectorModal() {
   const route = useRoute<RouteProp<RootStackParamList, 'SupermarketSelector'>>();
   const navigation = useNavigation<Nav>();
-  const { generateList, selectedSupermarketId, loading } = useShoppingList();
+  const { generateList, generateWeeklyList, selectedSupermarketId, loading } = useShoppingList();
   const [chosen, setChosen] = useState(selectedSupermarketId);
 
   async function handleGenerate() {
-    await generateList(route.params.recipeId, chosen);
+    if ('recipeIds' in route.params) {
+      await generateWeeklyList(route.params.recipeIds, chosen);
+    } else {
+      await generateList(route.params.recipeId, chosen);
+    }
     navigation.navigate('MainTabs', { screen: 'ShoppingListTab' } as any);
   }
 

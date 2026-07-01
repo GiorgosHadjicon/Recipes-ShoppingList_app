@@ -113,6 +113,18 @@ export function RecipeDetailScreen() {
             </>
           )}
 
+          {/* Calorie reductions */}
+          {recipe.calorieReductions.length > 0 && (
+            <>
+              <Text style={styles.sectionTitle}>Lighten It Up</Text>
+              <View style={styles.section}>
+                {recipe.calorieReductions.map((tip, i) => (
+                  <Text key={i} style={styles.additionText}>• {tip}</Text>
+                ))}
+              </View>
+            </>
+          )}
+
           <View style={styles.ctaSpace} />
         </View>
       </ScrollView>
