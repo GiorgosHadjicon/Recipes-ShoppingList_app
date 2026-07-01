@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Important
 
-Expo has changed significantly. Always read the versioned docs at https://docs.expo.dev/versions/v56.0.0/ before writing any Expo-specific code.
+Expo has changed significantly. Always read the versioned docs at https://docs.expo.dev/versions/v54.0.0/ before writing any Expo-specific code.
+
+Pinned to SDK 54 (not the latest) to match the Expo Go app version available at dev time — bump deliberately with `npx expo install expo@<version> && npx expo install --fix`, not by hand-editing versions.
 
 ## Commands
 
@@ -12,6 +14,7 @@ Expo has changed significantly. Always read the versioned docs at https://docs.e
 npm run start      # Expo Go / QR code (use this for fastest dev loop)
 npm run ios        # iOS Simulator
 npm run android    # Android emulator
+npm run web        # Web (expo-router not used; limited value here)
 npx tsc --noEmit   # Type-check without building
 ```
 
@@ -19,7 +22,7 @@ No test runner or linter is configured yet.
 
 ## Stack
 
-- **Expo 56** / **React Native 0.85** / **React 19** / **TypeScript 6** (strict)
+- **Expo 54** / **React Native 0.81** / **React 19** / **TypeScript 5.9** (strict)
 - **@react-navigation/native** v7 — stack + bottom tabs
 - No backend — all data is local JSON in `src/data/`
 - State: React Context (`ShoppingListContext`) — no Zustand/Redux
