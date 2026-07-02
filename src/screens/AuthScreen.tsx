@@ -6,13 +6,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import type { RootStackParamList } from '../navigation/types';
-import { radius, spacing, type Colors } from '../theme';
+import { fonts, radius, spacing, type Colors } from '../theme';
 
 type Mode = 'signin' | 'signup';
 
 export function AuthScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, signInWithProvider } = useAuth();
   const { colors } = useTheme();
   const styles = makeStyles(colors);
 
@@ -22,8 +22,22 @@ export function AuthScreen() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [oauthLoading, setOauthLoading] = useState<'google' | 'apple' | null>(null);
 
   const canSubmit = email.trim().length > 0 && password.length >= 6;
+
+  async function handleProvider(provider: 'google' | 'apple') {
+    setOauthLoading(provider);
+    setError(null);
+    setNotice(null);
+    const err = await signInWithProvider(provider);
+    setOauthLoading(null);
+    if (err) {
+      setError(err);
+      return;
+    }
+    navigation.goBack();
+  }
 
   async function handleSubmit() {
     if (!canSubmit || submitting) return;
@@ -61,6 +75,35 @@ export function AuthScreen() {
 
         {notice && <Text style={styles.notice}>{notice}</Text>}
         {error && <Text style={styles.error}>{error}</Text>}
+
+        <Pressable
+          style={styles.providerButton}
+          onPress={() => handleProvider('google')}
+          disabled={oauthLoading !== null}
+        >
+          {oauthLoading === 'google' ? (
+            <ActivityIndicator color={colors.text} />
+          ) : (
+            <Text style={styles.providerButtonText}>Continue with Google</Text>
+          )}
+        </Pressable>
+        <Pressable
+          style={styles.providerButton}
+          onPress={() => handleProvider('apple')}
+          disabled={oauthLoading !== null}
+        >
+          {oauthLoading === 'apple' ? (
+            <ActivityIndicator color={colors.text} />
+          ) : (
+            <Text style={styles.providerButtonText}>Continue with Apple</Text>
+          )}
+        </Pressable>
+
+        <View style={styles.dividerRow}>
+          <View style={styles.dividerLine} />
+          <Text style={styles.dividerText}>or</Text>
+          <View style={styles.dividerLine} />
+        </View>
 
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -120,26 +163,48 @@ function makeStyles(colors: Colors) {
   return StyleSheet.create({
     container: { flex: 1, backgroundColor: colors.background },
     content: { flex: 1, justifyContent: 'center', padding: spacing.lg, gap: spacing.xs },
-    title: { fontSize: 26, fontWeight: '800', color: colors.text, textAlign: 'center' },
+    title: { fontFamily: fonts.display, fontSize: 26, color: colors.text, textAlign: 'center' },
     subtitle: {
+      fontFamily: fonts.body,
       fontSize: 14,
       color: colors.textSecondary,
       textAlign: 'center',
       marginBottom: spacing.md,
     },
     notice: {
+      fontFamily: fonts.body,
       fontSize: 13,
       color: colors.primary,
       textAlign: 'center',
       marginBottom: spacing.sm,
     },
     error: {
+      fontFamily: fonts.body,
       fontSize: 13,
       color: colors.difficulty.Hard,
       textAlign: 'center',
       marginBottom: spacing.sm,
     },
-    label: { fontSize: 13, fontWeight: '600', color: colors.textSecondary, marginBottom: 4, marginTop: spacing.sm },
+    providerButton: {
+      borderWidth: 1,
+      borderColor: colors.border,
+      backgroundColor: colors.card,
+      borderRadius: 999,
+      paddingVertical: spacing.md,
+      alignItems: 'center',
+      marginTop: spacing.xs,
+    },
+    providerButtonText: { fontFamily: fonts.bodySemiBold, fontSize: 15, color: colors.text },
+    dividerRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, marginVertical: spacing.md },
+    dividerLine: { flex: 1, height: StyleSheet.hairlineWidth, backgroundColor: colors.border },
+    dividerText: { fontFamily: fonts.body, fontSize: 12, color: colors.textMuted },
+    label: {
+      fontFamily: fonts.bodySemiBold,
+      fontSize: 13,
+      color: colors.textSecondary,
+      marginBottom: 4,
+      marginTop: spacing.sm,
+    },
     input: {
       backgroundColor: colors.card,
       borderWidth: 1,
@@ -147,21 +212,22 @@ function makeStyles(colors: Colors) {
       borderRadius: radius.sm,
       paddingHorizontal: spacing.md,
       paddingVertical: spacing.sm,
+      fontFamily: fonts.body,
       fontSize: 15,
       color: colors.text,
     },
     submitButton: {
       backgroundColor: colors.primary,
-      borderRadius: radius.lg,
+      borderRadius: 999,
       paddingVertical: spacing.md,
       alignItems: 'center',
       marginTop: spacing.lg,
     },
     submitButtonDisabled: { opacity: 0.5 },
-    submitButtonText: { fontSize: 17, fontWeight: '700', color: '#fff' },
+    submitButtonText: { fontFamily: fonts.bodySemiBold, fontSize: 17, color: '#fff' },
     toggleRow: { alignItems: 'center', paddingVertical: spacing.md },
-    toggleText: { fontSize: 14, color: colors.primary, fontWeight: '600' },
+    toggleText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.primary },
     cancel: { alignItems: 'center', paddingVertical: spacing.sm },
-    cancelText: { fontSize: 15, color: colors.textSecondary },
+    cancelText: { fontFamily: fonts.body, fontSize: 15, color: colors.textSecondary },
   });
 }

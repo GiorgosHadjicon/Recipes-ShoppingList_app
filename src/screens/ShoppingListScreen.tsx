@@ -15,7 +15,7 @@ import { useShoppingList } from '../context/ShoppingListContext';
 import { useTheme } from '../context/ThemeContext';
 import type { RootStackParamList } from '../navigation/types';
 import supermarketsData from '../data/supermarkets.json';
-import { radius, spacing, type Colors } from '../theme';
+import { fonts, radius, spacing, type Colors } from '../theme';
 import type { ShoppingListItem, Supermarket } from '../types';
 
 const supermarkets = supermarketsData as Supermarket[];
@@ -48,6 +48,7 @@ export function ShoppingListScreen() {
   const supermarket = supermarkets.find((s) => s.id === currentList.supermarketId);
   const checkedCount = currentList.groups.flatMap((g) => g.items).filter((i) => i.checked).length;
   const totalCount = currentList.groups.flatMap((g) => g.items).length;
+  const remainingCount = totalCount - checkedCount;
 
   async function handleShare() {
     const lines: string[] = [`🛒 Shopping List — ${currentList.recipeTitle}`, `📍 ${currentList.supermarketName}`, ''];
@@ -79,7 +80,6 @@ export function ShoppingListScreen() {
           <View style={styles.supermarketRow}>
             <View style={[styles.smDot, { backgroundColor: supermarket?.accentColor ?? colors.textMuted }]} />
             <Text style={styles.supermarketName}>{currentList.supermarketName}</Text>
-            <Text style={styles.progress}> · {checkedCount}/{totalCount} done</Text>
           </View>
         </View>
         <TouchableOpacity onPress={handleShare} style={styles.shareBtn}>
@@ -110,10 +110,6 @@ export function ShoppingListScreen() {
         stickySectionHeadersEnabled={false}
         ListFooterComponent={
           <View style={styles.footer}>
-            <View style={styles.totalRow}>
-              <Text style={styles.totalLabel}>Estimated Total</Text>
-              <Text style={styles.totalValue}>€{currentList.totalEur.toFixed(2)}</Text>
-            </View>
             <Text style={styles.totalNote}>* Based on individual item prices. Exact total may vary.</Text>
             <Pressable style={styles.clearBtn} onPress={clearList}>
               <Text style={styles.clearBtnText}>Clear List</Text>
@@ -121,6 +117,18 @@ export function ShoppingListScreen() {
           </View>
         }
       />
+
+      {/* Sticky totals bar */}
+      <View style={styles.totalsBar}>
+        <View>
+          <Text style={styles.totalsLabel}>Remaining</Text>
+          <Text style={styles.totalsValue}>{remainingCount} {remainingCount === 1 ? 'item' : 'items'}</Text>
+        </View>
+        <View style={styles.totalsRight}>
+          <Text style={styles.totalsLabel}>Basket total</Text>
+          <Text style={styles.totalsValue}>€{currentList.totalEur.toFixed(2)}</Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -169,16 +177,16 @@ function makeStyles(colors: Colors) {
       backgroundColor: colors.background,
     },
     emptyEmoji: { fontSize: 64 },
-    emptyTitle: { fontSize: 22, fontWeight: '700', color: colors.text },
-    emptySubtitle: { fontSize: 15, color: colors.textSecondary, textAlign: 'center', lineHeight: 22 },
+    emptyTitle: { fontFamily: fonts.display, fontSize: 22, color: colors.text },
+    emptySubtitle: { fontFamily: fonts.body, fontSize: 15, color: colors.textSecondary, textAlign: 'center', lineHeight: 22 },
     browseButton: {
       marginTop: spacing.sm,
       backgroundColor: colors.primary,
       paddingHorizontal: spacing.xl,
       paddingVertical: spacing.md,
-      borderRadius: radius.lg,
+      borderRadius: 999,
     },
-    browseButtonText: { fontSize: 16, fontWeight: '700', color: '#fff' },
+    browseButtonText: { fontFamily: fonts.bodySemiBold, fontSize: 16, color: '#fff' },
     header: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -188,11 +196,10 @@ function makeStyles(colors: Colors) {
       borderBottomColor: colors.border,
     },
     headerLeft: { flex: 1 },
-    heading: { fontSize: 20, fontWeight: '800', color: colors.text },
+    heading: { fontFamily: fonts.display, fontSize: 22, color: colors.text },
     supermarketRow: { flexDirection: 'row', alignItems: 'center', marginTop: 2 },
     smDot: { width: 10, height: 10, borderRadius: 5, marginRight: spacing.xs },
-    supermarketName: { fontSize: 13, color: colors.textSecondary, fontWeight: '600' },
-    progress: { fontSize: 13, color: colors.textMuted },
+    supermarketName: { fontFamily: fonts.bodySemiBold, fontSize: 13, color: colors.textSecondary },
     shareBtn: {
       width: 40,
       height: 40,
@@ -209,14 +216,20 @@ function makeStyles(colors: Colors) {
       padding: spacing.sm,
       borderRadius: radius.sm,
     },
-    noPricingText: { fontSize: 12, color: colors.textSecondary },
+    noPricingText: { fontFamily: fonts.body, fontSize: 12, color: colors.textSecondary },
     sectionHeader: {
       paddingHorizontal: spacing.md,
       paddingTop: spacing.lg,
       paddingBottom: spacing.xs,
     },
-    sectionTitle: { fontSize: 14, fontWeight: '700', color: colors.textSecondary, letterSpacing: 0.3 },
-    listContent: { paddingBottom: spacing.xl },
+    sectionTitle: {
+      fontFamily: fonts.bodySemiBold,
+      fontSize: 12,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 0.8,
+    },
+    listContent: { paddingBottom: spacing.xl * 2 },
     item: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -231,7 +244,7 @@ function makeStyles(colors: Colors) {
     checkbox: {
       width: 26,
       height: 26,
-      borderRadius: 8,
+      borderRadius: 13,
       borderWidth: 2,
       borderColor: colors.primary,
       alignItems: 'center',
@@ -241,33 +254,41 @@ function makeStyles(colors: Colors) {
     checkboxChecked: { backgroundColor: colors.primary },
     checkboxTick: { fontSize: 14, color: '#fff', fontWeight: '700' },
     itemBody: { flex: 1 },
-    itemName: { fontSize: 15, color: colors.text, fontWeight: '500' },
+    itemName: { fontFamily: fonts.bodyMedium, fontSize: 15, color: colors.text },
     itemNameChecked: { textDecorationLine: 'line-through' },
-    itemSub: { fontSize: 12, color: colors.textMuted, marginTop: 1 },
+    itemSub: { fontFamily: fonts.body, fontSize: 12, color: colors.textMuted, marginTop: 1 },
     itemSubMissing: { color: colors.difficulty.Hard },
-    itemPrice: { fontSize: 15, fontWeight: '700', color: colors.primary },
+    itemPrice: { fontFamily: fonts.bodyBold, fontSize: 15, color: colors.primary },
     itemPriceChecked: { color: colors.textMuted },
     footer: {
       padding: spacing.md,
       gap: spacing.sm,
     },
-    totalRow: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      backgroundColor: colors.card,
-      borderRadius: radius.md,
-      padding: spacing.md,
-      borderWidth: 1,
-      borderColor: colors.primary,
-    },
-    totalLabel: { fontSize: 16, fontWeight: '700', color: colors.text },
-    totalValue: { fontSize: 20, fontWeight: '800', color: colors.primary },
-    totalNote: { fontSize: 11, color: colors.textMuted, textAlign: 'center' },
+    totalNote: { fontFamily: fonts.body, fontSize: 11, color: colors.textMuted, textAlign: 'center' },
     clearBtn: {
       marginTop: spacing.sm,
       paddingVertical: spacing.sm,
       alignItems: 'center',
     },
-    clearBtnText: { fontSize: 14, color: colors.difficulty.Hard, fontWeight: '600' },
+    clearBtnText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.difficulty.Hard },
+    totalsBar: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.md,
+      paddingBottom: spacing.lg,
+      backgroundColor: colors.background,
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderTopColor: colors.border,
+    },
+    totalsRight: { alignItems: 'flex-end' },
+    totalsLabel: {
+      fontFamily: fonts.body,
+      fontSize: 11,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 0.5,
+    },
+    totalsValue: { fontFamily: fonts.bodySemiBold, fontSize: 17, color: colors.text, marginTop: 2 },
   });
 }

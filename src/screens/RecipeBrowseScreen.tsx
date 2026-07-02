@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   Animated,
   FlatList,
+  ImageBackground,
   Pressable,
   StyleSheet,
   Text,
@@ -17,11 +18,48 @@ import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import type { RecipesStackParamList } from '../navigation/types';
 import { getRecipes, isHealthy, isHighProtein, isOwnRecipe } from '../services/recipeService';
-import { spacing, radius, type Colors } from '../theme';
+import { fonts, spacing, radius, type Colors } from '../theme';
 import type { Difficulty, Recipe } from '../types';
+import { getRecipeImageUrl } from '../utils/recipeImage';
 
 const FILTERS: Array<Difficulty | 'All'> = ['All', 'Easy', 'Medium', 'Hard'];
 const DIFFICULTY_ORDER: Record<Difficulty, number> = { Easy: 0, Medium: 1, Hard: 2 };
+
+function greeting(): string {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 18) return 'Good afternoon';
+  return 'Good evening';
+}
+
+function timeLabelFor(recipe: Recipe): string {
+  const totalMin = recipe.prepTimeMinutes + recipe.cookTimeMinutes;
+  return totalMin < 60 ? `${totalMin} min` : `${Math.floor(totalMin / 60)}h ${totalMin % 60 > 0 ? `${totalMin % 60}m` : ''}`.trim();
+}
+
+function FeaturedCard({ recipe, onPress }: { recipe: Recipe; onPress: () => void }) {
+  const { colors } = useTheme();
+  const styles = makeStyles(colors);
+  return (
+    <>
+      <Text style={styles.featuredLabel}>Featured tonight</Text>
+      <Pressable onPress={onPress}>
+        <ImageBackground
+          source={{ uri: getRecipeImageUrl(recipe.title, 800, 500) }}
+          style={styles.featuredCard}
+          imageStyle={{ borderRadius: radius.lg }}
+        >
+          <View style={styles.featuredScrim}>
+            <Text style={styles.featuredTitle} numberOfLines={1}>{recipe.title}</Text>
+            <Text style={styles.featuredMeta}>
+              {timeLabelFor(recipe)} · {recipe.difficulty} · ~€{recipe.estimatedCostEur.toFixed(0)}
+            </Text>
+          </View>
+        </ImageBackground>
+      </Pressable>
+    </>
+  );
+}
 
 export function RecipeBrowseScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RecipesStackParamList>>();
@@ -73,6 +111,19 @@ export function RecipeBrowseScreen() {
     .filter((r) => !myRecipesOnly || isOwnRecipe(r, user?.id ?? null))
     .sort((a, b) => DIFFICULTY_ORDER[a.difficulty] - DIFFICULTY_ORDER[b.difficulty]);
 
+  const showFeatured = filter === 'All' && !q && !healthyOnly && !highProteinOnly && !myRecipesOnly;
+  const featured = showFeatured ? filtered[0] : undefined;
+  const listData = featured ? filtered.slice(1) : filtered;
+  const hasActiveFilters = filter !== 'All' || !!q || healthyOnly || highProteinOnly || myRecipesOnly;
+
+  function clearFilters() {
+    setQuery('');
+    setFilter('All');
+    setHealthyOnly(false);
+    setHighProteinOnly(false);
+    setMyRecipesOnly(false);
+  }
+
   // Changing a filter/search while scrolled down (and the row hidden) shouldn't strand
   // you with no way to see the pills again — snap back to the top so it reappears.
   useEffect(() => {
@@ -85,8 +136,8 @@ export function RecipeBrowseScreen() {
       <View style={styles.header}>
         <View style={styles.headerRow}>
           <View>
-            <Text style={styles.heading}>Recipes</Text>
-            <Text style={styles.subheading}>Pick a dish, get your shopping list</Text>
+            <Text style={styles.greeting}>{greeting()}</Text>
+            <Text style={styles.heading}>What's cooking?</Text>
           </View>
           <Pressable style={styles.addButton} onPress={() => navigation.navigate('AddRecipe')}>
             <Text style={styles.addButtonText}>+ Add</Text>
@@ -96,11 +147,12 @@ export function RecipeBrowseScreen() {
 
       {/* Search */}
       <View style={styles.searchRow}>
+        <Text style={styles.searchIcon}>🔍</Text>
         <TextInput
           style={styles.searchInput}
           value={query}
           onChangeText={setQuery}
-          placeholder="Search recipes by name or cuisine..."
+          placeholder="Search recipes, ingredients..."
           placeholderTextColor={colors.textMuted}
         />
         {query.length > 0 && (
@@ -153,7 +205,7 @@ export function RecipeBrowseScreen() {
       ) : (
         <FlatList
           ref={listRef}
-          data={filtered}
+          data={listData}
           keyExtractor={(r) => r.id}
           renderItem={({ item }) => (
             <RecipeCard
@@ -161,19 +213,40 @@ export function RecipeBrowseScreen() {
               onPress={() => navigation.navigate('RecipeDetail', { recipeId: item.id })}
             />
           )}
+          ListHeaderComponent={
+            featured ? (
+              <FeaturedCard
+                recipe={featured}
+                onPress={() => navigation.navigate('RecipeDetail', { recipeId: featured.id })}
+              />
+            ) : null
+          }
           contentContainerStyle={styles.list}
           showsVerticalScrollIndicator={false}
           onScroll={(e) => {
-            // Clamp out negative offsets from iOS's rubber-band bounce at the top —
-            // diffClamp tracks deltas, and bounce noise makes it jump erratically otherwise.
-            scrollY.setValue(Math.max(0, e.nativeEvent.contentOffset.y));
+            // Clamp out iOS rubber-band bounce at both ends — diffClamp tracks deltas,
+            // and the bottom bounce-back reads as a scroll-up, popping the filter row open.
+            const { contentOffset, contentSize, layoutMeasurement } = e.nativeEvent;
+            const maxOffset = Math.max(0, contentSize.height - layoutMeasurement.height);
+            scrollY.setValue(Math.min(Math.max(0, contentOffset.y), maxOffset));
           }}
           scrollEventThrottle={16}
           ListEmptyComponent={
             <View style={styles.empty}>
-              <Text style={styles.emptyText}>
-                {myRecipesOnly ? "You haven't added any recipes yet." : 'No recipes match your search or filters.'}
+              <View style={styles.emptyIcon}>
+                <Text style={styles.emptyIconText}>🙁</Text>
+              </View>
+              <Text style={styles.emptyTitle}>Nothing on the menu</Text>
+              <Text style={styles.emptySubtitle}>
+                {myRecipesOnly && !hasActiveFilters
+                  ? "You haven't added any recipes yet."
+                  : `No recipes match ${q ? `"${query.trim()}"` : 'these filters'} just yet. Loosen a filter and we'll find you something to cook.`}
               </Text>
+              {hasActiveFilters && (
+                <Pressable style={styles.clearFiltersBtn} onPress={clearFilters}>
+                  <Text style={styles.clearFiltersText}>Clear filters</Text>
+                </Pressable>
+              )}
             </View>
           }
         />
@@ -198,14 +271,17 @@ function makeStyles(colors: Colors) {
       justifyContent: 'space-between',
       alignItems: 'flex-start',
     },
-    heading: {
-      fontSize: 30,
-      fontWeight: '800',
-      color: colors.text,
+    greeting: {
+      fontFamily: fonts.body,
+      fontSize: 12,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
     },
-    subheading: {
-      fontSize: 14,
-      color: colors.textSecondary,
+    heading: {
+      fontFamily: fonts.display,
+      fontSize: 30,
+      color: colors.text,
       marginTop: 2,
     },
     addButton: {
@@ -215,27 +291,54 @@ function makeStyles(colors: Colors) {
       borderRadius: 20,
       marginTop: spacing.xs,
     },
-    addButtonText: { fontSize: 14, fontWeight: '700', color: '#fff' },
+    addButtonText: { fontFamily: fonts.bodyBold, fontSize: 14, color: '#fff' },
     searchRow: {
       flexDirection: 'row',
       alignItems: 'center',
       backgroundColor: colors.card,
       borderWidth: 1,
       borderColor: colors.border,
-      borderRadius: radius.md,
+      borderRadius: 999,
       marginHorizontal: spacing.md,
       marginBottom: spacing.md,
       paddingHorizontal: spacing.md,
     },
+    searchIcon: { fontSize: 14, paddingRight: spacing.xs },
     searchInput: {
       flex: 1,
+      fontFamily: fonts.body,
       paddingVertical: spacing.sm,
       fontSize: 15,
       color: colors.text,
     },
     searchClear: { fontSize: 15, color: colors.textMuted, paddingLeft: spacing.sm },
-    empty: { paddingTop: spacing.xl, paddingHorizontal: spacing.xl, alignItems: 'center' },
-    emptyText: { fontSize: 15, color: colors.textSecondary, textAlign: 'center' },
+    empty: { paddingTop: spacing.xl, paddingHorizontal: spacing.xl, alignItems: 'center', gap: spacing.sm },
+    emptyIcon: {
+      width: 64,
+      height: 64,
+      borderRadius: 32,
+      backgroundColor: colors.card,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: spacing.xs,
+    },
+    emptyIconText: { fontSize: 28 },
+    emptyTitle: { fontFamily: fonts.display, fontSize: 20, color: colors.text },
+    emptySubtitle: {
+      fontFamily: fonts.body,
+      fontSize: 14,
+      color: colors.textSecondary,
+      textAlign: 'center',
+      lineHeight: 20,
+    },
+    clearFiltersBtn: {
+      marginTop: spacing.sm,
+      backgroundColor: colors.primary,
+      paddingHorizontal: spacing.lg,
+      paddingVertical: spacing.sm,
+      borderRadius: 999,
+    },
+    clearFiltersText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: '#fff' },
     filterRow: {
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -246,7 +349,7 @@ function makeStyles(colors: Colors) {
     filterPill: {
       paddingHorizontal: spacing.md,
       paddingVertical: spacing.sm,
-      borderRadius: 20,
+      borderRadius: 999,
       backgroundColor: colors.card,
       borderWidth: 1,
       borderColor: colors.border,
@@ -256,13 +359,36 @@ function makeStyles(colors: Colors) {
       borderColor: colors.primary,
     },
     filterText: {
+      fontFamily: fonts.bodySemiBold,
       fontSize: 14,
-      fontWeight: '600',
       color: colors.textSecondary,
     },
     filterTextActive: {
       color: '#fff',
     },
+    featuredLabel: {
+      fontFamily: fonts.bodySemiBold,
+      fontSize: 11,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
+      marginHorizontal: spacing.md,
+      marginBottom: spacing.sm,
+    },
+    featuredCard: {
+      height: 190,
+      marginHorizontal: spacing.md,
+      marginBottom: spacing.lg,
+      borderRadius: radius.lg,
+      overflow: 'hidden',
+      justifyContent: 'flex-end',
+    },
+    featuredScrim: {
+      backgroundColor: 'rgba(0,0,0,0.4)',
+      padding: spacing.md,
+    },
+    featuredTitle: { fontFamily: fonts.display, fontSize: 21, color: '#fff' },
+    featuredMeta: { fontFamily: fonts.body, fontSize: 12, color: '#fff', marginTop: 2, opacity: 0.9 },
     list: {
       paddingBottom: spacing.xl,
     },

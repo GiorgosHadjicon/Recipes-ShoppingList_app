@@ -10,7 +10,7 @@ import supermarketsData from '../data/supermarkets.json';
 import { distanceKm, getCurrentPosition } from '../services/locationService';
 import { searchNearbySupermarkets } from '../services/nearbyStoreService';
 import { getSupermarketLocations } from '../services/supermarketLocationService';
-import { radius, spacing, type Colors } from '../theme';
+import { fonts, radius, spacing, type Colors } from '../theme';
 import type { Supermarket } from '../types';
 
 const supermarkets = supermarketsData as Supermarket[];
@@ -118,36 +118,47 @@ export function SupermarketSelectorModal() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Choose Your Supermarket</Text>
+      <Text style={styles.title}>Where are you shopping?</Text>
       <Text style={styles.subtitle}>
-        {searchingNearby ? 'Looking for nearby stores...' : 'Prices will be matched to your chosen store.'}
+        {searchingNearby
+          ? 'Looking for nearby stores...'
+          : "We'll price your list and sort it by aisle for that store."}
       </Text>
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.options} showsVerticalScrollIndicator={false}>
-        {options.map((sm) => (
-          <Pressable
-            key={sm.id}
-            style={[styles.option, chosen === sm.id && styles.optionSelected]}
-            onPress={() => {
-              userChangedSelection.current = true;
-              setChosen(sm.id);
-            }}
-          >
-            <View style={[styles.colorDot, { backgroundColor: sm.accentColor }]} />
-            <View style={styles.optionTextBlock}>
-              <Text style={[styles.optionName, chosen === sm.id && styles.optionNameSelected]}>
-                {sm.name}
-              </Text>
-              {!sm.hasPricing && <Text style={styles.noPricingHint}>No price data yet</Text>}
-            </View>
-            {sm.distanceKm !== null && (
-              <Text style={styles.distanceText}>
-                {sm.distanceKm < 1 ? `${Math.round(sm.distanceKm * 1000)}m` : `${sm.distanceKm.toFixed(1)}km`}
-              </Text>
-            )}
-            {chosen === sm.id && <Text style={styles.checkmark}>✓</Text>}
-          </Pressable>
-        ))}
+        {options.map((sm, i) => {
+          const isNearest = i === 0 && sm.distanceKm !== null;
+          const distanceLabel =
+            sm.distanceKm !== null
+              ? `${sm.distanceKm < 1 ? `${Math.round(sm.distanceKm * 1000)}m` : `${sm.distanceKm.toFixed(1)}km`} away`
+              : null;
+          return (
+            <Pressable
+              key={sm.id}
+              style={[styles.option, chosen === sm.id && styles.optionSelected]}
+              onPress={() => {
+                userChangedSelection.current = true;
+                setChosen(sm.id);
+              }}
+            >
+              <View style={[styles.badge, { backgroundColor: sm.accentColor }]}>
+                <Text style={styles.badgeText}>{sm.name.slice(0, 2)}</Text>
+              </View>
+              <View style={styles.optionTextBlock}>
+                <Text style={[styles.optionName, chosen === sm.id && styles.optionNameSelected]}>
+                  {sm.name}
+                </Text>
+                {distanceLabel && (
+                  <Text style={styles.optionSub}>{isNearest ? `Nearest · ${distanceLabel}` : distanceLabel}</Text>
+                )}
+                {!sm.hasPricing && <Text style={styles.noPricingHint}>No price data yet</Text>}
+              </View>
+              <View style={[styles.radio, chosen === sm.id && styles.radioSelected]}>
+                {chosen === sm.id && <Text style={styles.radioTick}>✓</Text>}
+              </View>
+            </Pressable>
+          );
+        })}
       </ScrollView>
 
       <Pressable
@@ -158,7 +169,7 @@ export function SupermarketSelectorModal() {
         {loading ? (
           <ActivityIndicator color="#fff" />
         ) : (
-          <Text style={styles.buttonText}>Build My List</Text>
+          <Text style={styles.buttonText}>Continue</Text>
         )}
       </Pressable>
 
@@ -176,11 +187,11 @@ function makeStyles(colors: Colors) {
       backgroundColor: colors.background,
       padding: spacing.lg,
     },
-    title: { fontSize: 24, fontWeight: '800', color: colors.text, textAlign: 'center' },
+    title: { fontFamily: fonts.display, fontSize: 26, color: colors.text },
     subtitle: {
+      fontFamily: fonts.body,
       fontSize: 14,
       color: colors.textSecondary,
-      textAlign: 'center',
       marginTop: spacing.xs,
       marginBottom: spacing.md,
     },
@@ -200,23 +211,34 @@ function makeStyles(colors: Colors) {
       borderColor: colors.primary,
       backgroundColor: colors.tagBg,
     },
-    colorDot: { width: 20, height: 20, borderRadius: 10 },
+    badge: { width: 40, height: 40, borderRadius: radius.sm, alignItems: 'center', justifyContent: 'center' },
+    badgeText: { fontFamily: fonts.bodyBold, fontSize: 13, color: '#fff' },
     optionTextBlock: { flex: 1, gap: 1 },
-    optionName: { fontSize: 17, fontWeight: '600', color: colors.text },
+    optionName: { fontFamily: fonts.bodySemiBold, fontSize: 17, color: colors.text },
     optionNameSelected: { color: colors.primary },
-    noPricingHint: { fontSize: 12, color: colors.textMuted },
-    distanceText: { fontSize: 13, fontWeight: '600', color: colors.textSecondary },
-    checkmark: { fontSize: 18, color: colors.primary, fontWeight: '700' },
+    optionSub: { fontFamily: fonts.body, fontSize: 13, color: colors.textSecondary },
+    noPricingHint: { fontFamily: fonts.body, fontSize: 12, color: colors.textMuted },
+    radio: {
+      width: 24,
+      height: 24,
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: colors.border,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    radioSelected: { backgroundColor: colors.primary, borderColor: colors.primary },
+    radioTick: { fontSize: 13, color: '#fff', fontWeight: '700' },
     button: {
       backgroundColor: colors.primary,
-      borderRadius: radius.lg,
+      borderRadius: 999,
       paddingVertical: spacing.md,
       alignItems: 'center',
       marginBottom: spacing.sm,
     },
     buttonDisabled: { opacity: 0.6 },
-    buttonText: { fontSize: 17, fontWeight: '700', color: '#fff' },
+    buttonText: { fontFamily: fonts.bodySemiBold, fontSize: 17, color: '#fff' },
     cancel: { alignItems: 'center', paddingVertical: spacing.sm },
-    cancelText: { fontSize: 16, color: colors.textSecondary },
+    cancelText: { fontFamily: fonts.body, fontSize: 16, color: colors.textSecondary },
   });
 }

@@ -1,3 +1,15 @@
+// Raw "Larder" brand palette (see assets/Larder App.pdf) — Parchment, Ink,
+// Terracotta, Saffron, Sage, Fig. Reach for these directly for one-off brand
+// accents; use the semantic Colors below for anything themed by light/dark.
+export const palette = {
+  parchment: '#F3E9DA',
+  ink: '#211D18',
+  terracotta: '#BC5B39',
+  saffron: '#DFA53B',
+  sage: '#7C9459',
+  fig: '#7A3B4E',
+} as const;
+
 export interface Colors {
   primary: string;
   primaryLight: string;
@@ -15,52 +27,63 @@ export interface Colors {
 }
 
 export const lightColors: Colors = {
-  primary: '#2D5016',
-  primaryLight: '#4A7A25',
-  accent: '#F5A623',
-  background: '#FAFAF7',
-  card: '#FFFFFF',
-  text: '#1A1A1A',
-  textSecondary: '#666666',
-  textMuted: '#999999',
-  border: '#E8E8E8',
+  primary: palette.terracotta,
+  primaryLight: '#D4805E',
+  accent: palette.saffron,
+  background: palette.parchment,
+  card: '#FBF5EA',
+  text: palette.ink,
+  textSecondary: '#6B6355',
+  textMuted: '#A69A87',
+  border: '#E4D6C1',
   shadow: '#00000012',
-  tagBg: '#EEF7E8',
+  tagBg: '#EEF0E2',
   difficulty: {
-    Easy: '#28A745',
-    Medium: '#E8930A',
-    Hard: '#DC3545',
+    Easy: palette.sage,
+    Medium: '#C98A1F',
+    Hard: palette.fig,
   },
   difficultyBg: {
-    Easy: '#D4EDDA',
-    Medium: '#FFF3CD',
-    Hard: '#F8D7DA',
+    Easy: '#E4EAD8',
+    Medium: '#F5E6C4',
+    Hard: '#EFDCE1',
   },
 };
 
 export const darkColors: Colors = {
-  primary: '#5CA83B',
-  primaryLight: '#78C158',
-  accent: '#F5A623',
-  background: '#121410',
-  card: '#1E211B',
-  text: '#EDEDE8',
-  textSecondary: '#A8A8A0',
-  textMuted: '#767670',
-  border: '#33362F',
+  primary: '#D97C52',
+  primaryLight: '#E89A76',
+  accent: '#E8B94F',
+  background: palette.ink,
+  card: '#262019',
+  text: palette.parchment,
+  textSecondary: '#B8AC98',
+  textMuted: '#7D7362',
+  border: '#3A3126',
   shadow: '#00000040',
-  tagBg: '#233420',
+  tagBg: '#33301F',
   difficulty: {
-    Easy: '#4CAF50',
-    Medium: '#F0A830',
-    Hard: '#E85D6A',
+    Easy: '#9CB37D',
+    Medium: '#E8B94F',
+    Hard: '#A85A70',
   },
   difficultyBg: {
-    Easy: '#1E3320',
-    Medium: '#3A2E12',
-    Hard: '#3A1E22',
+    Easy: '#2A331F',
+    Medium: '#3A2E15',
+    Hard: '#34202A',
   },
 };
+
+// Newsreader for display/recipe titles, Hanken Grotesk for UI/body — loaded
+// via useFonts in App.tsx before these names resolve to anything.
+export const fonts = {
+  display: 'Newsreader_600SemiBold',
+  displayRegular: 'Newsreader_400Regular',
+  body: 'HankenGrotesk_400Regular',
+  bodyMedium: 'HankenGrotesk_500Medium',
+  bodySemiBold: 'HankenGrotesk_600SemiBold',
+  bodyBold: 'HankenGrotesk_700Bold',
+} as const;
 
 export const spacing = {
   xs: 4,

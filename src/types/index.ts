@@ -66,6 +66,7 @@ export interface Recipe {
   instructions: string[];
   authorId?: string; // present only for community recipes, absent for the bundled ones
   authorName?: string;
+  createdAt?: string; // ISO timestamp — present only for community recipes
 }
 
 export interface Product {

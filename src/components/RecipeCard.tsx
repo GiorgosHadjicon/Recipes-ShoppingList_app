@@ -1,10 +1,9 @@
 import React from 'react';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { radius, spacing, type Colors } from '../theme';
+import { fonts, radius, spacing, type Colors } from '../theme';
 import type { Recipe } from '../types';
 import { getRecipeImageUrl } from '../utils/recipeImage';
-import { DifficultyBadge } from './DifficultyBadge';
 
 interface Props {
   recipe: Recipe;
@@ -19,19 +18,13 @@ export function RecipeCard({ recipe, onPress }: Props) {
 
   return (
     <Pressable style={({ pressed }) => [styles.card, pressed && styles.pressed]} onPress={onPress}>
-      <ImageBackground source={{ uri: getRecipeImageUrl(recipe.title) }} style={styles.imagePlaceholder}>
-        <Text style={styles.cuisineOverlay}>{recipe.cuisine}</Text>
-      </ImageBackground>
+      <Image source={{ uri: getRecipeImageUrl(recipe.title) }} style={styles.thumb} />
 
       <View style={styles.body}>
-        <DifficultyBadge difficulty={recipe.difficulty} />
-        <Text style={styles.title} numberOfLines={2}>{recipe.title}</Text>
-
-        <View style={styles.meta}>
-          <Text style={styles.metaText}>⏱ {timeLabel}</Text>
-          <Text style={styles.metaText}>👤 {recipe.servings}</Text>
-          <Text style={styles.metaText}>€{recipe.estimatedCostEur.toFixed(0)}</Text>
-        </View>
+        <Text style={styles.title} numberOfLines={1}>{recipe.title}</Text>
+        <Text style={styles.meta}>
+          {timeLabel} · {recipe.difficulty} · €{recipe.estimatedCostEur.toFixed(2)}
+        </Text>
 
         {recipe.dietaryTags.length > 0 && (
           <View style={styles.tags}>
@@ -50,50 +43,32 @@ export function RecipeCard({ recipe, onPress }: Props) {
 function makeStyles(colors: Colors) {
   return StyleSheet.create({
     card: {
-      backgroundColor: colors.card,
-      borderRadius: radius.lg,
-      marginHorizontal: spacing.md,
-      marginBottom: spacing.md,
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.08,
-      shadowRadius: 8,
-      elevation: 3,
-      overflow: 'hidden',
-    },
-    pressed: {
-      opacity: 0.92,
-      transform: [{ scale: 0.99 }],
-    },
-    imagePlaceholder: {
-      height: 140,
-      backgroundColor: colors.border,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    cuisineOverlay: {
-      position: 'absolute',
-      bottom: spacing.sm,
-      right: spacing.sm,
-      fontSize: 11,
-      color: colors.textSecondary,
-      fontStyle: 'italic',
-    },
-    body: {
-      padding: spacing.md,
-      gap: spacing.sm,
-    },
-    title: {
-      fontSize: 17,
-      fontWeight: '700',
-      color: colors.text,
-      lineHeight: 22,
-    },
-    meta: {
       flexDirection: 'row',
       gap: spacing.md,
+      marginHorizontal: spacing.md,
+      marginBottom: spacing.md,
     },
-    metaText: {
+    pressed: {
+      opacity: 0.85,
+    },
+    thumb: {
+      width: 84,
+      height: 84,
+      borderRadius: radius.md,
+      backgroundColor: colors.border,
+    },
+    body: {
+      flex: 1,
+      justifyContent: 'center',
+      gap: spacing.xs,
+    },
+    title: {
+      fontFamily: fonts.bodySemiBold,
+      fontSize: 16,
+      color: colors.text,
+    },
+    meta: {
+      fontFamily: fonts.body,
       fontSize: 13,
       color: colors.textSecondary,
     },
@@ -104,14 +79,14 @@ function makeStyles(colors: Colors) {
     },
     tag: {
       backgroundColor: colors.tagBg,
-      borderRadius: radius.sm,
+      borderRadius: 999,
       paddingHorizontal: spacing.sm,
       paddingVertical: 2,
     },
     tagText: {
+      fontFamily: fonts.bodySemiBold,
       fontSize: 11,
-      color: colors.primaryLight,
-      fontWeight: '600',
+      color: colors.textSecondary,
     },
   });
 }

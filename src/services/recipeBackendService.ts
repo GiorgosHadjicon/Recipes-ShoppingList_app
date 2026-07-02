@@ -24,6 +24,7 @@ interface RecipeRow {
   description: string;
   ingredients: Ingredient[];
   instructions: string[];
+  created_at: string;
   profiles: { display_name: string | null } | null;
 }
 
@@ -49,13 +50,22 @@ function rowToRecipe(row: RecipeRow): Recipe {
     instructions: row.instructions,
     authorId: row.author_id,
     authorName: row.profiles?.display_name ?? undefined,
+    createdAt: row.created_at,
   };
 }
 
 export async function getCommunityRecipes(): Promise<Recipe[]> {
   if (!supabase) return [];
-  const { data, error } = await supabase.from('recipes').select('*, profiles(display_name)');
-  if (error) throw error;
+  const { data, error } = await supabase
+    .from('recipes')
+    .select('*, profiles(display_name)')
+    .order('created_at', { ascending: false });
+  if (error) {
+    // ponytail: swallow and log rather than throw — a backend hiccup shouldn't block
+    // local recipes from rendering. Upgrade to surfaced error state if this needs visibility.
+    console.warn('Failed to fetch community recipes:', error.message);
+    return [];
+  }
   return (data as RecipeRow[]).map(rowToRecipe);
 }
 

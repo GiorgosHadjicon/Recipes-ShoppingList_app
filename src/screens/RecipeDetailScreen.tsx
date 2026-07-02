@@ -21,7 +21,7 @@ import type { RootStackParamList } from '../navigation/types';
 import { deleteRecipe } from '../services/recipeBackendService';
 import { getRecipeById, isOwnRecipe } from '../services/recipeService';
 import { computeMacros, getAvailableUnits, sumMacros } from '../services/nutritionService';
-import { radius, spacing, type Colors } from '../theme';
+import { fonts, radius, spacing, type Colors } from '../theme';
 import type { Ingredient, Recipe } from '../types';
 import { getRecipeImageUrl } from '../utils/recipeImage';
 
@@ -136,17 +136,38 @@ export function RecipeDetailScreen() {
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <ImageBackground source={{ uri: getRecipeImageUrl(recipe.title, 800, 600) }} style={styles.hero}>
-          <Text style={styles.heroCuisine}>{recipe.cuisine}</Text>
+          <SafeAreaView edges={['top']} style={styles.heroHeader}>
+            <Pressable style={styles.heroIconBtn} onPress={() => navigation.goBack()} hitSlop={8}>
+              <Text style={styles.heroIconText}>‹</Text>
+            </Pressable>
+            <View style={styles.heroActions}>
+              <Pressable
+                style={styles.heroIconBtn}
+                onPress={() => navigation.navigate('ShareToChat', { recipeId: recipe.id })}
+                hitSlop={8}
+              >
+                <Text style={styles.heroIconText}>💬</Text>
+              </Pressable>
+              {isOwnRecipe(recipe, user?.id ?? null) && (
+                <Pressable style={styles.heroIconBtn} onPress={handleDelete} hitSlop={8}>
+                  <Text style={styles.heroIconText}>🗑</Text>
+                </Pressable>
+              )}
+            </View>
+          </SafeAreaView>
         </ImageBackground>
 
         <View style={styles.content}>
-          <View style={styles.titleRow}>
+          <View style={styles.tags}>
             <DifficultyBadge difficulty={recipe.difficulty} />
-            {isOwnRecipe(recipe, user?.id ?? null) && (
-              <Pressable onPress={handleDelete} hitSlop={8}>
-                <Text style={styles.deleteText}>🗑 Delete Recipe</Text>
-              </Pressable>
-            )}
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>{recipe.cuisine}</Text>
+            </View>
+            {recipe.dietaryTags.map((tag) => (
+              <View key={tag} style={styles.tag}>
+                <Text style={styles.tagText}>{tag}</Text>
+              </View>
+            ))}
           </View>
           <Text style={styles.title}>{recipe.title}</Text>
           {recipe.authorName && <Text style={styles.authorText}>by {recipe.authorName}</Text>}
@@ -187,17 +208,6 @@ export function RecipeDetailScreen() {
             </View>
             <Text style={styles.servingsLabel}>{desiredServings === 1 ? 'person' : 'people'}</Text>
           </View>
-
-          {/* Dietary tags */}
-          {recipe.dietaryTags.length > 0 && (
-            <View style={styles.tags}>
-              {recipe.dietaryTags.map((tag) => (
-                <View key={tag} style={styles.tag}>
-                  <Text style={styles.tagText}>{tag}</Text>
-                </View>
-              ))}
-            </View>
-          )}
 
           {/* Ingredients */}
           <View style={styles.sectionTitleRow}>
@@ -315,7 +325,7 @@ export function RecipeDetailScreen() {
             })
           }
         >
-          <Text style={styles.ctaText}>Generate Shopping List</Text>
+          <Text style={styles.ctaText}>🛒  Generate shopping list</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -375,39 +385,61 @@ function makeStyles(colors: Colors) {
     container: { flex: 1, backgroundColor: colors.background },
     center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
     hero: {
-      height: 200,
+      height: 320,
       backgroundColor: colors.border,
+    },
+    heroHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: spacing.md,
+      paddingTop: spacing.sm,
+    },
+    heroActions: {
+      flexDirection: 'row',
+      gap: spacing.sm,
+    },
+    heroIconBtn: {
+      width: 36,
+      height: 36,
+      borderRadius: 18,
+      backgroundColor: 'rgba(255,255,255,0.85)',
       alignItems: 'center',
       justifyContent: 'center',
     },
-    heroCuisine: {
-      position: 'absolute',
-      bottom: spacing.sm,
-      right: spacing.md,
-      fontSize: 12,
-      color: colors.textSecondary,
-      fontStyle: 'italic',
+    heroIconText: { fontSize: 18, color: colors.text },
+    content: {
+      marginTop: -radius.xl,
+      borderTopLeftRadius: radius.xl,
+      borderTopRightRadius: radius.xl,
+      backgroundColor: colors.background,
+      padding: spacing.md,
+      paddingTop: spacing.lg,
+      gap: spacing.md,
     },
-    content: { padding: spacing.md, gap: spacing.md },
-    titleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-    deleteText: { fontSize: 13, fontWeight: '600', color: colors.difficulty.Hard },
-    title: { fontSize: 26, fontWeight: '800', color: colors.text, lineHeight: 32 },
-    authorText: { fontSize: 13, color: colors.textMuted, fontStyle: 'italic' },
-    description: { fontSize: 15, color: colors.textSecondary, lineHeight: 22 },
+    title: { fontFamily: fonts.display, fontSize: 28, color: colors.text, lineHeight: 34 },
+    authorText: { fontFamily: fonts.body, fontSize: 13, color: colors.textMuted, fontStyle: 'italic' },
+    description: { fontFamily: fonts.body, fontSize: 15, color: colors.textSecondary, lineHeight: 22 },
     statsRow: {
       flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent: 'space-between',
       rowGap: spacing.sm,
-      backgroundColor: colors.card,
-      borderRadius: radius.md,
-      padding: spacing.md,
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.border,
+      paddingVertical: spacing.md,
     },
     stat: { alignItems: 'center', gap: 2, flexBasis: '30%' },
-    statValue: { fontSize: 15, fontWeight: '700', color: colors.text },
-    statLabel: { fontSize: 11, color: colors.textMuted },
+    statValue: { fontFamily: fonts.bodySemiBold, fontSize: 15, color: colors.text },
+    statLabel: {
+      fontFamily: fonts.body,
+      fontSize: 10,
+      color: colors.textMuted,
+      textTransform: 'uppercase',
+      letterSpacing: 0.5,
+    },
     servingsRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-    servingsLabel: { fontSize: 14, color: colors.textSecondary },
+    servingsLabel: { fontFamily: fonts.body, fontSize: 14, color: colors.textSecondary },
     servingsStepper: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -423,25 +455,25 @@ function makeStyles(colors: Colors) {
       justifyContent: 'center',
       backgroundColor: colors.card,
     },
-    servingsBtnText: { fontSize: 20, fontWeight: '700', color: colors.primary },
+    servingsBtnText: { fontFamily: fonts.bodyBold, fontSize: 20, color: colors.primary },
     servingsValue: {
+      fontFamily: fonts.bodySemiBold,
       fontSize: 17,
-      fontWeight: '700',
       color: colors.text,
       minWidth: 32,
       textAlign: 'center',
     },
-    tags: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
+    tags: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, alignItems: 'center' },
     tag: {
       backgroundColor: colors.tagBg,
-      borderRadius: radius.sm,
+      borderRadius: 999,
       paddingHorizontal: spacing.sm,
-      paddingVertical: 3,
+      paddingVertical: 5,
     },
-    tagText: { fontSize: 12, color: colors.primaryLight, fontWeight: '600' },
-    sectionTitle: { fontSize: 19, fontWeight: '700', color: colors.text },
+    tagText: { fontFamily: fonts.bodySemiBold, fontSize: 12, color: colors.textSecondary },
+    sectionTitle: { fontFamily: fonts.bodyBold, fontSize: 19, color: colors.text },
     sectionTitleRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-    resetText: { fontSize: 14, fontWeight: '600', color: colors.primary },
+    resetText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.primary },
     section: {
       backgroundColor: colors.card,
       borderRadius: radius.md,
@@ -471,10 +503,10 @@ function makeStyles(colors: Colors) {
       justifyContent: 'center',
       backgroundColor: colors.background,
     },
-    stepperBtnText: { fontSize: 18, fontWeight: '700', color: colors.primary },
+    stepperBtnText: { fontFamily: fonts.bodyBold, fontSize: 18, color: colors.primary },
     ingredientQtyInput: {
+      fontFamily: fonts.bodySemiBold,
       fontSize: 14,
-      fontWeight: '600',
       color: colors.text,
       width: 42,
       height: 30,
@@ -483,7 +515,7 @@ function makeStyles(colors: Colors) {
       borderRightWidth: StyleSheet.hairlineWidth,
       borderColor: colors.border,
     },
-    ingredientUnit: { fontSize: 13, color: colors.textSecondary, width: 60 },
+    ingredientUnit: { fontFamily: fonts.body, fontSize: 13, color: colors.textSecondary, width: 60 },
     unitChips: { flexDirection: 'row', gap: 4, width: 90 },
     unitChip: {
       borderWidth: 1,
@@ -493,9 +525,9 @@ function makeStyles(colors: Colors) {
       paddingVertical: 5,
     },
     unitChipActive: { backgroundColor: colors.primary, borderColor: colors.primary },
-    unitChipText: { fontSize: 12, color: colors.textSecondary },
-    unitChipTextActive: { color: '#fff', fontWeight: '600' },
-    ingredientName: { fontSize: 14, color: colors.text, flex: 1 },
+    unitChipText: { fontFamily: fonts.body, fontSize: 12, color: colors.textSecondary },
+    unitChipTextActive: { fontFamily: fonts.bodySemiBold, color: '#fff' },
+    ingredientName: { fontFamily: fonts.body, fontSize: 14, color: colors.text, flex: 1 },
     stepRow: { flexDirection: 'row', gap: spacing.sm, alignItems: 'flex-start' },
     stepNumber: {
       width: 28,
@@ -507,9 +539,9 @@ function makeStyles(colors: Colors) {
       flexShrink: 0,
       marginTop: 1,
     },
-    stepNumberText: { fontSize: 13, fontWeight: '700', color: '#fff' },
-    stepText: { fontSize: 14, color: colors.text, lineHeight: 22, flex: 1 },
-    additionText: { fontSize: 14, color: colors.text, lineHeight: 22 },
+    stepNumberText: { fontFamily: fonts.bodyBold, fontSize: 13, color: '#fff' },
+    stepText: { fontFamily: fonts.body, fontSize: 14, color: colors.text, lineHeight: 22, flex: 1 },
+    additionText: { fontFamily: fonts.body, fontSize: 14, color: colors.text, lineHeight: 22 },
     ctaSpace: { height: spacing.xl },
     ctaBar: {
       padding: spacing.md,
@@ -520,10 +552,10 @@ function makeStyles(colors: Colors) {
     },
     ctaButton: {
       backgroundColor: colors.primary,
-      borderRadius: radius.lg,
+      borderRadius: 999,
       paddingVertical: spacing.md,
       alignItems: 'center',
     },
-    ctaText: { fontSize: 17, fontWeight: '700', color: '#fff' },
+    ctaText: { fontFamily: fonts.bodySemiBold, fontSize: 16, color: '#fff' },
   });
 }

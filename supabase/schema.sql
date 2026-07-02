@@ -9,7 +9,7 @@ create table if not exists profiles (
 
 create table if not exists recipes (
   id uuid primary key default gen_random_uuid(),
-  author_id uuid not null references auth.users(id) on delete cascade,
+  author_id uuid not null references profiles(id) on delete cascade,
   title text not null,
   cuisine text not null,
   difficulty text not null check (difficulty in ('Easy', 'Medium', 'Hard')),
