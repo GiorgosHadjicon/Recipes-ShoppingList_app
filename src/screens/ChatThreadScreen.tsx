@@ -13,12 +13,13 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Avatar } from '../components/Avatar';
 import { RecipeCard } from '../components/RecipeCard';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import type { CommunityStackParamList } from '../navigation/types';
 import {
-  addMemberByEmail,
+  addMember,
   getMessages,
   sendMessage,
   subscribeToMessages,
@@ -71,13 +72,13 @@ export function ChatThreadScreen() {
   }
 
   async function handleInvite() {
-    const email = inviteEmail.trim();
-    if (!email) return;
+    const identifier = inviteEmail.trim();
+    if (!identifier) return;
     try {
-      const addedName = await addMemberByEmail(chatId, email);
+      const addedName = await addMember(chatId, identifier);
       setInviteEmail('');
       setInviteOpen(false);
-      Alert.alert('Member added', `${addedName} is now in this chat.`);
+      Alert.alert('Member added', `@${addedName} is now in this chat.`);
     } catch (err) {
       Alert.alert('Could not add member', err instanceof Error ? err.message : 'Please try again.');
     }
@@ -90,7 +91,12 @@ export function ChatThreadScreen() {
         const recipe = item.recipeRef ? recipesById.get(item.recipeRef) : undefined;
         return (
           <View style={[styles.messageRow, mine && styles.messageRowMine]}>
-            {!mine && <Text style={styles.sender}>{item.senderName}</Text>}
+            {!mine && (
+              <View style={styles.senderRow}>
+                <Avatar emoji={item.senderAvatarEmoji} color={item.senderAvatarColor} size={22} />
+                <Text style={styles.sender}>@{item.senderName}</Text>
+              </View>
+            )}
             {item.recipeRef ? (
               recipe ? (
                 <View style={styles.recipeBubble}>
@@ -134,10 +140,9 @@ export function ChatThreadScreen() {
             style={styles.inviteInput}
             value={inviteEmail}
             onChangeText={setInviteEmail}
-            placeholder="friend@example.com"
+            placeholder="username or email"
             placeholderTextColor={colors.textMuted}
             autoCapitalize="none"
-            keyboardType="email-address"
           />
           <Pressable style={styles.inviteButton} onPress={handleInvite}>
             <Text style={styles.inviteButtonText}>Add</Text>
@@ -234,7 +239,8 @@ function makeStyles(colors: Colors) {
     list: { paddingHorizontal: spacing.md, paddingVertical: spacing.sm },
     messageRow: { marginBottom: spacing.md, alignItems: 'flex-start' },
     messageRowMine: { alignItems: 'flex-end' },
-    sender: { fontFamily: fonts.bodySemiBold, fontSize: 12, color: colors.textMuted, marginBottom: 2 },
+    senderRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs, marginBottom: 2 },
+    sender: { fontFamily: fonts.bodySemiBold, fontSize: 12, color: colors.textMuted },
     bubble: {
       maxWidth: '80%',
       borderRadius: radius.md,

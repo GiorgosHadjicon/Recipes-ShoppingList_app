@@ -3,7 +3,9 @@
 
 create table if not exists profiles (
   id uuid primary key references auth.users(id) on delete cascade,
-  display_name text,
+  username text not null unique check (username ~ '^[a-z0-9_]{3,20}$'),
+  avatar_emoji text,
+  avatar_color text,
   created_at timestamptz not null default now()
 );
 
@@ -32,15 +34,31 @@ create table if not exists recipes (
 );
 create index if not exists recipes_author_id_idx on recipes(author_id);
 
--- Auto-create a profile row whenever someone signs up.
+-- Auto-create a profile row whenever someone signs up: unique username from the
+-- sanitized email local-part, numeric suffix on collision.
 create or replace function handle_new_user()
-returns trigger as $$
+returns trigger language plpgsql security definer set search_path = public as $$
+declare
+  base text;
+  candidate text;
+  n int := 0;
 begin
-  insert into public.profiles (id, display_name)
-  values (new.id, split_part(new.email, '@', 1));
+  base := coalesce(nullif(regexp_replace(
+    lower(split_part(new.email, '@', 1)), '[^a-z0-9_]', '', 'g'), ''), 'user');
+  -- rpad would truncate long names to 3 chars — pad only when actually short.
+  base := left(base, 20);
+  if length(base) < 3 then
+    base := rpad(base, 3, '0');
+  end if;
+  candidate := base;
+  while exists (select 1 from profiles where username = candidate) loop
+    n := n + 1;
+    candidate := left(base, 20 - length(n::text)) || n::text;
+  end loop;
+  insert into public.profiles (id, username) values (new.id, candidate);
   return new;
 end;
-$$ language plpgsql security definer;
+$$;
 
 drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created

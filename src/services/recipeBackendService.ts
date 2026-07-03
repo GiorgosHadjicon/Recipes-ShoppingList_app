@@ -25,7 +25,7 @@ interface RecipeRow {
   ingredients: Ingredient[];
   instructions: string[];
   created_at: string;
-  profiles: { display_name: string | null } | null;
+  profiles: { username: string | null } | null;
 }
 
 function rowToRecipe(row: RecipeRow): Recipe {
@@ -49,7 +49,7 @@ function rowToRecipe(row: RecipeRow): Recipe {
     ingredients: row.ingredients,
     instructions: row.instructions,
     authorId: row.author_id,
-    authorName: row.profiles?.display_name ?? undefined,
+    authorName: row.profiles?.username ?? undefined,
     createdAt: row.created_at,
   };
 }
@@ -58,7 +58,7 @@ export async function getCommunityRecipes(): Promise<Recipe[]> {
   if (!supabase) return [];
   const { data, error } = await supabase
     .from('recipes')
-    .select('*, profiles(display_name)')
+    .select('*, profiles(username)')
     .order('created_at', { ascending: false });
   if (error) {
     // ponytail: swallow and log rather than throw — a backend hiccup shouldn't block
@@ -97,7 +97,7 @@ export async function createRecipe(recipe: Omit<Recipe, 'id'>): Promise<Recipe> 
       ingredients: recipe.ingredients,
       instructions: recipe.instructions,
     })
-    .select('*, profiles(display_name)')
+    .select('*, profiles(username)')
     .single();
   if (error) throw error;
   return rowToRecipe(data as RecipeRow);

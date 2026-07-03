@@ -14,6 +14,8 @@ export interface ChatMessage {
   chatId: string;
   senderId: string;
   senderName: string;
+  senderAvatarEmoji: string | null;
+  senderAvatarColor: string | null;
   body: string | null;
   recipeRef: string | null;
   createdAt: string;
@@ -33,7 +35,7 @@ interface MessageRow {
   body: string | null;
   recipe_ref: string | null;
   created_at: string;
-  profiles: { display_name: string | null } | null;
+  profiles: { username: string | null; avatar_emoji: string | null; avatar_color: string | null } | null;
 }
 
 function rowToChat(row: ChatRow): Chat {
@@ -45,7 +47,9 @@ function rowToMessage(row: MessageRow): ChatMessage {
     id: row.id,
     chatId: row.chat_id,
     senderId: row.sender_id,
-    senderName: row.profiles?.display_name ?? 'Unknown',
+    senderName: row.profiles?.username ?? 'Unknown',
+    senderAvatarEmoji: row.profiles?.avatar_emoji ?? null,
+    senderAvatarColor: row.profiles?.avatar_color ?? null,
     body: row.body,
     recipeRef: row.recipe_ref,
     createdAt: row.created_at,
@@ -85,13 +89,14 @@ export async function createChat(name: string): Promise<Chat> {
   return chat;
 }
 
-// Returns the added member's display name. Throws with a readable message when
-// the email has no account or the caller isn't a member (raised by the SQL fn).
-export async function addMemberByEmail(chatId: string, email: string): Promise<string> {
+// Accepts a username (with or without leading @) or an email address.
+// Returns the added member's username. Throws with a readable message when
+// no account matches or the caller isn't a member (raised by the SQL fn).
+export async function addMember(chatId: string, identifier: string): Promise<string> {
   if (!supabase) throw new Error(NOT_CONFIGURED_MESSAGE);
-  const { data, error } = await supabase.rpc('add_chat_member_by_email', {
+  const { data, error } = await supabase.rpc('add_chat_member', {
     p_chat_id: chatId,
-    p_email: email,
+    p_identifier: identifier,
   });
   if (error) throw new Error(error.message);
   return data as string;
@@ -103,7 +108,7 @@ export async function getMessages(chatId: string): Promise<ChatMessage[]> {
   if (!supabase) return [];
   const { data, error } = await supabase
     .from('messages')
-    .select('*, profiles(display_name)')
+    .select('*, profiles(username, avatar_emoji, avatar_color)')
     .eq('chat_id', chatId)
     .order('created_at', { ascending: false });
   if (error) throw error;

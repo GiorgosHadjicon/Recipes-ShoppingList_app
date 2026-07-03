@@ -5,7 +5,7 @@ import { Alert, FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'r
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import type { CommunityStackParamList } from '../navigation/types';
-import { addMemberByEmail, createChat, getChats, type Chat } from '../services/chatService';
+import { addMember, createChat, getChats, type Chat } from '../services/chatService';
 import { fonts, radius, spacing, type Colors } from '../theme';
 
 export function ChatListScreen() {
@@ -32,11 +32,11 @@ export function ChatListScreen() {
     try {
       const chat = await createChat(name.trim());
       const failures: string[] = [];
-      for (const email of emails.split(',').map((e) => e.trim()).filter(Boolean)) {
+      for (const identifier of emails.split(',').map((e) => e.trim()).filter(Boolean)) {
         try {
-          await addMemberByEmail(chat.id, email);
+          await addMember(chat.id, identifier);
         } catch (err) {
-          failures.push(`${email} — ${err instanceof Error ? err.message : 'failed'}`);
+          failures.push(`${identifier} — ${err instanceof Error ? err.message : 'failed'}`);
         }
       }
       if (failures.length > 0) {
@@ -83,10 +83,9 @@ export function ChatListScreen() {
             style={styles.input}
             value={emails}
             onChangeText={setEmails}
-            placeholder="Friends' emails, comma-separated"
+            placeholder="Friends' usernames or emails, comma-separated"
             placeholderTextColor={colors.textMuted}
             autoCapitalize="none"
-            keyboardType="email-address"
           />
           <Pressable
             style={[styles.primaryButton, !name.trim() && styles.buttonDisabled]}
@@ -113,7 +112,7 @@ export function ChatListScreen() {
         contentContainerStyle={styles.list}
         ListEmptyComponent={
           <Text style={styles.emptyText}>
-            No chats yet. Start one and invite friends by the email they signed up with.
+            No chats yet. Start one and invite friends by username or email.
           </Text>
         }
       />
