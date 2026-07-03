@@ -20,7 +20,9 @@ import { useTheme } from '../context/ThemeContext';
 import type { CommunityStackParamList } from '../navigation/types';
 import {
   addMember,
+  addReaction,
   getMessages,
+  removeReaction,
   sendMessage,
   subscribeToMessages,
   type ChatMessage,
@@ -28,6 +30,8 @@ import {
 import { getRecipes } from '../services/recipeService';
 import { fonts, radius, spacing, type Colors } from '../theme';
 import type { Recipe } from '../types';
+
+const REACTION_EMOJIS = ['👍', '❤️', '😂', '😮', '😢', '🔥'];
 
 export function ChatThreadScreen() {
   const route = useRoute<RouteProp<CommunityStackParamList, 'ChatThread'>>();
@@ -43,6 +47,7 @@ export function ChatThreadScreen() {
   const [sending, setSending] = useState(false);
   const [inviteOpen, setInviteOpen] = useState(false);
   const [inviteEmail, setInviteEmail] = useState('');
+  const [pickerFor, setPickerFor] = useState<string | null>(null);
 
   const loadMessages = useCallback(() => {
     getMessages(chatId).then(setMessages).catch(() => {});
@@ -68,6 +73,21 @@ export function ChatThreadScreen() {
       Alert.alert('Could not send', err instanceof Error ? err.message : 'Please try again.');
     } finally {
       setSending(false);
+    }
+  }
+
+  async function handleToggleReaction(message: ChatMessage, emoji: string) {
+    setPickerFor(null);
+    const mine = message.reactions.some((r) => r.emoji === emoji && r.mine);
+    try {
+      if (mine) {
+        await removeReaction(message.id, emoji);
+      } else {
+        await addReaction(chatId, message.id, emoji);
+      }
+      loadMessages();
+    } catch (err) {
+      Alert.alert('Could not react', err instanceof Error ? err.message : 'Please try again.');
     }
   }
 
@@ -97,20 +117,46 @@ export function ChatThreadScreen() {
                 <Text style={styles.sender}>@{item.senderName}</Text>
               </View>
             )}
-            {item.recipeRef ? (
-              recipe ? (
-                <View style={styles.recipeBubble}>
-                  <RecipeCard
-                    recipe={recipe}
-                    onPress={() => navigation.navigate('RecipeDetail', { recipeId: recipe.id })}
-                  />
-                </View>
+            <Pressable onLongPress={() => setPickerFor((v) => (v === item.id ? null : item.id))}>
+              {item.recipeRef ? (
+                recipe ? (
+                  <View style={styles.recipeBubble}>
+                    <RecipeCard
+                      recipe={recipe}
+                      onPress={() => navigation.navigate('RecipeDetail', { recipeId: recipe.id })}
+                    />
+                  </View>
+                ) : (
+                  <Text style={styles.unavailable}>Recipe no longer available</Text>
+                )
               ) : (
-                <Text style={styles.unavailable}>Recipe no longer available</Text>
-              )
-            ) : (
-              <View style={[styles.bubble, mine ? styles.bubbleMine : styles.bubbleTheirs]}>
-                <Text style={[styles.bubbleText, mine && styles.bubbleTextMine]}>{item.body}</Text>
+                <View style={[styles.bubble, mine ? styles.bubbleMine : styles.bubbleTheirs]}>
+                  <Text style={[styles.bubbleText, mine && styles.bubbleTextMine]}>{item.body}</Text>
+                </View>
+              )}
+            </Pressable>
+            {pickerFor === item.id && (
+              <View style={styles.pickerRow}>
+                {REACTION_EMOJIS.map((emoji) => (
+                  <Pressable key={emoji} onPress={() => handleToggleReaction(item, emoji)} hitSlop={4}>
+                    <Text style={styles.pickerEmoji}>{emoji}</Text>
+                  </Pressable>
+                ))}
+              </View>
+            )}
+            {item.reactions.length > 0 && (
+              <View style={styles.reactionRow}>
+                {item.reactions.map((r) => (
+                  <Pressable
+                    key={r.emoji}
+                    style={[styles.reactionPill, r.mine && styles.reactionPillMine]}
+                    onPress={() => handleToggleReaction(item, r.emoji)}
+                  >
+                    <Text style={styles.reactionPillText}>
+                      {r.emoji} {r.count}
+                    </Text>
+                  </Pressable>
+                ))}
               </View>
             )}
             <Text style={styles.timestamp}>
@@ -119,7 +165,8 @@ export function ChatThreadScreen() {
           </View>
         );
       },
-    [user?.id, recipesById, styles, navigation],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [user?.id, recipesById, styles, navigation, pickerFor],
   );
 
   return (
@@ -261,6 +308,30 @@ function makeStyles(colors: Colors) {
     },
     unavailable: { fontFamily: fonts.body, fontSize: 13, color: colors.textMuted, fontStyle: 'italic' },
     timestamp: { fontFamily: fonts.body, fontSize: 10, color: colors.textMuted, marginTop: 2 },
+    pickerRow: {
+      flexDirection: 'row',
+      gap: spacing.sm,
+      backgroundColor: colors.card,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 999,
+      paddingHorizontal: spacing.md,
+      paddingVertical: spacing.xs,
+      marginTop: spacing.xs,
+    },
+    pickerEmoji: { fontSize: 22 },
+    reactionRow: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, marginTop: spacing.xs },
+    reactionPill: {
+      flexDirection: 'row',
+      backgroundColor: colors.card,
+      borderWidth: 1,
+      borderColor: colors.border,
+      borderRadius: 999,
+      paddingHorizontal: spacing.sm,
+      paddingVertical: 2,
+    },
+    reactionPillMine: { borderColor: colors.primary },
+    reactionPillText: { fontFamily: fonts.body, fontSize: 13, color: colors.text },
     // Inverted list flips children; flip the empty state back upright.
     emptyFlip: { transform: [{ scaleY: -1 }], paddingTop: spacing.xl, alignItems: 'center' },
     emptyText: { fontFamily: fonts.body, fontSize: 14, color: colors.textSecondary },

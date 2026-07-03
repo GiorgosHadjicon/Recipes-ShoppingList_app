@@ -9,6 +9,12 @@ export interface Chat {
   createdAt: string;
 }
 
+export interface MessageReaction {
+  emoji: string;
+  count: number;
+  mine: boolean;
+}
+
 export interface ChatMessage {
   id: string;
   chatId: string;
@@ -19,6 +25,7 @@ export interface ChatMessage {
   body: string | null;
   recipeRef: string | null;
   createdAt: string;
+  reactions: MessageReaction[];
 }
 
 interface ChatRow {
@@ -36,13 +43,25 @@ interface MessageRow {
   recipe_ref: string | null;
   created_at: string;
   profiles: { username: string | null; avatar_emoji: string | null; avatar_color: string | null } | null;
+  message_reactions: Array<{ emoji: string; user_id: string }>;
+}
+
+function aggregateReactions(rows: Array<{ emoji: string; user_id: string }>, myId: string | null): MessageReaction[] {
+  const byEmoji = new Map<string, MessageReaction>();
+  for (const { emoji, user_id } of rows) {
+    const entry = byEmoji.get(emoji) ?? { emoji, count: 0, mine: false };
+    entry.count++;
+    if (user_id === myId) entry.mine = true;
+    byEmoji.set(emoji, entry);
+  }
+  return [...byEmoji.values()].sort((a, b) => b.count - a.count);
 }
 
 function rowToChat(row: ChatRow): Chat {
   return { id: row.id, name: row.name, createdBy: row.created_by, createdAt: row.created_at };
 }
 
-function rowToMessage(row: MessageRow): ChatMessage {
+function rowToMessage(row: MessageRow, myId: string | null): ChatMessage {
   return {
     id: row.id,
     chatId: row.chat_id,
@@ -53,6 +72,7 @@ function rowToMessage(row: MessageRow): ChatMessage {
     body: row.body,
     recipeRef: row.recipe_ref,
     createdAt: row.created_at,
+    reactions: aggregateReactions(row.message_reactions ?? [], myId),
   };
 }
 
@@ -106,13 +126,15 @@ export async function addMember(chatId: string, identifier: string): Promise<str
 // ponytail: no pagination; fine until a chat has thousands of messages.
 export async function getMessages(chatId: string): Promise<ChatMessage[]> {
   if (!supabase) return [];
+  const { data: userData } = await supabase.auth.getUser();
+  const myId = userData.user?.id ?? null;
   const { data, error } = await supabase
     .from('messages')
-    .select('*, profiles(username, avatar_emoji, avatar_color)')
+    .select('*, profiles(username, avatar_emoji, avatar_color), message_reactions(emoji, user_id)')
     .eq('chat_id', chatId)
     .order('created_at', { ascending: false });
   if (error) throw error;
-  return (data as MessageRow[]).map(rowToMessage);
+  return (data as MessageRow[]).map((row) => rowToMessage(row, myId));
 }
 
 export async function sendMessage(
@@ -133,10 +155,36 @@ export async function sendMessage(
   if (error) throw error;
 }
 
-// Fires onInsert for every new message in the chat; caller refetches rather than
-// appending payloads (authoritative — no dedup or missing-join concerns).
-// Returns an unsubscribe function.
-export function subscribeToMessages(chatId: string, onInsert: () => void): () => void {
+export async function addReaction(chatId: string, messageId: string, emoji: string): Promise<void> {
+  if (!supabase) throw new Error(NOT_CONFIGURED_MESSAGE);
+  const { data: userData } = await supabase.auth.getUser();
+  const userId = userData.user?.id;
+  if (!userId) throw new Error('You must be signed in to react.');
+  const { error } = await supabase
+    .from('message_reactions')
+    .insert({ chat_id: chatId, message_id: messageId, user_id: userId, emoji });
+  // 23505 = already reacted with this emoji (double-tap race) — treat as success.
+  if (error && error.code !== '23505') throw error;
+}
+
+export async function removeReaction(messageId: string, emoji: string): Promise<void> {
+  if (!supabase) throw new Error(NOT_CONFIGURED_MESSAGE);
+  const { data: userData } = await supabase.auth.getUser();
+  const userId = userData.user?.id;
+  if (!userId) return;
+  const { error } = await supabase
+    .from('message_reactions')
+    .delete()
+    .eq('message_id', messageId)
+    .eq('user_id', userId)
+    .eq('emoji', emoji);
+  if (error) throw error;
+}
+
+// Fires onEvent for every new message in the chat and any visible reaction change;
+// caller refetches rather than appending payloads (authoritative — no dedup or
+// missing-join concerns). Returns an unsubscribe function.
+export function subscribeToMessages(chatId: string, onEvent: () => void): () => void {
   if (!supabase) return () => {};
   const client = supabase;
   const channel = client
@@ -144,7 +192,14 @@ export function subscribeToMessages(chatId: string, onInsert: () => void): () =>
     .on(
       'postgres_changes',
       { event: 'INSERT', schema: 'public', table: 'messages', filter: `chat_id=eq.${chatId}` },
-      onInsert,
+      onEvent,
+    )
+    // chat_id is denormalized onto reactions (006) — realtime can't evaluate RLS
+    // policies that join other tables, so the policy/filter must be single-table.
+    .on(
+      'postgres_changes',
+      { event: '*', schema: 'public', table: 'message_reactions', filter: `chat_id=eq.${chatId}` },
+      onEvent,
     )
     .subscribe();
   return () => {
