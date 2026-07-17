@@ -1,40 +1,27 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
-import type { Ingredient, ShoppingList } from '../types';
-import { buildShoppingList, buildWeeklyShoppingList } from '../services/groceryListService';
+import type { ShoppingList } from '../types';
+import { buildShoppingList } from '../services/groceryListService';
 
 interface ShoppingListState {
   list: ShoppingList | null;
-  selectedSupermarketId: string;
   loading: boolean;
 }
 
 interface ShoppingListActions {
-  generateList: (recipeId: string, supermarketId: string, supermarketName: string, ingredientsOverride?: Ingredient[]) => Promise<void>;
-  generateWeeklyList: (recipeIds: string[], supermarketId: string, supermarketName: string) => Promise<void>;
+  generateList: (recipeId: string) => Promise<void>;
   toggleItem: (aisleIndex: number, itemIndex: number) => void;
   clearList: () => void;
-  setSelectedSupermarket: (id: string) => void;
 }
 
 const Context = createContext<(ShoppingListState & ShoppingListActions) | null>(null);
 
 export function ShoppingListProvider({ children }: { children: React.ReactNode }) {
-  const [state, setState] = useState<ShoppingListState>({
-    list: null,
-    selectedSupermarketId: 'alphamega',
-    loading: false,
-  });
+  const [state, setState] = useState<ShoppingListState>({ list: null, loading: false });
 
-  const generateList = useCallback(async (recipeId: string, supermarketId: string, supermarketName: string, ingredientsOverride?: Ingredient[]) => {
+  const generateList = useCallback(async (recipeId: string) => {
     setState((s) => ({ ...s, loading: true }));
-    const list = await buildShoppingList(recipeId, supermarketId, supermarketName, ingredientsOverride);
-    setState((s) => ({ ...s, list, selectedSupermarketId: supermarketId, loading: false }));
-  }, []);
-
-  const generateWeeklyList = useCallback(async (recipeIds: string[], supermarketId: string, supermarketName: string) => {
-    setState((s) => ({ ...s, loading: true }));
-    const list = await buildWeeklyShoppingList(recipeIds, supermarketId, supermarketName);
-    setState((s) => ({ ...s, list, selectedSupermarketId: supermarketId, loading: false }));
+    const list = await buildShoppingList(recipeId);
+    setState({ list, loading: false });
   }, []);
 
   const toggleItem = useCallback((aisleIndex: number, itemIndex: number) => {
@@ -57,12 +44,8 @@ export function ShoppingListProvider({ children }: { children: React.ReactNode }
     setState((s) => ({ ...s, list: null }));
   }, []);
 
-  const setSelectedSupermarket = useCallback((id: string) => {
-    setState((s) => ({ ...s, selectedSupermarketId: id }));
-  }, []);
-
   return (
-    <Context.Provider value={{ ...state, generateList, generateWeeklyList, toggleItem, clearList, setSelectedSupermarket }}>
+    <Context.Provider value={{ ...state, generateList, toggleItem, clearList }}>
       {children}
     </Context.Provider>
   );

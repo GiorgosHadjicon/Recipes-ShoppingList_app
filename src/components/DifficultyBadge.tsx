@@ -1,11 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { useTheme } from '../context/ThemeContext';
-import { fonts, radius, spacing } from '../theme';
-import type { Difficulty } from '../types';
+import { fonts, lightColors, radius, spacing } from '../theme';
+import type { DifficultyLevel } from '../types';
 
-export function DifficultyBadge({ difficulty }: { difficulty: Difficulty }) {
-  const { colors } = useTheme();
+export function DifficultyBadge({ difficulty }: { difficulty: DifficultyLevel }) {
+  const colors = lightColors;
   return (
     <View style={[styles.badge, { backgroundColor: colors.difficultyBg[difficulty] }]}>
       <Text style={[styles.text, { color: colors.difficulty[difficulty] }]}>{difficulty}</Text>

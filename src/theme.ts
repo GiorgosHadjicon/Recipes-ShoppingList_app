@@ -22,6 +22,7 @@ export interface Colors {
   border: string;
   shadow: string;
   tagBg: string;
+  danger: string;
   difficulty: { Easy: string; Medium: string; Hard: string };
   difficultyBg: { Easy: string; Medium: string; Hard: string };
 }
@@ -38,39 +39,16 @@ export const lightColors: Colors = {
   border: '#E4D6C1',
   shadow: '#00000012',
   tagBg: '#EEF0E2',
+  danger: palette.fig,
   difficulty: {
     Easy: palette.sage,
     Medium: '#C98A1F',
-    Hard: palette.fig,
+    Hard: palette.terracotta,
   },
   difficultyBg: {
     Easy: '#E4EAD8',
     Medium: '#F5E6C4',
-    Hard: '#EFDCE1',
-  },
-};
-
-export const darkColors: Colors = {
-  primary: '#D97C52',
-  primaryLight: '#E89A76',
-  accent: '#E8B94F',
-  background: palette.ink,
-  card: '#262019',
-  text: palette.parchment,
-  textSecondary: '#B8AC98',
-  textMuted: '#7D7362',
-  border: '#3A3126',
-  shadow: '#00000040',
-  tagBg: '#33301F',
-  difficulty: {
-    Easy: '#9CB37D',
-    Medium: '#E8B94F',
-    Hard: '#A85A70',
-  },
-  difficultyBg: {
-    Easy: '#2A331F',
-    Medium: '#3A2E15',
-    Hard: '#34202A',
+    Hard: '#F3E1D6',
   },
 };
 

@@ -1,17 +1,14 @@
 import { AISLE_LABELS, AISLE_ORDER, type Ingredient, type ShoppingList, type ShoppingListGroup, type ShoppingListItem } from '../types';
 import { getRecipeById } from './recipeService';
-import { estimateProductForIngredient, matchIngredientToProduct, scalePriceForQuantity } from './productService';
+import { matchIngredientToProduct } from './productService';
 
-async function toShoppingListItems(
-  ingredients: Ingredient[],
-  supermarketId: string,
-): Promise<ShoppingListItem[]> {
+async function toShoppingListItems(ingredients: Ingredient[]): Promise<ShoppingListItem[]> {
   return Promise.all(
-    ingredients.map(async (ingredient): Promise<ShoppingListItem> => {
-      const matched = (await matchIngredientToProduct(ingredient, supermarketId)) ?? (await estimateProductForIngredient(ingredient));
-      const product = matched ? { ...matched, priceEur: scalePriceForQuantity(matched, ingredient) } : null;
-      return { ingredient, product, checked: false };
-    }),
+    ingredients.map(async (ingredient): Promise<ShoppingListItem> => ({
+      ingredient,
+      product: await matchIngredientToProduct(ingredient.name),
+      checked: false,
+    })),
   );
 }
 
@@ -33,59 +30,16 @@ function sumEur(items: ShoppingListItem[]): number {
   return items.reduce((sum, item) => sum + (item.product?.priceEur ?? 0), 0);
 }
 
-export async function buildShoppingList(
-  recipeId: string,
-  supermarketId: string,
-  supermarketName: string,
-  ingredientsOverride?: Ingredient[],
-): Promise<ShoppingList | null> {
+export async function buildShoppingList(recipeId: string): Promise<ShoppingList | null> {
   const recipe = await getRecipeById(recipeId);
   if (!recipe) return null;
 
-  const itemsWithProducts = await toShoppingListItems(ingredientsOverride ?? recipe.ingredients, supermarketId);
+  const items = await toShoppingListItems(recipe.ingredients);
 
   return {
     recipeId,
     recipeTitle: recipe.title,
-    supermarketId,
-    supermarketName,
-    groups: groupByAisle(itemsWithProducts),
-    totalEur: sumEur(itemsWithProducts),
-  };
-}
-
-export async function buildWeeklyShoppingList(
-  recipeIds: string[],
-  supermarketId: string,
-  supermarketName: string,
-): Promise<ShoppingList | null> {
-  const recipes = (await Promise.all(recipeIds.map((id) => getRecipeById(id)))).filter(
-    (r): r is NonNullable<typeof r> => r !== null,
-  );
-  if (recipes.length === 0) return null;
-
-  // Merge ingredients across recipes, summing quantities for the same name+unit
-  const merged = new Map<string, Ingredient>();
-  for (const recipe of recipes) {
-    for (const ingredient of recipe.ingredients) {
-      const key = `${ingredient.name.toLowerCase().trim()}|${ingredient.unit}`;
-      const existing = merged.get(key);
-      if (existing) {
-        existing.quantity += ingredient.quantity;
-      } else {
-        merged.set(key, { ...ingredient });
-      }
-    }
-  }
-
-  const itemsWithProducts = await toShoppingListItems(Array.from(merged.values()), supermarketId);
-
-  return {
-    recipeId: 'weekly-plan',
-    recipeTitle: `This Week's Basket (${recipes.length} meal${recipes.length > 1 ? 's' : ''})`,
-    supermarketId,
-    supermarketName,
-    groups: groupByAisle(itemsWithProducts),
-    totalEur: sumEur(itemsWithProducts),
+    groups: groupByAisle(items),
+    totalEur: sumEur(items),
   };
 }

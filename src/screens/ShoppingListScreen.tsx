@@ -12,18 +12,14 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useShoppingList } from '../context/ShoppingListContext';
-import { useTheme } from '../context/ThemeContext';
 import type { RootStackParamList } from '../navigation/types';
-import supermarketsData from '../data/supermarkets.json';
-import { fonts, radius, spacing, type Colors } from '../theme';
-import type { ShoppingListItem, Supermarket } from '../types';
-
-const supermarkets = supermarketsData as Supermarket[];
+import { fonts, lightColors, radius, spacing, type Colors } from '../theme';
+import type { ShoppingListItem } from '../types';
 
 export function ShoppingListScreen() {
   const { list, toggleItem, clearList } = useShoppingList();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const { colors } = useTheme();
+  const colors = lightColors;
   const styles = makeStyles(colors);
 
   if (!list) {
@@ -45,18 +41,17 @@ export function ShoppingListScreen() {
   }
 
   const currentList = list;
-  const supermarket = supermarkets.find((s) => s.id === currentList.supermarketId);
   const checkedCount = currentList.groups.flatMap((g) => g.items).filter((i) => i.checked).length;
   const totalCount = currentList.groups.flatMap((g) => g.items).length;
   const remainingCount = totalCount - checkedCount;
 
   async function handleShare() {
-    const lines: string[] = [`🛒 Shopping List — ${currentList.recipeTitle}`, `📍 ${currentList.supermarketName}`, ''];
+    const lines: string[] = [`🛒 Shopping List — ${currentList.recipeTitle}`, ''];
     for (const group of currentList.groups) {
       lines.push(group.aisleLabel);
       for (const item of group.items) {
         const check = item.checked ? '✅' : '☐';
-        const price = item.product ? ` (${item.product.estimated ? '~' : ''}€${item.product.priceEur.toFixed(2)})` : '';
+        const price = item.product ? ` (€${item.product.priceEur.toFixed(2)})` : '';
         lines.push(`  ${check} ${item.ingredient.quantity} ${item.ingredient.unit} ${item.ingredient.name}${price}`);
       }
       lines.push('');
@@ -77,23 +72,11 @@ export function ShoppingListScreen() {
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Text style={styles.heading} numberOfLines={1}>{list.recipeTitle}</Text>
-          <View style={styles.supermarketRow}>
-            <View style={[styles.smDot, { backgroundColor: supermarket?.accentColor ?? colors.textMuted }]} />
-            <Text style={styles.supermarketName}>{currentList.supermarketName}</Text>
-          </View>
         </View>
         <TouchableOpacity onPress={handleShare} style={styles.shareBtn}>
           <Text style={styles.shareIcon}>↑</Text>
         </TouchableOpacity>
       </View>
-
-      {!supermarket && (
-        <View style={styles.noPricingBanner}>
-          <Text style={styles.noPricingText}>
-            No real price data for this store — prices below are estimated from the average at AlphaMega, Sklavenitis, and Lidl.
-          </Text>
-        </View>
-      )}
 
       <SectionList
         sections={sections}
@@ -134,8 +117,7 @@ export function ShoppingListScreen() {
 }
 
 function ListItem({ item, onToggle }: { item: ShoppingListItem; onToggle: () => void }) {
-  const { colors } = useTheme();
-  const styles = makeStyles(colors);
+  const styles = makeStyles(lightColors);
   return (
     <Pressable
       style={[styles.item, item.checked && styles.itemChecked]}
@@ -149,16 +131,14 @@ function ListItem({ item, onToggle }: { item: ShoppingListItem; onToggle: () => 
           {item.ingredient.quantity} {item.ingredient.unit} {item.ingredient.name}
         </Text>
         {item.product ? (
-          <Text style={styles.itemSub}>
-            {item.product.displayName}{item.product.estimated ? ' · estimated' : ''}
-          </Text>
+          <Text style={styles.itemSub}>{item.product.displayName}</Text>
         ) : (
-          <Text style={[styles.itemSub, styles.itemSubMissing]}>Not found at this store</Text>
+          <Text style={[styles.itemSub, styles.itemSubMissing]}>Price not available</Text>
         )}
       </View>
       {item.product && (
         <Text style={[styles.itemPrice, item.checked && styles.itemPriceChecked]}>
-          {item.product.estimated ? '~' : ''}€{item.product.priceEur.toFixed(2)}
+          €{item.product.priceEur.toFixed(2)}
         </Text>
       )}
     </Pressable>
@@ -197,9 +177,6 @@ function makeStyles(colors: Colors) {
     },
     headerLeft: { flex: 1 },
     heading: { fontFamily: fonts.display, fontSize: 22, color: colors.text },
-    supermarketRow: { flexDirection: 'row', alignItems: 'center', marginTop: 2 },
-    smDot: { width: 10, height: 10, borderRadius: 5, marginRight: spacing.xs },
-    supermarketName: { fontFamily: fonts.bodySemiBold, fontSize: 13, color: colors.textSecondary },
     shareBtn: {
       width: 40,
       height: 40,
@@ -209,14 +186,6 @@ function makeStyles(colors: Colors) {
       justifyContent: 'center',
     },
     shareIcon: { fontSize: 18, color: '#fff', fontWeight: '700' },
-    noPricingBanner: {
-      backgroundColor: colors.tagBg,
-      marginHorizontal: spacing.md,
-      marginTop: spacing.sm,
-      padding: spacing.sm,
-      borderRadius: radius.sm,
-    },
-    noPricingText: { fontFamily: fonts.body, fontSize: 12, color: colors.textSecondary },
     sectionHeader: {
       paddingHorizontal: spacing.md,
       paddingTop: spacing.lg,
@@ -235,7 +204,7 @@ function makeStyles(colors: Colors) {
       alignItems: 'center',
       backgroundColor: colors.card,
       marginHorizontal: spacing.md,
-      marginBottom: 2,
+      marginBottom: spacing.xs,
       padding: spacing.md,
       borderRadius: radius.md,
       gap: spacing.sm,
@@ -257,7 +226,7 @@ function makeStyles(colors: Colors) {
     itemName: { fontFamily: fonts.bodyMedium, fontSize: 15, color: colors.text },
     itemNameChecked: { textDecorationLine: 'line-through' },
     itemSub: { fontFamily: fonts.body, fontSize: 12, color: colors.textMuted, marginTop: 1 },
-    itemSubMissing: { color: colors.difficulty.Hard },
+    itemSubMissing: { color: colors.danger },
     itemPrice: { fontFamily: fonts.bodyBold, fontSize: 15, color: colors.primary },
     itemPriceChecked: { color: colors.textMuted },
     footer: {
@@ -270,7 +239,7 @@ function makeStyles(colors: Colors) {
       paddingVertical: spacing.sm,
       alignItems: 'center',
     },
-    clearBtnText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.difficulty.Hard },
+    clearBtnText: { fontFamily: fonts.bodySemiBold, fontSize: 14, color: colors.danger },
     totalsBar: {
       flexDirection: 'row',
       justifyContent: 'space-between',

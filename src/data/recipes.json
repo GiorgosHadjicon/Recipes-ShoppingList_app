@@ -1,1220 +1,1774 @@
 [
   {
     "id": "r01",
-    "title": "Greek Salad (Horiatiki)",
-    "cuisine": "Greek / Cypriot",
+    "title": "Halloumi & Tomato Salad",
+    "cuisine": "Cypriot / Greek",
     "difficulty": "Easy",
     "prepTimeMinutes": 10,
-    "cookTimeMinutes": 0,
-    "servings": 4,
-    "estimatedCostEur": 6,
-    "totalCalories": 1318,
-    "proteinG": 39,
-    "carbsG": 63,
-    "fatG": 107,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Capers", "Sun-dried tomatoes", "A pinch of chili flakes"],
-    "calorieReductions": ["Use half the amount of feta", "Cut the olive oil to 2 tbsp and add a squeeze of lemon instead", "Skip the olives"],
-    "description": "The classic village salad of Cyprus and Greece — ripe tomatoes, cool cucumber, sharp feta, and a drizzle of good olive oil. No lettuce, no frills.",
+    "cookTimeMinutes": 5,
+    "servings": 2,
+    "estimatedCostEur": 7,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "Salty, griddled halloumi over ripe tomatoes with a sharp lemon-oil dressing — ready before the pan's even properly hot.",
     "ingredients": [
-      { "id": "i01-01", "name": "tomatoes", "quantity": 4, "unit": "large" },
-      { "id": "i01-02", "name": "cucumber", "quantity": 1, "unit": "large" },
-      { "id": "i01-03", "name": "red onion", "quantity": 1, "unit": "medium" },
-      { "id": "i01-04", "name": "green bell pepper", "quantity": 1, "unit": "medium" },
-      { "id": "i01-05", "name": "kalamata olives", "quantity": 80, "unit": "g" },
-      { "id": "i01-06", "name": "feta cheese", "quantity": 200, "unit": "g" },
-      { "id": "i01-07", "name": "olive oil", "quantity": 4, "unit": "tbsp" },
-      { "id": "i01-08", "name": "dried oregano", "quantity": 1, "unit": "tsp" },
-      { "id": "i01-09", "name": "salt", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i01-10", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
+      {
+        "name": "halloumi",
+        "quantity": 250,
+        "unit": "g",
+        "id": "i01-01"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": 3,
+        "unit": "large",
+        "id": "i01-02"
+      },
+      {
+        "name": "red onion",
+        "quantity": 0.5,
+        "unit": "medium",
+        "notes": "thinly sliced",
+        "id": "i01-03"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i01-04"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i01-05"
+      },
+      {
+        "name": "dried oregano",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i01-06"
+      }
     ],
     "instructions": [
-      "Cut tomatoes into large wedges and place in a wide salad bowl.",
-      "Peel cucumber if desired, cut in half lengthwise, then slice into thick half-moons. Add to bowl.",
-      "Slice red onion into thin rings and add to bowl along with sliced green bell pepper and olives.",
-      "Place the block of feta on top. Drizzle generously with olive oil, sprinkle with oregano, salt, and pepper.",
-      "Serve immediately — the feta is meant to be broken at the table, not pre-crumbled."
+      "Slice the tomatoes and arrange them on a plate with the red onion.",
+      "Slice the halloumi into 1cm-thick pieces.",
+      "Heat a dry pan on high for a minute, then griddle the halloumi for 90 seconds a side, until it's dark gold and blistered.",
+      "Lay the halloumi over the tomatoes.",
+      "Mix the olive oil, lemon juice, and oregano, then pour it over everything. Eat immediately, while the halloumi's still squeaky."
     ]
   },
   {
     "id": "r02",
-    "title": "Halloumi Toast",
-    "cuisine": "Cypriot",
+    "title": "Spaghetti Aglio e Olio",
+    "cuisine": "Italian",
     "difficulty": "Easy",
     "prepTimeMinutes": 5,
-    "cookTimeMinutes": 8,
+    "cookTimeMinutes": 15,
     "servings": 2,
-    "estimatedCostEur": 5,
-    "totalCalories": 1332,
-    "proteinG": 66,
-    "carbsG": 85,
-    "fatG": 78,
-    "dietaryTags": ["Vegetarian"],
-    "possibleAdditions": ["Balsamic glaze drizzle", "Rocket (arugula)", "Chili honey"],
-    "calorieReductions": ["Use light halloumi or reduce to 150g", "Swap sourdough for a thinner slice of bread", "Skip the oil in the pan — use a non-stick spray"],
-    "description": "Pan-fried halloumi on thick sourdough with bursting cherry tomatoes and fresh basil. Simple, fast, and deeply satisfying.",
+    "estimatedCostEur": 4,
+    "dietaryTags": [
+      "Vegan"
+    ],
+    "description": "Garlic, chili, and good olive oil turned into a sauce by nothing but pasta water and patience. Five ingredients, no excuses.",
     "ingredients": [
-      { "id": "i02-01", "name": "halloumi", "quantity": 250, "unit": "g" },
-      { "id": "i02-02", "name": "sourdough bread", "quantity": 4, "unit": "slices" },
-      { "id": "i02-03", "name": "cherry tomatoes", "quantity": 150, "unit": "g" },
-      { "id": "i02-04", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i02-05", "name": "fresh basil", "quantity": 10, "unit": "leaves" },
-      { "id": "i02-06", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
+      {
+        "name": "spaghetti",
+        "quantity": 200,
+        "unit": "g",
+        "id": "i02-01"
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "notes": "thinly sliced",
+        "id": "i02-02"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 60,
+        "unit": "ml",
+        "id": "i02-03"
+      },
+      {
+        "name": "red chili flakes",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i02-04"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 2,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i02-05"
+      },
+      {
+        "name": "salt",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i02-06"
+      }
     ],
     "instructions": [
-      "Slice halloumi into 8 slabs about 5mm thick. Pat dry with kitchen paper.",
-      "Toast the sourdough slices.",
-      "Heat olive oil in a non-stick pan over medium-high heat. Add halloumi and cook 2 minutes per side until golden.",
-      "In the same pan, add cherry tomatoes and cook 1–2 minutes until just starting to burst.",
-      "Place 2 halloumi slabs on each toast, top with tomatoes, fresh basil, and a crack of black pepper."
+      "Salt a big pot of water heavily and bring it to a boil. Cook the spaghetti until just shy of al dente.",
+      "While it cooks, warm the olive oil in a large pan over low heat. Add the garlic and chili flakes and cook gently for 2-3 minutes — you want it soft and fragrant, not browned.",
+      "Scoop out a mug of pasta water, then drain the spaghetti.",
+      "Tip the spaghetti into the pan with the garlic oil. Add a splash of the pasta water and toss hard over medium heat for a minute, until the sauce clings and turns glossy.",
+      "Stir through the parsley and serve straight away."
     ]
   },
   {
     "id": "r03",
-    "title": "Scrambled Eggs with Fresh Herbs",
-    "cuisine": "European",
+    "title": "Greek Yoghurt with Honey & Walnuts",
+    "cuisine": "Greek",
     "difficulty": "Easy",
     "prepTimeMinutes": 5,
-    "cookTimeMinutes": 5,
-    "servings": 2,
+    "cookTimeMinutes": 0,
+    "servings": 1,
     "estimatedCostEur": 3,
-    "totalCalories": 627,
-    "proteinG": 40,
-    "carbsG": 5,
-    "fatG": 50,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Smoked salmon", "Grated Parmesan", "Sautéed mushrooms"],
-    "calorieReductions": ["Use 2 whole eggs plus 2 egg whites instead of all whole eggs", "Skip the butter, use a splash of milk instead", "Serve without toast for a lower-carb version"],
-    "description": "Slow-cooked, creamy scrambled eggs finished with fresh chives and parsley. The technique — low heat, constant stirring — makes all the difference.",
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "The five-minute breakfast every Greek grandmother has made a thousand times: thick yoghurt, good honey, toasted walnuts.",
     "ingredients": [
-      { "id": "i03-01", "name": "eggs", "quantity": 6, "unit": "large" },
-      { "id": "i03-02", "name": "butter", "quantity": 20, "unit": "g" },
-      { "id": "i03-03", "name": "milk", "quantity": 2, "unit": "tbsp" },
-      { "id": "i03-04", "name": "fresh chives", "quantity": 2, "unit": "tbsp", "notes": "finely chopped" },
-      { "id": "i03-05", "name": "fresh parsley", "quantity": 1, "unit": "tbsp", "notes": "finely chopped" },
-      { "id": "i03-06", "name": "salt", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i03-07", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
+      {
+        "name": "yogurt",
+        "quantity": 200,
+        "unit": "g",
+        "id": "i03-01"
+      },
+      {
+        "name": "honey",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i03-02"
+      },
+      {
+        "name": "walnuts",
+        "quantity": 20,
+        "unit": "g",
+        "notes": "roughly chopped",
+        "id": "i03-03"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 1,
+        "unit": "pinch",
+        "id": "i03-04"
+      }
     ],
     "instructions": [
-      "Crack eggs into a bowl, add milk, salt, and pepper. Whisk well.",
-      "Melt butter in a non-stick pan over the lowest heat setting.",
-      "Add eggs. Stir constantly with a spatula, pulling the curds slowly across the pan. This should take 4–5 minutes.",
-      "Remove from heat while eggs look slightly underdone — residual heat finishes them.",
-      "Fold in chives and parsley. Serve immediately."
+      "Spoon the yoghurt into a bowl.",
+      "Scatter the walnuts over the top.",
+      "Drizzle with honey and a light dusting of cinnamon. Done."
     ]
   },
   {
     "id": "r04",
-    "title": "Pasta Aglio e Olio",
-    "cuisine": "Italian",
+    "title": "Shakshuka",
+    "cuisine": "Middle Eastern / North African",
     "difficulty": "Easy",
-    "prepTimeMinutes": 5,
-    "cookTimeMinutes": 15,
-    "servings": 4,
-    "estimatedCostEur": 4,
-    "totalCalories": 2334,
-    "proteinG": 68,
-    "carbsG": 308,
-    "fatG": 91,
-    "dietaryTags": ["Vegan"],
-    "possibleAdditions": ["Chili flakes", "Toasted breadcrumbs", "Grated Parmesan"],
-    "calorieReductions": ["Use half the olive oil", "Swap half the pasta for zucchini noodles", "Skip the extra parmesan"],
-    "description": "The midnight pasta of Naples — spaghetti, garlic, chili, and your best olive oil. Nothing more, and nothing less.",
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 20,
+    "servings": 2,
+    "estimatedCostEur": 5,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "Eggs poached in a spiced tomato and pepper sauce, eaten straight from the pan with bread for mopping. A one-pan dinner that looks harder than it is.",
     "ingredients": [
-      { "id": "i04-01", "name": "spaghetti", "quantity": 400, "unit": "g" },
-      { "id": "i04-02", "name": "garlic", "quantity": 6, "unit": "cloves" },
-      { "id": "i04-03", "name": "olive oil", "quantity": 80, "unit": "ml" },
-      { "id": "i04-04", "name": "red chili flakes", "quantity": 1, "unit": "tsp" },
-      { "id": "i04-05", "name": "fresh parsley", "quantity": 4, "unit": "tbsp", "notes": "finely chopped" },
-      { "id": "i04-06", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i04-07", "name": "black pepper", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i04-08", "name": "parmesan", "quantity": 40, "unit": "g", "notes": "optional, skip for vegan" }
+      {
+        "name": "olive oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i04-01"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "diced",
+        "id": "i04-02"
+      },
+      {
+        "name": "red bell pepper",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "diced",
+        "id": "i04-03"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i04-04"
+      },
+      {
+        "name": "cumin",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i04-05"
+      },
+      {
+        "name": "paprika",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i04-06"
+      },
+      {
+        "name": "canned tomatoes",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i04-07"
+      },
+      {
+        "name": "eggs",
+        "quantity": 4,
+        "unit": "whole",
+        "id": "i04-08"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 2,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i04-09"
+      },
+      {
+        "name": "salt",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "id": "i04-10"
+      }
     ],
     "instructions": [
-      "Boil salted water and cook spaghetti until al dente. Reserve 1 cup of pasta water before draining.",
-      "While pasta cooks, thinly slice the garlic.",
-      "Warm olive oil in a large pan over medium-low heat. Add garlic and chili flakes. Cook gently for 4–5 minutes until garlic turns golden — don't let it burn.",
-      "Add drained pasta to the pan with a splash of pasta water. Toss vigorously to emulsify.",
-      "Remove from heat, add parsley, and toss again. Serve with parmesan if using."
+      "Heat the olive oil in a wide pan over medium heat. Add the onion and pepper and cook for 6-8 minutes, until soft.",
+      "Stir in the garlic, cumin, and paprika and cook for another minute.",
+      "Pour in the canned tomatoes and salt. Simmer for 10 minutes, stirring occasionally, until it thickens into a sauce.",
+      "Make four small wells in the sauce and crack an egg into each one. Cover the pan and cook for 5-6 minutes, until the whites are set but the yolks are still soft.",
+      "Scatter with parsley and serve straight from the pan with bread."
     ]
   },
   {
     "id": "r05",
-    "title": "Hummus with Warm Pita",
-    "cuisine": "Middle Eastern / Levantine",
+    "title": "Ful Medames",
+    "cuisine": "Egyptian",
     "difficulty": "Easy",
-    "prepTimeMinutes": 10,
-    "cookTimeMinutes": 5,
-    "servings": 4,
-    "estimatedCostEur": 4,
-    "totalCalories": 2228,
-    "proteinG": 73,
-    "carbsG": 279,
-    "fatG": 100,
-    "dietaryTags": ["Vegan", "Dairy-Free"],
-    "possibleAdditions": ["Toasted pine nuts", "Extra sumac", "Roasted red pepper swirl"],
-    "calorieReductions": ["Reduce the tahini by half", "Skip the olive oil drizzle on top", "Serve with raw veggies instead of pita"],
-    "description": "Silky, lemony homemade hummus — better than any shop-bought tub. The secret is blending the chickpeas while still warm and using plenty of tahini.",
+    "prepTimeMinutes": 5,
+    "cookTimeMinutes": 15,
+    "servings": 2,
+    "estimatedCostEur": 3,
+    "dietaryTags": [
+      "Vegan"
+    ],
+    "description": "Egypt's everyday breakfast — warm mashed fava beans with garlic, lemon, and olive oil. Cheap, filling, and better than it has any right to be.",
     "ingredients": [
-      { "id": "i05-01", "name": "canned chickpeas", "quantity": 2, "unit": "cans (400g each)" },
-      { "id": "i05-02", "name": "tahini", "quantity": 80, "unit": "g" },
-      { "id": "i05-03", "name": "lemon", "quantity": 2, "unit": "large" },
-      { "id": "i05-04", "name": "garlic", "quantity": 2, "unit": "cloves" },
-      { "id": "i05-05", "name": "olive oil", "quantity": 3, "unit": "tbsp" },
-      { "id": "i05-06", "name": "cumin", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i05-07", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i05-08", "name": "paprika", "quantity": 0.5, "unit": "tsp", "notes": "for garnish" },
-      { "id": "i05-09", "name": "pita bread", "quantity": 4, "unit": "pieces" }
+      {
+        "name": "canned fava beans",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i05-01"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "crushed",
+        "id": "i05-02"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i05-03"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i05-04"
+      },
+      {
+        "name": "cumin",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i05-05"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "diced, for topping",
+        "id": "i05-06"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 1,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i05-07"
+      }
     ],
     "instructions": [
-      "Drain and rinse chickpeas. Warm them briefly in a small pot of water — warm chickpeas blend much smoother.",
-      "Add chickpeas, tahini, lemon juice, garlic, cumin, salt, and 3 tbsp cold water to a food processor.",
-      "Blend for 3–4 minutes until ultra-smooth, scraping down the sides. Adjust salt and lemon to taste.",
-      "Warm pita bread in a dry pan for 1 minute per side or directly on a gas flame.",
-      "Serve hummus in a bowl, drizzle with olive oil, and dust with paprika."
+      "Tip the fava beans and their liquid into a small pot. Warm them through over medium heat for 5 minutes, mashing about half of them with a fork as they heat.",
+      "Stir in the garlic, cumin, and half the lemon juice. Simmer for another 5 minutes, adding a splash of water if it looks dry.",
+      "Spoon into a bowl and drizzle with olive oil and the rest of the lemon juice.",
+      "Top with the diced tomato and parsley. Eat with warm bread."
     ]
   },
   {
     "id": "r06",
-    "title": "Avocado Toast with Feta",
-    "cuisine": "Contemporary",
+    "title": "Greek Village Salad (Horiatiki)",
+    "cuisine": "Greek / Cypriot",
     "difficulty": "Easy",
-    "prepTimeMinutes": 5,
-    "cookTimeMinutes": 3,
-    "servings": 2,
-    "estimatedCostEur": 5,
-    "totalCalories": 1194,
-    "proteinG": 30,
-    "carbsG": 114,
-    "fatG": 74,
-    "dietaryTags": ["Vegetarian"],
-    "possibleAdditions": ["Poached egg", "Chili flakes", "Everything bagel seasoning"],
-    "calorieReductions": ["Use half an avocado per serving", "Skip the feta or use a light sprinkle", "Choose a thinner slice of bread"],
-    "description": "Creamy avocado on sourdough, lifted with lemon, contrasted with salty feta and a pinch of chili. Ready in 8 minutes.",
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 0,
+    "servings": 4,
+    "estimatedCostEur": 6,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "The classic village salad of Cyprus and Greece — ripe tomatoes, cool cucumber, sharp feta, and a drizzle of good olive oil. No lettuce, no frills.",
     "ingredients": [
-      { "id": "i06-01", "name": "avocado", "quantity": 2, "unit": "ripe" },
-      { "id": "i06-02", "name": "sourdough bread", "quantity": 4, "unit": "slices" },
-      { "id": "i06-03", "name": "feta cheese", "quantity": 60, "unit": "g", "notes": "crumbled" },
-      { "id": "i06-04", "name": "lemon", "quantity": 0.5, "unit": "piece" },
-      { "id": "i06-05", "name": "red chili flakes", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i06-06", "name": "salt", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i06-07", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
+      {
+        "name": "tomatoes",
+        "quantity": 4,
+        "unit": "large",
+        "id": "i06-01"
+      },
+      {
+        "name": "cucumber",
+        "quantity": 1,
+        "unit": "large",
+        "id": "i06-02"
+      },
+      {
+        "name": "red onion",
+        "quantity": 1,
+        "unit": "medium",
+        "id": "i06-03"
+      },
+      {
+        "name": "green bell pepper",
+        "quantity": 1,
+        "unit": "medium",
+        "id": "i06-04"
+      },
+      {
+        "name": "kalamata olives",
+        "quantity": 80,
+        "unit": "g",
+        "id": "i06-05"
+      },
+      {
+        "name": "feta cheese",
+        "quantity": 200,
+        "unit": "g",
+        "id": "i06-06"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 4,
+        "unit": "tbsp",
+        "id": "i06-07"
+      },
+      {
+        "name": "dried oregano",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i06-08"
+      }
     ],
     "instructions": [
-      "Toast the sourdough slices until golden.",
-      "Halve and pit the avocados. Scoop flesh into a bowl, add lemon juice, salt, and pepper. Mash with a fork to your preferred texture.",
-      "Spread avocado on toast, top with crumbled feta and a pinch of chili flakes.",
-      "Serve immediately."
+      "Cut the tomatoes into wedges and the cucumber into thick half-moons. Slice the onion and pepper thinly.",
+      "Toss them together in a large bowl with the olives.",
+      "Place the block of feta on top whole — don't crumble it.",
+      "Drizzle with olive oil, scatter with oregano, and serve with bread to catch the juices."
     ]
   },
   {
     "id": "r07",
-    "title": "Halloumi Saganaki with Honey & Thyme",
-    "cuisine": "Cypriot",
-    "difficulty": "Medium",
-    "prepTimeMinutes": 5,
-    "cookTimeMinutes": 10,
-    "servings": 2,
-    "estimatedCostEur": 7,
-    "totalCalories": 1131,
-    "proteinG": 55,
-    "carbsG": 59,
-    "fatG": 76,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Toasted sesame seeds", "Fresh mint", "Splash of ouzo"],
-    "calorieReductions": ["Reduce the honey by half", "Pan-fry with a spray instead of oil", "Serve smaller 60g portions of halloumi"],
-    "description": "Pan-fried halloumi that's crisp outside and soft within, finished with a drizzle of thyme honey and a squeeze of lemon. A Cypriot taverna staple.",
+    "title": "Tzatziki with Warm Pita",
+    "cuisine": "Greek",
+    "difficulty": "Easy",
+    "prepTimeMinutes": 15,
+    "cookTimeMinutes": 0,
+    "servings": 4,
+    "estimatedCostEur": 4,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "Cold, garlicky cucumber yoghurt that cools down anything spicy next to it. Ten minutes of chopping, then it just sits and gets better.",
     "ingredients": [
-      { "id": "i07-01", "name": "halloumi", "quantity": 250, "unit": "g" },
-      { "id": "i07-02", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i07-03", "name": "flour", "quantity": 2, "unit": "tbsp" },
-      { "id": "i07-04", "name": "honey", "quantity": 2, "unit": "tbsp" },
-      { "id": "i07-05", "name": "fresh thyme", "quantity": 4, "unit": "sprigs" },
-      { "id": "i07-06", "name": "lemon", "quantity": 1, "unit": "medium" },
-      { "id": "i07-07", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
+      {
+        "name": "yogurt",
+        "quantity": 300,
+        "unit": "g",
+        "id": "i07-01"
+      },
+      {
+        "name": "cucumber",
+        "quantity": 1,
+        "unit": "large",
+        "notes": "grated and squeezed dry",
+        "id": "i07-02"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "crushed",
+        "id": "i07-03"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i07-04"
+      },
+      {
+        "name": "fresh dill",
+        "quantity": 1,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i07-05"
+      },
+      {
+        "name": "lemon",
+        "quantity": 0.5,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i07-06"
+      },
+      {
+        "name": "pita bread",
+        "quantity": 4,
+        "unit": "whole",
+        "id": "i07-07"
+      }
     ],
     "instructions": [
-      "Slice halloumi into pieces about 1cm thick. Pat dry with paper towels.",
-      "Dust each piece lightly with flour, shaking off any excess.",
-      "Heat olive oil in a non-stick pan over medium-high heat.",
-      "Fry halloumi 2–3 minutes per side until deep golden brown.",
-      "Transfer to a serving plate. Drizzle immediately with honey, scatter thyme leaves over the top, and squeeze lemon juice. Finish with black pepper.",
-      "Serve at once — halloumi toughens as it cools."
+      "Grate the cucumber, then squeeze it hard in a clean tea towel to get rid of as much water as you can — skip this and the tzatziki turns watery.",
+      "Mix the cucumber into the yoghurt with the garlic, dill, lemon juice, and a pinch of salt.",
+      "Stir in the olive oil. Cover and let it sit in the fridge for at least 20 minutes so the flavors settle.",
+      "Warm the pita in a dry pan for a minute a side and serve alongside."
     ]
   },
   {
     "id": "r08",
-    "title": "Chicken Souvlaki with Pita & Tzatziki",
-    "cuisine": "Greek / Cypriot",
-    "difficulty": "Medium",
+    "title": "Tabbouleh",
+    "cuisine": "Levantine",
+    "difficulty": "Easy",
     "prepTimeMinutes": 20,
-    "cookTimeMinutes": 15,
+    "cookTimeMinutes": 0,
     "servings": 4,
-    "estimatedCostEur": 12,
-    "totalCalories": 2569,
-    "proteinG": 260,
-    "carbsG": 165,
-    "fatG": 93,
-    "dietaryTags": [],
-    "possibleAdditions": ["Extra garlic in the tzatziki", "Grilled halloumi skewer", "Spicy harissa drizzle"],
-    "calorieReductions": ["Trim visible fat from the chicken breast", "Choose low-fat Greek yogurt for the tzatziki", "Go light on the pita — try lettuce wraps instead"],
-    "description": "Marinated chicken skewers grilled until charred, served in warm pita with cool, garlicky tzatziki. The quintessential Cypriot street food.",
+    "estimatedCostEur": 5,
+    "dietaryTags": [
+      "Vegan"
+    ],
+    "description": "This is a herb salad that happens to have some bulgur in it, not the other way round — parsley is the main event.",
     "ingredients": [
-      { "id": "i08-01", "name": "chicken breast", "quantity": 700, "unit": "g" },
-      { "id": "i08-02", "name": "olive oil", "quantity": 4, "unit": "tbsp" },
-      { "id": "i08-03", "name": "lemon", "quantity": 2, "unit": "medium" },
-      { "id": "i08-04", "name": "garlic", "quantity": 3, "unit": "cloves" },
-      { "id": "i08-05", "name": "dried oregano", "quantity": 2, "unit": "tsp" },
-      { "id": "i08-06", "name": "dried thyme", "quantity": 1, "unit": "tsp" },
-      { "id": "i08-07", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i08-08", "name": "black pepper", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i08-09", "name": "pita bread", "quantity": 4, "unit": "pieces" },
-      { "id": "i08-10", "name": "yogurt", "quantity": 200, "unit": "g", "notes": "Greek-style, full fat" },
-      { "id": "i08-11", "name": "cucumber", "quantity": 0.5, "unit": "piece" },
-      { "id": "i08-12", "name": "fresh dill", "quantity": 2, "unit": "tbsp", "notes": "chopped" }
+      {
+        "name": "bulgur wheat",
+        "quantity": 60,
+        "unit": "g",
+        "id": "i08-01"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 100,
+        "unit": "g",
+        "notes": "finely chopped",
+        "id": "i08-02"
+      },
+      {
+        "name": "fresh mint",
+        "quantity": 15,
+        "unit": "g",
+        "notes": "finely chopped",
+        "id": "i08-03"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": 2,
+        "unit": "medium",
+        "notes": "finely diced",
+        "id": "i08-04"
+      },
+      {
+        "name": "red onion",
+        "quantity": 0.5,
+        "unit": "medium",
+        "notes": "finely diced",
+        "id": "i08-05"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i08-06"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 4,
+        "unit": "tbsp",
+        "id": "i08-07"
+      }
     ],
     "instructions": [
-      "Cut chicken into 3cm cubes. Mix olive oil, juice of 1 lemon, minced garlic, oregano, thyme, salt, and pepper. Toss chicken in marinade and rest for at least 15 minutes (or overnight).",
-      "Make tzatziki: grate the cucumber, squeeze out excess water, mix with yogurt, 1 minced garlic clove, dill, a squeeze of lemon, and salt to taste. Refrigerate.",
-      "Thread chicken onto skewers (metal or soaked wooden).",
-      "Grill over high heat or cook in a ridged grill pan for 5–6 minutes per side until nicely charred and cooked through.",
-      "Warm pita breads briefly on the grill or in a dry pan.",
-      "Serve skewers in pita with tzatziki and any remaining lemon wedges."
+      "Cover the bulgur with boiling water and let it sit for 15 minutes, until tender. Drain well and let it cool.",
+      "Finely chop the parsley, mint, tomatoes, and onion — the finer the better, this isn't meant to be a chunky salad.",
+      "Mix the cooled bulgur through the chopped vegetables and herbs.",
+      "Dress with the lemon juice, olive oil, and a good pinch of salt. Taste and add more lemon if it needs it."
     ]
   },
   {
     "id": "r09",
-    "title": "Shakshuka",
-    "cuisine": "Middle Eastern / North African",
+    "title": "Moussaka",
+    "cuisine": "Greek",
     "difficulty": "Medium",
-    "prepTimeMinutes": 10,
-    "cookTimeMinutes": 20,
-    "servings": 4,
-    "estimatedCostEur": 6,
-    "totalCalories": 1443,
-    "proteinG": 68,
-    "carbsG": 85,
-    "fatG": 94,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Crumbled feta", "Fresh cilantro", "Toasted cumin seeds"],
-    "calorieReductions": ["Cut the olive oil in half", "Skip the feta topping", "Use fewer eggs and bulk up with extra vegetables"],
-    "description": "Eggs poached directly in a spiced tomato and pepper sauce — one pan, bold flavour, deeply satisfying at any meal.",
+    "prepTimeMinutes": 30,
+    "cookTimeMinutes": 60,
+    "servings": 6,
+    "estimatedCostEur": 14,
+    "dietaryTags": [],
+    "description": "Layers of fried eggplant, spiced lamb, and a thick béchamel, baked until the top turns golden. The dish that makes people request seconds.",
     "ingredients": [
-      { "id": "i09-01", "name": "canned tomatoes", "quantity": 2, "unit": "cans (400g each)" },
-      { "id": "i09-02", "name": "red bell pepper", "quantity": 2, "unit": "medium" },
-      { "id": "i09-03", "name": "onion", "quantity": 1, "unit": "large" },
-      { "id": "i09-04", "name": "garlic", "quantity": 4, "unit": "cloves" },
-      { "id": "i09-05", "name": "olive oil", "quantity": 3, "unit": "tbsp" },
-      { "id": "i09-06", "name": "eggs", "quantity": 6, "unit": "large" },
-      { "id": "i09-07", "name": "cumin", "quantity": 1.5, "unit": "tsp" },
-      { "id": "i09-08", "name": "paprika", "quantity": 2, "unit": "tsp" },
-      { "id": "i09-09", "name": "cayenne pepper", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i09-10", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i09-11", "name": "black pepper", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i09-12", "name": "fresh parsley", "quantity": 3, "unit": "tbsp", "notes": "chopped, to serve" },
-      { "id": "i09-13", "name": "feta cheese", "quantity": 80, "unit": "g", "notes": "optional, crumbled on top" }
+      {
+        "name": "eggplant",
+        "quantity": 2,
+        "unit": "large",
+        "notes": "sliced",
+        "id": "i09-01"
+      },
+      {
+        "name": "lamb mince",
+        "quantity": 500,
+        "unit": "g",
+        "id": "i09-02"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "large",
+        "notes": "diced",
+        "id": "i09-03"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i09-04"
+      },
+      {
+        "name": "canned tomatoes",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i09-05"
+      },
+      {
+        "name": "tomato paste",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i09-06"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "id": "i09-07"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 4,
+        "unit": "tbsp",
+        "id": "i09-08"
+      },
+      {
+        "name": "butter",
+        "quantity": 50,
+        "unit": "g",
+        "id": "i09-09"
+      },
+      {
+        "name": "flour",
+        "quantity": 50,
+        "unit": "g",
+        "id": "i09-10"
+      },
+      {
+        "name": "milk",
+        "quantity": 500,
+        "unit": "ml",
+        "id": "i09-11"
+      },
+      {
+        "name": "parmesan",
+        "quantity": 50,
+        "unit": "g",
+        "notes": "grated",
+        "id": "i09-12"
+      }
     ],
     "instructions": [
-      "Heat olive oil in a large, deep frying pan over medium heat. Add diced onion and cook 5 minutes until softened.",
-      "Add sliced red bell peppers and cook another 5 minutes.",
-      "Add minced garlic, cumin, paprika, and cayenne. Stir and cook 1 minute until fragrant.",
-      "Pour in canned tomatoes, crushing them with a spoon. Season with salt and pepper. Simmer 10 minutes until sauce thickens.",
-      "Make 6 wells in the sauce with a spoon and crack an egg into each well.",
-      "Cover the pan and cook 5–7 minutes — whites should be set, yolks still runny.",
-      "Scatter with parsley and crumbled feta. Serve directly from the pan with crusty bread."
+      "Salt the eggplant slices and let them sit for 20 minutes to draw out the bitterness, then pat them dry.",
+      "Fry the eggplant slices in olive oil until golden on both sides. Set aside on paper towel.",
+      "In the same pan, cook the onion and garlic until soft. Add the lamb mince and brown it, breaking it up as it cooks.",
+      "Stir in the tomatoes, tomato paste, and cinnamon. Simmer for 15 minutes until it thickens into a ragu.",
+      "For the béchamel: melt the butter, whisk in the flour, and cook for a minute. Gradually whisk in the milk until you have a smooth, thick sauce. Stir in half the parmesan.",
+      "Layer the eggplant and lamb ragu in a baking dish, finishing with the béchamel on top. Scatter the rest of the parmesan over it.",
+      "Bake at 180°C for 35-40 minutes, until the top is golden and bubbling. Let it rest for 10 minutes before cutting — it'll fall apart if you don't."
     ]
   },
   {
     "id": "r10",
-    "title": "Pasta Carbonara",
-    "cuisine": "Italian",
+    "title": "Lemon Roast Chicken",
+    "cuisine": "Greek / Mediterranean",
     "difficulty": "Medium",
-    "prepTimeMinutes": 10,
-    "cookTimeMinutes": 20,
+    "prepTimeMinutes": 15,
+    "cookTimeMinutes": 50,
     "servings": 4,
     "estimatedCostEur": 9,
-    "totalCalories": 3143,
-    "proteinG": 128,
-    "carbsG": 307,
-    "fatG": 154,
-    "dietaryTags": [],
-    "possibleAdditions": ["Extra black pepper", "Crispy pancetta bits", "Fresh parsley"],
-    "calorieReductions": ["Reduce the pancetta to 100g", "Use one whole egg plus extra yolks instead of all yolks", "Cut the parmesan by a third"],
-    "description": "Rome's most famous pasta — guanciale, egg yolks, and aged pecorino or parmesan. No cream. Technique is everything here.",
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "Chicken thighs roasted with lemon, garlic, and potatoes until the skin crisps and the potatoes soak up all the juices.",
     "ingredients": [
-      { "id": "i10-01", "name": "spaghetti", "quantity": 400, "unit": "g" },
-      { "id": "i10-02", "name": "guanciale", "quantity": 150, "unit": "g", "notes": "or pancetta if unavailable" },
-      { "id": "i10-03", "name": "eggs", "quantity": 4, "unit": "large" },
-      { "id": "i10-04", "name": "egg yolks", "quantity": 2, "unit": "extra" },
-      { "id": "i10-05", "name": "parmesan", "quantity": 80, "unit": "g", "notes": "finely grated" },
-      { "id": "i10-06", "name": "black pepper", "quantity": 2, "unit": "tsp", "notes": "coarsely ground" },
-      { "id": "i10-07", "name": "salt", "quantity": 1, "unit": "tsp" }
+      {
+        "name": "chicken thighs",
+        "quantity": 1,
+        "unit": "kg",
+        "notes": "bone-in, skin-on",
+        "id": "i10-01"
+      },
+      {
+        "name": "potatoes",
+        "quantity": 800,
+        "unit": "g",
+        "notes": "cut into wedges",
+        "id": "i10-02"
+      },
+      {
+        "name": "lemon",
+        "quantity": 2,
+        "unit": "whole",
+        "id": "i10-03"
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "notes": "whole, unpeeled",
+        "id": "i10-04"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 4,
+        "unit": "tbsp",
+        "id": "i10-05"
+      },
+      {
+        "name": "dried oregano",
+        "quantity": 2,
+        "unit": "tsp",
+        "id": "i10-06"
+      },
+      {
+        "name": "fresh rosemary",
+        "quantity": 2,
+        "unit": "sprigs",
+        "id": "i10-07"
+      }
     ],
     "instructions": [
-      "Cook spaghetti in well-salted boiling water until al dente. Reserve 2 cups pasta water.",
-      "Meanwhile, cut guanciale into lardons (small cubes). Cook in a dry pan over medium heat until crispy and fat has rendered. Remove pan from heat.",
-      "In a bowl, whisk together 4 whole eggs, 2 extra yolks, and grated parmesan. Season with black pepper.",
-      "Drain pasta (keeping reserved water). Add hot pasta to the pan with guanciale, off the heat.",
-      "Pour egg mixture over pasta, add a splash of pasta water, and toss constantly — the heat from the pasta cooks the eggs. Add more water as needed to achieve a creamy, silky sauce. Never put the pan back on direct heat.",
-      "Serve immediately topped with extra parmesan and black pepper."
+      "Heat the oven to 200°C.",
+      "Toss the potato wedges and chicken thighs together in a roasting tray with the olive oil, oregano, salt, and a good grind of pepper.",
+      "Squeeze the juice of one lemon over everything, then cut the squeezed halves and the second lemon into wedges and tuck them into the tray along with the garlic cloves and rosemary.",
+      "Roast for 45-50 minutes, turning the potatoes halfway, until the chicken skin is crisp and the potatoes are golden.",
+      "Squeeze the roasted lemon wedges over the tray before serving."
     ]
   },
   {
     "id": "r11",
-    "title": "Fakes — Greek Lentil Soup",
-    "cuisine": "Greek",
+    "title": "Pasta al Limone",
+    "cuisine": "Italian",
     "difficulty": "Medium",
     "prepTimeMinutes": 10,
-    "cookTimeMinutes": 40,
-    "servings": 6,
-    "estimatedCostEur": 4,
-    "totalCalories": 2087,
-    "proteinG": 109,
-    "carbsG": 292,
-    "fatG": 60,
-    "dietaryTags": ["Vegan", "Gluten-Free", "Dairy-Free"],
-    "possibleAdditions": ["A splash of red wine vinegar", "Crusty bread", "Crumbled feta on top"],
-    "calorieReductions": ["Reduce the olive oil finish to 1 tbsp", "Skip the bread on the side", "Use less oil when sautéing the vegetables"],
-    "description": "A humble, warming lentil soup that's a Greek household staple. The splash of red wine vinegar at the end is non-negotiable.",
+    "cookTimeMinutes": 15,
+    "servings": 2,
+    "estimatedCostEur": 6,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "Butter, parmesan, and lemon zest turned into a sauce that clings to every strand. Looks fancy, takes fifteen minutes.",
     "ingredients": [
-      { "id": "i11-01", "name": "green lentils", "quantity": 400, "unit": "g" },
-      { "id": "i11-02", "name": "onion", "quantity": 1, "unit": "large" },
-      { "id": "i11-03", "name": "garlic", "quantity": 3, "unit": "cloves" },
-      { "id": "i11-04", "name": "canned tomatoes", "quantity": 1, "unit": "can (400g)" },
-      { "id": "i11-05", "name": "olive oil", "quantity": 4, "unit": "tbsp" },
-      { "id": "i11-06", "name": "bay leaves", "quantity": 2, "unit": "pieces" },
-      { "id": "i11-07", "name": "dried oregano", "quantity": 1, "unit": "tsp" },
-      { "id": "i11-08", "name": "red wine vinegar", "quantity": 2, "unit": "tbsp" },
-      { "id": "i11-09", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i11-10", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
+      {
+        "name": "spaghetti",
+        "quantity": 200,
+        "unit": "g",
+        "id": "i11-01"
+      },
+      {
+        "name": "butter",
+        "quantity": 60,
+        "unit": "g",
+        "id": "i11-02"
+      },
+      {
+        "name": "parmesan",
+        "quantity": 60,
+        "unit": "g",
+        "notes": "finely grated",
+        "id": "i11-03"
+      },
+      {
+        "name": "lemon",
+        "quantity": 2,
+        "unit": "whole",
+        "notes": "zested and juiced",
+        "id": "i11-04"
+      },
+      {
+        "name": "black pepper",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i11-05"
+      },
+      {
+        "name": "fresh basil",
+        "quantity": 4,
+        "unit": "leaves",
+        "notes": "torn",
+        "id": "i11-06"
+      }
     ],
     "instructions": [
-      "Rinse lentils well. Pick over for any stones.",
-      "Heat olive oil in a large pot over medium heat. Soften diced onion for 5 minutes, then add minced garlic and cook 1 more minute.",
-      "Add lentils, canned tomatoes, bay leaves, oregano, and enough water to cover by 5cm. Bring to a boil.",
-      "Reduce heat and simmer 30–35 minutes until lentils are tender but not mushy. Add water if it thickens too much.",
-      "Remove bay leaves. Season generously with salt and pepper. Stir in red wine vinegar just before serving."
+      "Cook the spaghetti in well-salted water until al dente. Scoop out a mug of the pasta water before draining.",
+      "Melt the butter in a large pan over low heat. Add the lemon zest and juice and a splash of the pasta water.",
+      "Add the drained spaghetti to the pan and toss well.",
+      "Take the pan off the heat and add the parmesan a handful at a time, tossing constantly so it melts into a sauce instead of clumping.",
+      "Add more pasta water if it looks too thick. Finish with black pepper and torn basil."
     ]
   },
   {
     "id": "r12",
-    "title": "Stuffed Mushrooms with Feta & Spinach",
+    "title": "Stuffed Peppers",
     "cuisine": "Mediterranean",
     "difficulty": "Medium",
-    "prepTimeMinutes": 15,
-    "cookTimeMinutes": 20,
+    "prepTimeMinutes": 20,
+    "cookTimeMinutes": 45,
     "servings": 4,
-    "estimatedCostEur": 8,
-    "totalCalories": 866,
-    "proteinG": 33,
-    "carbsG": 26,
-    "fatG": 74,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Breadcrumb topping for crunch", "Pine nuts", "Chili flakes"],
-    "calorieReductions": ["Use less feta filling", "Skip the breadcrumb topping", "Bake instead of adding extra oil to the tray"],
-    "description": "Large portobello mushrooms filled with wilted spinach, garlic, and crumbled feta, then baked until golden. Great as a starter or light main.",
+    "estimatedCostEur": 9,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "Bell peppers packed with spiced rice and beef, baked until the peppers slump and the filling turns tender. Better the next day.",
     "ingredients": [
-      { "id": "i12-01", "name": "portobello mushrooms", "quantity": 8, "unit": "large" },
-      { "id": "i12-02", "name": "spinach", "quantity": 200, "unit": "g", "notes": "fresh" },
-      { "id": "i12-03", "name": "feta cheese", "quantity": 150, "unit": "g" },
-      { "id": "i12-04", "name": "garlic", "quantity": 3, "unit": "cloves" },
-      { "id": "i12-05", "name": "olive oil", "quantity": 3, "unit": "tbsp" },
-      { "id": "i12-06", "name": "fresh thyme", "quantity": 4, "unit": "sprigs" },
-      { "id": "i12-07", "name": "black pepper", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i12-08", "name": "salt", "quantity": 0.5, "unit": "tsp" }
+      {
+        "name": "red bell pepper",
+        "quantity": 4,
+        "unit": "large",
+        "id": "i12-01"
+      },
+      {
+        "name": "beef mince",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i12-02"
+      },
+      {
+        "name": "rice",
+        "quantity": 150,
+        "unit": "g",
+        "id": "i12-03"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "diced",
+        "id": "i12-04"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i12-05"
+      },
+      {
+        "name": "canned tomatoes",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i12-06"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i12-07"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 2,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i12-08"
+      }
     ],
     "instructions": [
-      "Preheat oven to 200°C. Remove mushroom stalks and chop them finely.",
-      "Heat 1 tbsp olive oil in a pan. Cook chopped stalks with minced garlic 3 minutes. Add spinach and cook until wilted, about 2 minutes. Season with salt and pepper.",
-      "Transfer spinach mixture to a bowl. Crumble in feta and mix gently.",
-      "Place mushroom caps gill-side up on a baking tray. Brush with remaining olive oil.",
-      "Fill each cap generously with the spinach-feta mixture. Scatter thyme leaves on top.",
-      "Bake 18–20 minutes until mushrooms are tender and the filling is golden."
+      "Slice the tops off the peppers and scoop out the seeds and membranes. Set the peppers upright in a baking dish.",
+      "Heat the oven to 190°C.",
+      "Cook the onion and garlic in olive oil until soft. Add the beef mince and brown it.",
+      "Stir in the rice, half the canned tomatoes, and a splash of water. Simmer for 5 minutes, then take off the heat and stir through the parsley.",
+      "Spoon the filling into the peppers. Pour the rest of the canned tomatoes over and around them.",
+      "Cover with foil and bake for 35 minutes, then uncover and bake for another 10 minutes so the tops color slightly."
     ]
   },
   {
     "id": "r13",
-    "title": "Moussaka",
-    "cuisine": "Greek / Cypriot",
-    "difficulty": "Hard",
-    "prepTimeMinutes": 35,
-    "cookTimeMinutes": 90,
-    "servings": 6,
-    "estimatedCostEur": 15,
-    "totalCalories": 4553,
-    "proteinG": 211,
-    "carbsG": 237,
-    "fatG": 300,
-    "dietaryTags": [],
-    "possibleAdditions": ["Extra cinnamon in the meat sauce", "Grated kefalotyri on top", "Side of Greek salad"],
-    "calorieReductions": ["Salt-roast the eggplant instead of frying in oil", "Use a lighter béchamel with low-fat milk", "Use lean ground meat instead of regular mince"],
-    "description": "The great baked dish of the Greek table — layered aubergine, spiced beef ragù, and a thick béchamel. Effort rewarded with flavour that improves overnight.",
+    "title": "Chicken Souvlaki",
+    "cuisine": "Greek",
+    "difficulty": "Medium",
+    "prepTimeMinutes": 20,
+    "cookTimeMinutes": 15,
+    "servings": 4,
+    "estimatedCostEur": 8,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "Skewered, marinated chicken grilled until charred at the edges. Cypriot summer food, no fancy equipment needed beyond a hot pan.",
     "ingredients": [
-      { "id": "i13-01", "name": "eggplant", "quantity": 3, "unit": "large" },
-      { "id": "i13-02", "name": "beef mince", "quantity": 700, "unit": "g" },
-      { "id": "i13-03", "name": "onion", "quantity": 2, "unit": "medium" },
-      { "id": "i13-04", "name": "garlic", "quantity": 4, "unit": "cloves" },
-      { "id": "i13-05", "name": "canned tomatoes", "quantity": 1, "unit": "can (400g)" },
-      { "id": "i13-06", "name": "tomato paste", "quantity": 2, "unit": "tbsp" },
-      { "id": "i13-07", "name": "red wine", "quantity": 150, "unit": "ml" },
-      { "id": "i13-08", "name": "cinnamon", "quantity": 1, "unit": "tsp" },
-      { "id": "i13-09", "name": "allspice", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i13-10", "name": "olive oil", "quantity": 4, "unit": "tbsp" },
-      { "id": "i13-11", "name": "butter", "quantity": 60, "unit": "g" },
-      { "id": "i13-12", "name": "flour", "quantity": 60, "unit": "g" },
-      { "id": "i13-13", "name": "milk", "quantity": 700, "unit": "ml" },
-      { "id": "i13-14", "name": "eggs", "quantity": 2, "unit": "large" },
-      { "id": "i13-15", "name": "parmesan", "quantity": 60, "unit": "g", "notes": "or kefalotiri" },
-      { "id": "i13-16", "name": "nutmeg", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i13-17", "name": "breadcrumbs", "quantity": 3, "unit": "tbsp" },
-      { "id": "i13-18", "name": "salt", "quantity": 1.5, "unit": "tsp" },
-      { "id": "i13-19", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
+      {
+        "name": "chicken breast",
+        "quantity": 600,
+        "unit": "g",
+        "notes": "cut into chunks",
+        "id": "i13-01"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i13-02"
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i13-03"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i13-04"
+      },
+      {
+        "name": "dried oregano",
+        "quantity": 2,
+        "unit": "tsp",
+        "id": "i13-05"
+      },
+      {
+        "name": "yogurt",
+        "quantity": 150,
+        "unit": "g",
+        "id": "i13-06"
+      },
+      {
+        "name": "cucumber",
+        "quantity": 0.5,
+        "unit": "large",
+        "notes": "grated, for the yoghurt side",
+        "id": "i13-07"
+      }
     ],
     "instructions": [
-      "Slice eggplant lengthways into 1cm slabs. Salt generously and leave 20 minutes to draw out moisture. Rinse and pat dry.",
-      "Brush eggplant with oil and grill or roast at 220°C until golden, about 15 minutes. Set aside.",
-      "Make the meat sauce: cook diced onion in oil 5 minutes. Add garlic then mince. Cook until browned, then add wine, canned tomatoes, tomato paste, cinnamon, and allspice. Simmer 20 minutes until thick. Season well.",
-      "Make béchamel: melt butter over medium heat, whisk in flour and cook 1 minute. Gradually add warm milk, whisking constantly until thickened (5–7 minutes). Season with salt, nutmeg, and pepper. Off heat, whisk in eggs and half the parmesan.",
-      "Preheat oven to 180°C. Grease a 30×20cm baking dish and dust with breadcrumbs.",
-      "Layer half the eggplant, then all the meat sauce, then remaining eggplant.",
-      "Pour béchamel over the top. Spread to the edges and sprinkle remaining parmesan.",
-      "Bake 45–50 minutes until deep golden on top. Rest 15 minutes before cutting."
+      "Mix the chicken with the lemon juice, garlic, olive oil, and oregano. Let it marinate for at least 30 minutes — longer if you have the time.",
+      "Thread the chicken onto skewers (soak wooden ones in water first so they don't burn).",
+      "Grill or pan-fry the skewers over high heat for 10-12 minutes, turning every couple of minutes, until charred and cooked through.",
+      "Meanwhile, stir the grated cucumber into the yoghurt with a pinch of salt for a quick dip.",
+      "Serve the skewers hot with the yoghurt on the side."
     ]
   },
   {
     "id": "r14",
-    "title": "Kleftiko — Slow-Roasted Lamb",
-    "cuisine": "Cypriot",
-    "difficulty": "Hard",
-    "prepTimeMinutes": 20,
-    "cookTimeMinutes": 240,
-    "servings": 6,
-    "estimatedCostEur": 24,
-    "totalCalories": 6849,
-    "proteinG": 474,
-    "carbsG": 185,
-    "fatG": 448,
-    "dietaryTags": ["Gluten-Free", "Dairy-Free"],
-    "possibleAdditions": ["Extra bay leaves", "Roasted potatoes on the side", "A squeeze of fresh lemon"],
-    "calorieReductions": ["Trim visible fat from the lamb shoulder before cooking", "Reduce the olive oil in the marinade", "Serve smaller portions with extra roasted vegetables"],
-    "description": "Lamb sealed with garlic, herbs and wine in parchment, then slow-roasted until it falls from the bone. Named after the 'kleftes' — outlaws who cooked meat buried in the ground to avoid detection.",
+    "title": "Chicken Shawarma Bowls",
+    "cuisine": "Levantine",
+    "difficulty": "Medium",
+    "prepTimeMinutes": 15,
+    "cookTimeMinutes": 20,
+    "servings": 4,
+    "estimatedCostEur": 9,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "All the flavor of a shawarma wrap without needing a spit — spiced chicken over rice, with cool yoghurt to cut through the heat.",
     "ingredients": [
-      { "id": "i14-01", "name": "lamb shoulder", "quantity": 1800, "unit": "g", "notes": "bone-in, cut into large pieces" },
-      { "id": "i14-02", "name": "garlic", "quantity": 8, "unit": "cloves" },
-      { "id": "i14-03", "name": "lemon", "quantity": 2, "unit": "large" },
-      { "id": "i14-04", "name": "dried oregano", "quantity": 2, "unit": "tsp" },
-      { "id": "i14-05", "name": "fresh thyme", "quantity": 6, "unit": "sprigs" },
-      { "id": "i14-06", "name": "fresh rosemary", "quantity": 3, "unit": "sprigs" },
-      { "id": "i14-07", "name": "olive oil", "quantity": 5, "unit": "tbsp" },
-      { "id": "i14-08", "name": "bay leaves", "quantity": 3, "unit": "pieces" },
-      { "id": "i14-09", "name": "potatoes", "quantity": 800, "unit": "g" },
-      { "id": "i14-10", "name": "tomatoes", "quantity": 3, "unit": "large" },
-      { "id": "i14-11", "name": "red wine", "quantity": 200, "unit": "ml" },
-      { "id": "i14-12", "name": "salt", "quantity": 2, "unit": "tsp" },
-      { "id": "i14-13", "name": "black pepper", "quantity": 1, "unit": "tsp" }
+      {
+        "name": "chicken thighs",
+        "quantity": 700,
+        "unit": "g",
+        "notes": "boneless, sliced",
+        "id": "i14-01"
+      },
+      {
+        "name": "cumin",
+        "quantity": 2,
+        "unit": "tsp",
+        "id": "i14-02"
+      },
+      {
+        "name": "paprika",
+        "quantity": 2,
+        "unit": "tsp",
+        "id": "i14-03"
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i14-04"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i14-05"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i14-06"
+      },
+      {
+        "name": "rice",
+        "quantity": 250,
+        "unit": "g",
+        "id": "i14-07"
+      },
+      {
+        "name": "yogurt",
+        "quantity": 150,
+        "unit": "g",
+        "id": "i14-08"
+      },
+      {
+        "name": "cucumber",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "diced",
+        "id": "i14-09"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": 2,
+        "unit": "medium",
+        "notes": "diced",
+        "id": "i14-10"
+      }
     ],
     "instructions": [
-      "Score the lamb deeply with a knife and push garlic slivers into each cut.",
-      "Mix olive oil, lemon juice, oregano, salt, and pepper. Rub all over the lamb. Marinate at least 1 hour, ideally overnight.",
-      "Preheat oven to 160°C. Cut potatoes into large wedges and slice tomatoes thickly.",
-      "Lay two large sheets of baking parchment (or foil) in a roasting tin, forming a cross. Place lamb on top.",
-      "Arrange potatoes and tomatoes around the lamb. Pour over the red wine and any remaining marinade. Tuck in bay leaves, thyme, and rosemary.",
-      "Fold the parchment tightly over to seal completely — no steam should escape.",
-      "Roast for 3.5–4 hours until the lamb is completely tender and falling off the bone.",
-      "Open the parcel for the last 20 minutes to brown the top."
+      "Mix the chicken with the cumin, paprika, garlic, lemon juice, and olive oil. Marinate for at least 20 minutes.",
+      "Cook the rice according to the pack instructions.",
+      "Heat a pan over high heat and cook the chicken in batches for 6-8 minutes, until well browned and cooked through.",
+      "Divide the rice between bowls. Top with the chicken, diced cucumber, and tomatoes.",
+      "Finish with a dollop of yoghurt over each bowl."
     ]
   },
   {
     "id": "r15",
-    "title": "Spanakopita — Spinach & Feta Pie",
-    "cuisine": "Greek",
-    "difficulty": "Hard",
-    "prepTimeMinutes": 40,
-    "cookTimeMinutes": 50,
-    "servings": 8,
-    "estimatedCostEur": 10,
-    "totalCalories": 3968,
-    "proteinG": 137,
-    "carbsG": 272,
-    "fatG": 267,
-    "dietaryTags": ["Vegetarian"],
-    "possibleAdditions": ["Pine nuts in the filling", "Dill instead of parsley", "Side of tzatziki"],
-    "calorieReductions": ["Brush the phyllo with less butter, or use spray oil", "Reduce the feta by a quarter", "Bake instead of any pan-frying step"],
-    "description": "Shatteringly crisp phyllo encasing a rich filling of spinach, feta, and dill. A labour of love with layers that snap satisfyingly at the table.",
+    "title": "Falafel with Tahini Sauce",
+    "cuisine": "Levantine",
+    "difficulty": "Medium",
+    "prepTimeMinutes": 20,
+    "cookTimeMinutes": 15,
+    "servings": 4,
+    "estimatedCostEur": 6,
+    "dietaryTags": [
+      "Vegan"
+    ],
+    "description": "Crisp, herby chickpea patties with a lemony tahini sauce for dipping. Frying takes practice but the payoff is worth it.",
     "ingredients": [
-      { "id": "i15-01", "name": "phyllo pastry", "quantity": 400, "unit": "g", "notes": "thawed if frozen" },
-      { "id": "i15-02", "name": "spinach", "quantity": 800, "unit": "g", "notes": "fresh" },
-      { "id": "i15-03", "name": "feta cheese", "quantity": 400, "unit": "g" },
-      { "id": "i15-04", "name": "eggs", "quantity": 4, "unit": "large" },
-      { "id": "i15-05", "name": "onion", "quantity": 2, "unit": "medium" },
-      { "id": "i15-06", "name": "fresh dill", "quantity": 4, "unit": "tbsp", "notes": "chopped" },
-      { "id": "i15-07", "name": "olive oil", "quantity": 5, "unit": "tbsp" },
-      { "id": "i15-08", "name": "butter", "quantity": 80, "unit": "g", "notes": "melted, for brushing" },
-      { "id": "i15-09", "name": "nutmeg", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i15-10", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i15-11", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
+      {
+        "name": "canned chickpeas",
+        "quantity": 800,
+        "unit": "g",
+        "id": "i15-01"
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "id": "i15-02"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 20,
+        "unit": "g",
+        "id": "i15-03"
+      },
+      {
+        "name": "fresh coriander",
+        "quantity": 15,
+        "unit": "g",
+        "id": "i15-04"
+      },
+      {
+        "name": "cumin",
+        "quantity": 2,
+        "unit": "tsp",
+        "id": "i15-05"
+      },
+      {
+        "name": "flour",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i15-06"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 100,
+        "unit": "ml",
+        "notes": "for frying",
+        "id": "i15-07"
+      },
+      {
+        "name": "tahini",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i15-08"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i15-09"
+      }
     ],
     "instructions": [
-      "Cook spinach in batches in a dry pan until wilted. Squeeze out as much water as possible — this is critical. Chop roughly.",
-      "Soften diced onion in olive oil for 8 minutes. Cool slightly.",
-      "In a large bowl, combine spinach, onion, crumbled feta, beaten eggs, dill, nutmeg, salt, and pepper. Mix well.",
-      "Preheat oven to 180°C. Brush a 30×20cm baking dish with butter.",
-      "Lay phyllo sheets in the dish, brushing each with melted butter, using half the sheets for the base. Let the sheets overhang the sides.",
-      "Spread the spinach-feta filling evenly.",
-      "Fold the overhanging phyllo over the filling, then layer the remaining sheets on top, brushing each with butter. Score the top into portions with a sharp knife.",
-      "Bake 45–50 minutes until deeply golden and crisp. Rest 10 minutes before cutting."
+      "Blitz the chickpeas, garlic, parsley, coriander, and cumin in a food processor until it forms a coarse, sticky paste — don't over-blend it into a purée.",
+      "Stir in the flour and shape the mixture into small patties.",
+      "Heat the olive oil in a pan over medium-high heat. Fry the patties for 3-4 minutes a side, until deep golden and crisp.",
+      "While they fry, whisk the tahini with the lemon juice and a splash of water until it turns pale and pourable.",
+      "Serve the falafel hot with the tahini sauce."
     ]
   },
   {
     "id": "r16",
-    "title": "Pastitsio — Greek Pasta Bake",
-    "cuisine": "Greek / Cypriot",
-    "difficulty": "Hard",
-    "prepTimeMinutes": 30,
-    "cookTimeMinutes": 75,
-    "servings": 8,
-    "estimatedCostEur": 16,
-    "totalCalories": 6415,
-    "proteinG": 284,
-    "carbsG": 552,
-    "fatG": 325,
-    "dietaryTags": [],
-    "possibleAdditions": ["Extra nutmeg in the béchamel", "Grated kefalotyri topping", "Side of Greek salad"],
-    "calorieReductions": ["Use a lighter béchamel with low-fat milk and less butter", "Use lean ground meat", "Reduce the pasta layer slightly and add more vegetables"],
-    "description": "Cyprus's answer to lasagne — tubes of pasta layered with spiced beef ragù and a deep béchamel. The cinnamon-scented meat sauce is what sets it apart from its Italian cousin.",
+    "title": "Baked Feta Pasta",
+    "cuisine": "Mediterranean",
+    "difficulty": "Medium",
+    "prepTimeMinutes": 10,
+    "cookTimeMinutes": 30,
+    "servings": 4,
+    "estimatedCostEur": 8,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "A block of feta and a tray of cherry tomatoes roasted together until they collapse into a sauce, then stirred straight through pasta. Barely any effort for how good it looks.",
     "ingredients": [
-      { "id": "i16-01", "name": "penne pasta", "quantity": 500, "unit": "g" },
-      { "id": "i16-02", "name": "beef mince", "quantity": 700, "unit": "g" },
-      { "id": "i16-03", "name": "onion", "quantity": 2, "unit": "large" },
-      { "id": "i16-04", "name": "garlic", "quantity": 4, "unit": "cloves" },
-      { "id": "i16-05", "name": "canned tomatoes", "quantity": 1, "unit": "can (400g)" },
-      { "id": "i16-06", "name": "tomato paste", "quantity": 3, "unit": "tbsp" },
-      { "id": "i16-07", "name": "red wine", "quantity": 150, "unit": "ml" },
-      { "id": "i16-08", "name": "cinnamon", "quantity": 1, "unit": "tsp" },
-      { "id": "i16-09", "name": "ground cloves", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i16-10", "name": "olive oil", "quantity": 3, "unit": "tbsp" },
-      { "id": "i16-11", "name": "butter", "quantity": 80, "unit": "g" },
-      { "id": "i16-12", "name": "flour", "quantity": 80, "unit": "g" },
-      { "id": "i16-13", "name": "milk", "quantity": 900, "unit": "ml" },
-      { "id": "i16-14", "name": "eggs", "quantity": 3, "unit": "large" },
-      { "id": "i16-15", "name": "parmesan", "quantity": 80, "unit": "g", "notes": "or kefalograviera" },
-      { "id": "i16-16", "name": "nutmeg", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i16-17", "name": "salt", "quantity": 1.5, "unit": "tsp" },
-      { "id": "i16-18", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
+      {
+        "name": "cherry tomatoes",
+        "quantity": 500,
+        "unit": "g",
+        "id": "i16-01"
+      },
+      {
+        "name": "feta cheese",
+        "quantity": 200,
+        "unit": "g",
+        "id": "i16-02"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 60,
+        "unit": "ml",
+        "id": "i16-03"
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "id": "i16-04"
+      },
+      {
+        "name": "penne pasta",
+        "quantity": 300,
+        "unit": "g",
+        "id": "i16-05"
+      },
+      {
+        "name": "fresh basil",
+        "quantity": 8,
+        "unit": "leaves",
+        "notes": "torn",
+        "id": "i16-06"
+      },
+      {
+        "name": "red chili flakes",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "id": "i16-07"
+      }
     ],
     "instructions": [
-      "Cook penne until just al dente. Drain and set aside.",
-      "Make meat sauce: brown mince in batches in olive oil. Add diced onion and garlic. Pour in wine and let it bubble 2 minutes.",
-      "Add canned tomatoes, tomato paste, cinnamon, cloves, salt, and pepper. Simmer 25 minutes until thick.",
-      "Make béchamel: melt butter, whisk in flour for 1 minute, then gradually add warm milk. Stir until thickened (7–8 minutes). Season with nutmeg, salt, and pepper. Off heat, whisk in eggs and half the parmesan.",
-      "Preheat oven to 180°C. Grease a large deep baking dish (35×25cm).",
-      "Spread half the pasta in the dish. Pour over the meat sauce. Top with remaining pasta.",
-      "Pour all the béchamel over the top, spread to edges, and sprinkle remaining parmesan.",
-      "Bake 45 minutes until top is deeply golden. Rest 15 minutes before serving."
+      "Heat the oven to 200°C.",
+      "Tip the cherry tomatoes into a baking dish, nestle the block of feta in the middle, and scatter the garlic cloves around it. Drizzle everything with the olive oil and the chili flakes.",
+      "Bake for 30 minutes, until the tomatoes have burst and the feta is soft and blistered on top.",
+      "Meanwhile, cook the pasta in well-salted water until al dente. Save a mug of the pasta water before draining.",
+      "Mash the feta and tomatoes together right in the baking dish, then stir in the drained pasta and a splash of pasta water until it comes together as a sauce.",
+      "Finish with torn basil."
     ]
   },
   {
     "id": "r17",
-    "title": "Yemistá — Stuffed Bell Peppers",
-    "cuisine": "Greek / Cypriot",
+    "title": "Kleftiko",
+    "cuisine": "Cypriot / Greek",
     "difficulty": "Hard",
-    "prepTimeMinutes": 30,
-    "cookTimeMinutes": 65,
-    "servings": 4,
-    "estimatedCostEur": 13,
-    "totalCalories": 2737,
-    "proteinG": 112,
-    "carbsG": 209,
-    "fatG": 158,
-    "dietaryTags": ["Gluten-Free", "Dairy-Free"],
-    "possibleAdditions": ["Ground meat mix-in", "Toasted pine nuts", "Fresh dill garnish"],
-    "calorieReductions": ["Skip the added oil drizzle before baking", "Use half the rice and bulk up with extra vegetables", "Serve one pepper instead of two per portion"],
-    "description": "Peppers filled with spiced beef and rice, slow-baked in a rich tomato bath. A Sunday dish in Greek Cypriot homes, best eaten warm rather than piping hot.",
+    "prepTimeMinutes": 20,
+    "cookTimeMinutes": 210,
+    "servings": 6,
+    "estimatedCostEur": 18,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "Lamb shoulder rubbed with garlic and lemon, sealed up, and left to slow-roast for hours until it falls apart at the touch of a fork. Mostly the oven's work, not yours.",
     "ingredients": [
-      { "id": "i17-01", "name": "red bell pepper", "quantity": 4, "unit": "large" },
-      { "id": "i17-02", "name": "beef mince", "quantity": 500, "unit": "g" },
-      { "id": "i17-03", "name": "onion", "quantity": 2, "unit": "medium" },
-      { "id": "i17-04", "name": "garlic", "quantity": 3, "unit": "cloves" },
-      { "id": "i17-05", "name": "rice", "quantity": 150, "unit": "g", "notes": "long grain, uncooked" },
-      { "id": "i17-06", "name": "canned tomatoes", "quantity": 1, "unit": "can (400g)" },
-      { "id": "i17-07", "name": "tomato paste", "quantity": 2, "unit": "tbsp" },
-      { "id": "i17-08", "name": "olive oil", "quantity": 4, "unit": "tbsp" },
-      { "id": "i17-09", "name": "fresh parsley", "quantity": 4, "unit": "tbsp", "notes": "chopped" },
-      { "id": "i17-10", "name": "fresh mint", "quantity": 2, "unit": "tbsp", "notes": "chopped" },
-      { "id": "i17-11", "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i17-12", "name": "salt", "quantity": 1.5, "unit": "tsp" },
-      { "id": "i17-13", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
+      {
+        "name": "lamb shoulder",
+        "quantity": 2,
+        "unit": "kg",
+        "id": "i17-01"
+      },
+      {
+        "name": "garlic",
+        "quantity": 6,
+        "unit": "cloves",
+        "id": "i17-02"
+      },
+      {
+        "name": "lemon",
+        "quantity": 2,
+        "unit": "whole",
+        "id": "i17-03"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 60,
+        "unit": "ml",
+        "id": "i17-04"
+      },
+      {
+        "name": "dried oregano",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i17-05"
+      },
+      {
+        "name": "fresh thyme",
+        "quantity": 4,
+        "unit": "sprigs",
+        "id": "i17-06"
+      },
+      {
+        "name": "potatoes",
+        "quantity": 1,
+        "unit": "kg",
+        "notes": "quartered",
+        "id": "i17-07"
+      }
     ],
     "instructions": [
-      "Cut the tops off the peppers and set aside (keep them as lids). Remove seeds and membranes.",
-      "Heat 2 tbsp olive oil. Cook diced onion 5 minutes, add garlic and cook 1 more minute.",
-      "Add mince, breaking it up. Cook until just browned. Season with cinnamon, salt, and pepper.",
-      "Add rice, half the canned tomatoes, 100ml water, parsley, and mint. Stir and cook 3 minutes. The rice should be half-cooked.",
-      "Preheat oven to 180°C. Stand peppers in a deep baking dish. Fill each three-quarters full with the meat mixture (rice expands as it cooks).",
-      "Replace the pepper lids. Pour remaining tomatoes, tomato paste, 2 tbsp olive oil, and 200ml water around the peppers.",
-      "Cover with foil and bake 45 minutes. Remove foil and bake 20 more minutes until peppers are tender and sauce is reduced.",
-      "Rest 10 minutes before serving. Spoon pan juices over the peppers."
+      "Heat the oven to 150°C.",
+      "Cut small slits all over the lamb shoulder and push a sliver of garlic into each one.",
+      "Rub the lamb all over with olive oil, the juice of both lemons, and the oregano. Season well with salt.",
+      "Put the potatoes in the bottom of a large roasting tray, sit the lamb on top, and add the thyme sprigs and the squeezed lemon halves.",
+      "Cover the tray tightly with foil — this traps the steam and is what makes the lamb fall apart later.",
+      "Roast for 3.5 hours, then remove the foil and roast for another 20-30 minutes to brown the top.",
+      "Rest for 15 minutes before pulling the meat apart with two forks."
     ]
   },
   {
     "id": "r18",
-    "title": "Protein Overnight Oats",
-    "cuisine": "Contemporary",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 5,
-    "cookTimeMinutes": 0,
-    "servings": 1,
-    "estimatedCostEur": 3,
-    "totalCalories": 617,
-    "proteinG": 41,
-    "carbsG": 84,
-    "fatG": 16,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Fresh berries on top", "A drizzle of peanut butter", "Toasted almonds for crunch"],
-    "calorieReductions": ["Use unsweetened almond milk instead of whole milk", "Skip the honey — the banana adds natural sweetness", "Use a lower-calorie protein powder blend"],
-    "description": "A no-cook, high-protein breakfast you prep the night before. Creamy oats, a scoop of protein powder, and chia seeds for staying power.",
+    "title": "Spanakopita",
+    "cuisine": "Greek",
+    "difficulty": "Hard",
+    "prepTimeMinutes": 30,
+    "cookTimeMinutes": 45,
+    "servings": 6,
+    "estimatedCostEur": 10,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "Spinach and feta wrapped in paper-thin, buttery pastry. Working with phyllo takes a steady hand the first time, but it's just repetition after that.",
     "ingredients": [
-      { "id": "i18-01", "name": "oats", "quantity": 50, "unit": "g" },
-      { "id": "i18-02", "name": "protein powder", "quantity": 30, "unit": "g" },
-      { "id": "i18-03", "name": "milk", "quantity": 200, "unit": "ml" },
-      { "id": "i18-04", "name": "chia seeds", "quantity": 1, "unit": "tbsp" },
-      { "id": "i18-05", "name": "honey", "quantity": 1, "unit": "tsp" },
-      { "id": "i18-06", "name": "banana", "quantity": 1, "unit": "sliced" }
+      {
+        "name": "spinach",
+        "quantity": 500,
+        "unit": "g",
+        "id": "i18-01"
+      },
+      {
+        "name": "feta cheese",
+        "quantity": 250,
+        "unit": "g",
+        "id": "i18-02"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "finely diced",
+        "id": "i18-03"
+      },
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "whole",
+        "id": "i18-04"
+      },
+      {
+        "name": "fresh dill",
+        "quantity": 2,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i18-05"
+      },
+      {
+        "name": "phyllo pastry",
+        "quantity": 10,
+        "unit": "sheets",
+        "id": "i18-06"
+      },
+      {
+        "name": "butter",
+        "quantity": 100,
+        "unit": "g",
+        "notes": "melted",
+        "id": "i18-07"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "id": "i18-08"
+      }
     ],
     "instructions": [
-      "In a jar, whisk together the protein powder and milk until smooth.",
-      "Stir in the oats, chia seeds, and honey.",
-      "Cover and refrigerate overnight (or at least 4 hours).",
-      "Top with sliced banana before serving."
+      "Cook the onion in olive oil until soft. Add the spinach in batches and cook until wilted, then tip it into a colander and press out as much liquid as you can once it's cool enough to handle.",
+      "Mix the spinach and onion with the crumbled feta, eggs, and dill in a bowl.",
+      "Heat the oven to 180°C. Brush a baking dish with melted butter.",
+      "Lay one sheet of phyllo in the dish, brush with melted butter, and repeat with half the sheets, letting the edges hang over.",
+      "Spread the spinach filling evenly over the pastry, then layer the remaining sheets on top, brushing each with butter.",
+      "Fold in the overhanging edges and score the top layer into portions with a sharp knife — this stops the whole thing shattering when you cut it later.",
+      "Bake for 40-45 minutes, until deep golden and crisp. Let it cool for 10 minutes before cutting along the scored lines."
     ]
   },
   {
     "id": "r19",
-    "title": "Berry Protein Smoothie",
-    "cuisine": "Contemporary",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 5,
-    "cookTimeMinutes": 0,
-    "servings": 1,
-    "estimatedCostEur": 3,
-    "totalCalories": 425,
-    "proteinG": 33,
-    "carbsG": 54,
-    "fatG": 11,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["A spoon of peanut butter", "A handful of oats for thickness", "Ice cubes for a frostier texture"],
-    "calorieReductions": ["Swap whole milk for unsweetened almond milk", "Use half a banana instead of a whole one", "Skip added sweeteners — the berries provide natural sugar"],
-    "description": "A quick blender breakfast or post-workout drink — frozen berries, banana, spinach, and a scoop of protein powder.",
-    "ingredients": [
-      { "id": "i19-01", "name": "protein powder", "quantity": 30, "unit": "g" },
-      { "id": "i19-02", "name": "banana", "quantity": 1, "unit": "whole" },
-      { "id": "i19-03", "name": "mixed berries", "quantity": 100, "unit": "g" },
-      { "id": "i19-04", "name": "spinach", "quantity": 30, "unit": "g" },
-      { "id": "i19-05", "name": "milk", "quantity": 250, "unit": "ml" }
-    ],
-    "instructions": [
-      "Add all ingredients to a blender.",
-      "Blend on high for 45–60 seconds until smooth.",
-      "Pour into a glass and serve immediately."
-    ]
-  },
-  {
-    "id": "r20",
-    "title": "High-Protein Banana Pancakes",
-    "cuisine": "Contemporary",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 10,
-    "cookTimeMinutes": 10,
-    "servings": 2,
-    "estimatedCostEur": 4,
-    "totalCalories": 862,
-    "proteinG": 76,
-    "carbsG": 91,
-    "fatG": 24,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["Greek yogurt on the side", "A drizzle of honey", "Fresh berries on top"],
-    "calorieReductions": ["Cook with a non-stick spray instead of butter or oil", "Skip the honey drizzle — the banana already sweetens the batter", "Use egg whites instead of whole eggs to cut fat"],
-    "description": "Blender pancakes made from oats, eggs, banana, and protein powder — no flour needed, and they hold together beautifully.",
-    "ingredients": [
-      { "id": "i20-01", "name": "oats", "quantity": 80, "unit": "g" },
-      { "id": "i20-02", "name": "protein powder", "quantity": 60, "unit": "g" },
-      { "id": "i20-03", "name": "eggs", "quantity": 2, "unit": "whole" },
-      { "id": "i20-04", "name": "banana", "quantity": 1, "unit": "whole" },
-      { "id": "i20-05", "name": "milk", "quantity": 100, "unit": "ml" },
-      { "id": "i20-06", "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i20-07", "name": "baking powder", "quantity": 1, "unit": "tsp" }
-    ],
-    "instructions": [
-      "Blend the oats, protein powder, eggs, banana, milk, cinnamon, and baking powder until smooth.",
-      "Heat a non-stick pan over medium heat.",
-      "Pour small rounds of batter and cook 2–3 minutes per side until golden.",
-      "Serve warm, stacked."
-    ]
-  },
-  {
-    "id": "r21",
-    "title": "Braised Beef Chilli",
-    "cuisine": "Mexican",
+    "title": "Beef Stifado",
+    "cuisine": "Greek / Cypriot",
     "difficulty": "Hard",
     "prepTimeMinutes": 25,
     "cookTimeMinutes": 150,
     "servings": 6,
-    "estimatedCostEur": 15,
-    "totalCalories": 5117,
-    "proteinG": 392,
-    "carbsG": 227,
-    "fatG": 303,
-    "dietaryTags": ["Dairy-Free", "Gluten-Free"],
-    "possibleAdditions": ["Grated cheddar on top", "Soured cream", "Sliced avocado"],
-    "calorieReductions": ["Trim the fat from the beef before browning", "Use half the chorizo", "Add an extra can of beans and reduce the beef by a third"],
-    "description": "A slow-braised, smoky beef chilli loaded with chorizo and borlotti beans — better the day after, once the spices have settled in.",
+    "estimatedCostEur": 16,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "A slow-cooked beef and shallot stew, sweetened with cinnamon and a good glug of red wine. It wants time more than attention — most of this is just waiting.",
     "ingredients": [
-      { "id": "i21-01", "name": "beef", "quantity": 1000, "unit": "g", "notes": "stewing beef, cut into chunks" },
-      { "id": "i21-02", "name": "onion", "quantity": 3, "unit": "medium" },
-      { "id": "i21-03", "name": "garlic", "quantity": 4, "unit": "cloves" },
-      { "id": "i21-04", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i21-05", "name": "chorizo", "quantity": 300, "unit": "g" },
-      { "id": "i21-06", "name": "cumin", "quantity": 2, "unit": "tsp" },
-      { "id": "i21-07", "name": "allspice", "quantity": 1, "unit": "tsp" },
-      { "id": "i21-08", "name": "cinnamon", "quantity": 1, "unit": "tsp" },
-      { "id": "i21-09", "name": "bay leaves", "quantity": 3, "unit": "pieces" },
-      { "id": "i21-10", "name": "dried oregano", "quantity": 2, "unit": "tsp" },
-      { "id": "i21-11", "name": "red chili flakes", "quantity": 1, "unit": "tsp" },
-      { "id": "i21-12", "name": "canned tomatoes", "quantity": 2, "unit": "cans (400g each)" },
-      { "id": "i21-13", "name": "tomato paste", "quantity": 2, "unit": "tbsp" },
-      { "id": "i21-14", "name": "brown sugar", "quantity": 2, "unit": "tbsp" },
-      { "id": "i21-15", "name": "borlotti beans", "quantity": 2, "unit": "cans (400g each)", "notes": "drained" }
+      {
+        "name": "beef",
+        "quantity": 1,
+        "unit": "kg",
+        "notes": "cut into chunks",
+        "id": "i19-01"
+      },
+      {
+        "name": "shallots",
+        "quantity": 500,
+        "unit": "g",
+        "notes": "peeled whole",
+        "id": "i19-02"
+      },
+      {
+        "name": "red wine",
+        "quantity": 250,
+        "unit": "ml",
+        "id": "i19-03"
+      },
+      {
+        "name": "canned tomatoes",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i19-04"
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "id": "i19-05"
+      },
+      {
+        "name": "bay leaves",
+        "quantity": 2,
+        "unit": "leaves",
+        "id": "i19-06"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 1,
+        "unit": "stick",
+        "id": "i19-07"
+      },
+      {
+        "name": "red wine vinegar",
+        "quantity": 1,
+        "unit": "tbsp",
+        "id": "i19-08"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i19-09"
+      }
     ],
     "instructions": [
-      "Season the beef and brown in batches in olive oil over high heat. Set aside.",
-      "In the same pot, soften diced onion 5 minutes, then add garlic, chorizo, cumin, allspice, cinnamon, and chili flakes. Cook 3 minutes until fragrant.",
-      "Return the beef to the pot with bay leaves, oregano, canned tomatoes, tomato paste, and brown sugar. Add enough water to just cover.",
-      "Bring to a simmer, cover, and cook low for 2–2.5 hours until the beef is fork-tender, stirring occasionally.",
-      "Stir in the drained borlotti beans and simmer uncovered for 15 minutes to thicken.",
-      "Remove bay leaves and season to taste before serving."
+      "Brown the beef in batches in olive oil over high heat, then set aside.",
+      "In the same pot, brown the shallots whole until they pick up some color.",
+      "Return the beef to the pot with the garlic, bay leaves, and cinnamon stick. Pour in the wine and let it bubble for 2 minutes to cook off the harshness.",
+      "Add the canned tomatoes and vinegar, then top up with enough water to just cover everything.",
+      "Cover and simmer on very low heat for 2-2.5 hours, checking occasionally, until the beef is fork-tender and the sauce has thickened.",
+      "Fish out the cinnamon stick and bay leaves before serving."
+    ]
+  },
+  {
+    "id": "r20",
+    "title": "Lamb Kofta with Rice",
+    "cuisine": "Middle Eastern",
+    "difficulty": "Hard",
+    "prepTimeMinutes": 25,
+    "cookTimeMinutes": 20,
+    "servings": 4,
+    "estimatedCostEur": 11,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "Spiced lamb patties grilled on skewers over rice. The mix needs a firm hand to shape and a hot enough pan to char — get those two right and the rest is easy.",
+    "ingredients": [
+      {
+        "name": "lamb mince",
+        "quantity": 600,
+        "unit": "g",
+        "id": "i20-01"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "small",
+        "notes": "grated",
+        "id": "i20-02"
+      },
+      {
+        "name": "fresh parsley",
+        "quantity": 3,
+        "unit": "tbsp",
+        "notes": "finely chopped",
+        "id": "i20-03"
+      },
+      {
+        "name": "cumin",
+        "quantity": 2,
+        "unit": "tsp",
+        "id": "i20-04"
+      },
+      {
+        "name": "paprika",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i20-05"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i20-06"
+      },
+      {
+        "name": "rice",
+        "quantity": 250,
+        "unit": "g",
+        "id": "i20-07"
+      },
+      {
+        "name": "yogurt",
+        "quantity": 150,
+        "unit": "g",
+        "id": "i20-08"
+      }
+    ],
+    "instructions": [
+      "Squeeze the grated onion in a clean tea towel to remove excess water, then mix it into the lamb mince with the parsley, cumin, paprika, garlic, and a good pinch of salt.",
+      "Work the mixture with your hands for a couple of minutes until it feels tacky — this is what holds the kofta together on the skewer.",
+      "Shape into oval patties around skewers, pressing firmly.",
+      "Cook the rice according to the pack instructions.",
+      "Grill or pan-fry the kofta over high heat for 4-5 minutes a side, until charred outside and cooked through.",
+      "Serve over the rice with a spoon of yoghurt on the side."
+    ]
+  },
+  {
+    "id": "r21",
+    "title": "Fattoush with Grilled Halloumi",
+    "cuisine": "Levantine",
+    "difficulty": "Hard",
+    "prepTimeMinutes": 20,
+    "cookTimeMinutes": 10,
+    "servings": 4,
+    "estimatedCostEur": 9,
+    "dietaryTags": [
+      "Vegetarian"
+    ],
+    "description": "A crunchy, sumac-dressed salad topped with fried pita chips and grilled halloumi. More chopping than skill, but there's a lot of chopping.",
+    "ingredients": [
+      {
+        "name": "lettuce",
+        "quantity": 1,
+        "unit": "head",
+        "notes": "chopped",
+        "id": "i21-01"
+      },
+      {
+        "name": "cucumber",
+        "quantity": 1,
+        "unit": "large",
+        "id": "i21-02"
+      },
+      {
+        "name": "tomatoes",
+        "quantity": 2,
+        "unit": "medium",
+        "id": "i21-03"
+      },
+      {
+        "name": "radish",
+        "quantity": 4,
+        "unit": "whole",
+        "notes": "thinly sliced",
+        "id": "i21-04"
+      },
+      {
+        "name": "pita bread",
+        "quantity": 2,
+        "unit": "whole",
+        "id": "i21-05"
+      },
+      {
+        "name": "halloumi",
+        "quantity": 250,
+        "unit": "g",
+        "id": "i21-06"
+      },
+      {
+        "name": "sumac",
+        "quantity": 1,
+        "unit": "tbsp",
+        "id": "i21-07"
+      },
+      {
+        "name": "pomegranate molasses",
+        "quantity": 1,
+        "unit": "tbsp",
+        "id": "i21-08"
+      },
+      {
+        "name": "fresh mint",
+        "quantity": 2,
+        "unit": "tbsp",
+        "notes": "chopped",
+        "id": "i21-09"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 4,
+        "unit": "tbsp",
+        "id": "i21-10"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i21-11"
+      }
+    ],
+    "instructions": [
+      "Tear or cut the pita into rough pieces and fry in a little olive oil until crisp and golden. Set aside on paper towel.",
+      "Chop the lettuce, cucumber, tomatoes, and radish and toss together in a large bowl with the mint.",
+      "Whisk together the olive oil, lemon juice, pomegranate molasses, and sumac for the dressing.",
+      "Slice the halloumi and griddle it in a dry pan for about 90 seconds a side, until charred and soft in the middle.",
+      "Toss the salad with the dressing, then top with the fried pita and grilled halloumi. Serve right away, before the pita softens."
     ]
   },
   {
     "id": "r22",
-    "title": "Honey Teriyaki Salmon",
-    "cuisine": "Japanese",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 10,
-    "cookTimeMinutes": 12,
-    "servings": 2,
-    "estimatedCostEur": 11,
-    "totalCalories": 1244,
-    "proteinG": 92,
-    "carbsG": 39,
-    "fatG": 77,
-    "dietaryTags": ["Dairy-Free"],
-    "possibleAdditions": ["Steamed rice on the side", "Steamed broccoli", "Extra chili flakes"],
-    "calorieReductions": ["Cut the honey to 1 tbsp", "Use a smaller salmon fillet (150g) per portion", "Skip the sesame seed garnish"],
-    "description": "Pan-seared salmon glazed with a sticky honey-soy teriyaki sauce, finished with a scatter of sesame seeds. On the table in 20 minutes.",
+    "title": "Pastitsio",
+    "cuisine": "Greek",
+    "difficulty": "Hard",
+    "prepTimeMinutes": 30,
+    "cookTimeMinutes": 60,
+    "servings": 6,
+    "estimatedCostEur": 13,
+    "dietaryTags": [],
+    "description": "Greece's answer to lasagne — tubed pasta layered with a cinnamon-spiced meat sauce and a thick béchamel, baked until set. A weekend project, not a weeknight one.",
     "ingredients": [
-      { "id": "i22-01", "name": "salmon", "quantity": 450, "unit": "g", "notes": "two fillets" },
-      { "id": "i22-02", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i22-03", "name": "soy sauce", "quantity": 2, "unit": "tbsp" },
-      { "id": "i22-04", "name": "honey", "quantity": 2, "unit": "tbsp" },
-      { "id": "i22-05", "name": "garlic", "quantity": 2, "unit": "cloves" },
-      { "id": "i22-06", "name": "sesame seeds", "quantity": 1, "unit": "tbsp" }
+      {
+        "name": "penne pasta",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i22-01"
+      },
+      {
+        "name": "beef mince",
+        "quantity": 500,
+        "unit": "g",
+        "id": "i22-02"
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "notes": "diced",
+        "id": "i22-03"
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "notes": "minced",
+        "id": "i22-04"
+      },
+      {
+        "name": "canned tomatoes",
+        "quantity": 400,
+        "unit": "g",
+        "id": "i22-05"
+      },
+      {
+        "name": "tomato paste",
+        "quantity": 1,
+        "unit": "tbsp",
+        "id": "i22-06"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "id": "i22-07"
+      },
+      {
+        "name": "butter",
+        "quantity": 60,
+        "unit": "g",
+        "id": "i22-08"
+      },
+      {
+        "name": "flour",
+        "quantity": 60,
+        "unit": "g",
+        "id": "i22-09"
+      },
+      {
+        "name": "milk",
+        "quantity": 600,
+        "unit": "ml",
+        "id": "i22-10"
+      },
+      {
+        "name": "parmesan",
+        "quantity": 80,
+        "unit": "g",
+        "notes": "grated",
+        "id": "i22-11"
+      },
+      {
+        "name": "eggs",
+        "quantity": 2,
+        "unit": "whole",
+        "id": "i22-12"
+      }
     ],
     "instructions": [
-      "Whisk together soy sauce, honey, and minced garlic for the teriyaki glaze.",
-      "Heat olive oil in a pan over medium-high heat. Sear the salmon skin-side down for 4 minutes.",
-      "Flip, pour the glaze over the fillets, and cook 3–4 minutes more, spooning the sauce over as it thickens.",
-      "Scatter with sesame seeds and serve immediately."
+      "Cook the pasta until just shy of al dente, drain, and set aside.",
+      "Cook the onion and garlic until soft, then add the beef mince and brown it well.",
+      "Stir in the canned tomatoes, tomato paste, and cinnamon. Simmer for 20 minutes until thick.",
+      "For the béchamel: melt the butter, whisk in the flour, and cook for a minute. Gradually whisk in the milk until smooth and thick. Take off the heat, cool slightly, then beat in the eggs and half the parmesan.",
+      "Heat the oven to 180°C. Layer the pasta and meat sauce in a baking dish, then pour the béchamel over the top and scatter with the rest of the parmesan.",
+      "Bake for 40-45 minutes, until the top is set and deeply golden. Rest for 15 minutes before cutting — it needs that time to hold together."
     ]
   },
   {
     "id": "r23",
-    "title": "Pad Thai",
-    "cuisine": "Thai",
-    "difficulty": "Medium",
+    "title": "Chicken Musakhan",
+    "cuisine": "Palestinian",
+    "difficulty": "Hard",
     "prepTimeMinutes": 20,
-    "cookTimeMinutes": 15,
-    "servings": 2,
-    "estimatedCostEur": 9,
-    "totalCalories": 1137,
-    "proteinG": 68,
-    "carbsG": 134,
-    "fatG": 42,
-    "dietaryTags": ["Dairy-Free", "Gluten-Free"],
-    "possibleAdditions": ["Extra crushed peanuts", "A fried egg on top", "Extra lime wedges"],
-    "calorieReductions": ["Cut the oil to 1 tbsp", "Use half the peanuts", "Bulk up with extra bean sprouts instead of noodles"],
-    "description": "Sweet, sour, and savoury rice noodles tossed with prawns, bean sprouts, and crushed peanuts — street-food Thailand in one pan.",
+    "cookTimeMinutes": 45,
+    "servings": 4,
+    "estimatedCostEur": 10,
+    "dietaryTags": [],
+    "description": "Roast chicken over sumac-soaked flatbread, piled with sweet caramelized onions and toasted pine nuts. A Palestinian classic built for sharing straight off the tray.",
     "ingredients": [
-      { "id": "i23-01", "name": "rice noodles", "quantity": 125, "unit": "g" },
-      { "id": "i23-02", "name": "lime", "quantity": 2, "unit": "piece" },
-      { "id": "i23-03", "name": "cayenne pepper", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i23-04", "name": "brown sugar", "quantity": 2, "unit": "tsp" },
-      { "id": "i23-05", "name": "fish sauce", "quantity": 2, "unit": "tbsp" },
-      { "id": "i23-06", "name": "olive oil", "quantity": 2, "unit": "tbsp" },
-      { "id": "i23-07", "name": "prawns", "quantity": 200, "unit": "g" },
-      { "id": "i23-08", "name": "bean sprouts", "quantity": 140, "unit": "g" },
-      { "id": "i23-09", "name": "peanuts", "quantity": 25, "unit": "g", "notes": "crushed" }
+      {
+        "name": "chicken thighs",
+        "quantity": 1,
+        "unit": "kg",
+        "notes": "bone-in",
+        "id": "i23-01"
+      },
+      {
+        "name": "onion",
+        "quantity": 3,
+        "unit": "large",
+        "notes": "thinly sliced",
+        "id": "i23-02"
+      },
+      {
+        "name": "sumac",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i23-03"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 100,
+        "unit": "ml",
+        "id": "i23-04"
+      },
+      {
+        "name": "pine nuts",
+        "quantity": 40,
+        "unit": "g",
+        "id": "i23-05"
+      },
+      {
+        "name": "pita bread",
+        "quantity": 4,
+        "unit": "whole",
+        "id": "i23-06"
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "notes": "juiced",
+        "id": "i23-07"
+      }
     ],
     "instructions": [
-      "Soak the rice noodles in hot water for 8–10 minutes until pliable, then drain.",
-      "Whisk lime juice, cayenne, brown sugar, and fish sauce into a sauce.",
-      "Heat oil in a wok over high heat. Stir-fry the prawns 2 minutes until just pink.",
-      "Add the drained noodles and sauce, tossing constantly for 2 minutes.",
-      "Add bean sprouts and toss another minute until just wilted.",
-      "Serve topped with crushed peanuts and extra lime wedges."
+      "Toss the chicken with half the olive oil, half the sumac, the lemon juice, and a good pinch of salt. Marinate for at least 30 minutes.",
+      "Cook the sliced onions in the rest of the olive oil over low heat for 20 minutes, stirring occasionally, until soft, sweet, and deeply golden. Stir in the remaining sumac.",
+      "Heat the oven to 200°C. Lay the pita breads in a large roasting tray and spoon half the caramelized onions over them.",
+      "Sit the chicken on top of the onion-covered bread and roast for 35-40 minutes, until the chicken is cooked through and the bread underneath has soaked up the juices.",
+      "Toast the pine nuts in a dry pan for a minute or two until golden — watch them closely, they burn fast.",
+      "Top the tray with the rest of the onions and the toasted pine nuts before serving."
     ]
   },
   {
     "id": "r24",
-    "title": "Chicken & Chorizo Rice Pot",
-    "cuisine": "Spanish",
-    "difficulty": "Medium",
-    "prepTimeMinutes": 15,
-    "cookTimeMinutes": 45,
-    "servings": 4,
-    "estimatedCostEur": 12,
-    "totalCalories": 4578,
-    "proteinG": 239,
-    "carbsG": 359,
-    "fatG": 224,
-    "dietaryTags": ["Dairy-Free", "Gluten-Free"],
-    "possibleAdditions": ["A pinch of saffron", "Sliced green olives", "Extra smoked paprika"],
-    "calorieReductions": ["Use half the chorizo", "Trim skin from the chicken thighs", "Swap half the rice for extra peppers"],
-    "description": "One-pot Spanish comfort food — chicken thighs and chorizo braised with rice in a smoky tomato-wine stock until everything's soaked up the flavour.",
-    "ingredients": [
-      { "id": "i24-01", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i24-02", "name": "chicken thighs", "quantity": 800, "unit": "g", "notes": "bone-in" },
-      { "id": "i24-03", "name": "onion", "quantity": 1, "unit": "large" },
-      { "id": "i24-04", "name": "red bell pepper", "quantity": 1, "unit": "medium" },
-      { "id": "i24-05", "name": "garlic", "quantity": 3, "unit": "cloves" },
-      { "id": "i24-06", "name": "chorizo", "quantity": 225, "unit": "g" },
-      { "id": "i24-07", "name": "tomato paste", "quantity": 1, "unit": "tbsp" },
-      { "id": "i24-08", "name": "dried thyme", "quantity": 1, "unit": "tsp" },
-      { "id": "i24-09", "name": "white wine", "quantity": 150, "unit": "ml" },
-      { "id": "i24-10", "name": "chicken stock", "quantity": 800, "unit": "ml" },
-      { "id": "i24-11", "name": "rice", "quantity": 400, "unit": "g" }
-    ],
-    "instructions": [
-      "Brown the chicken thighs in olive oil, skin-side down first. Set aside.",
-      "In the same pot, soften diced onion and pepper 5 minutes, then add garlic and sliced chorizo. Cook 3 minutes until the oil turns red.",
-      "Stir in tomato paste and thyme, then pour in the white wine and let it bubble 2 minutes.",
-      "Add the rice and stock, then nestle the chicken back on top.",
-      "Cover and simmer 30–35 minutes until the rice is tender and the chicken is cooked through.",
-      "Rest 5 minutes before serving straight from the pot."
-    ]
-  },
-  {
-    "id": "r25",
-    "title": "Chicken Couscous",
+    "title": "Lamb Tagine with Apricots",
     "cuisine": "Moroccan",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 15,
-    "cookTimeMinutes": 25,
-    "servings": 2,
-    "estimatedCostEur": 9,
-    "totalCalories": 1951,
-    "proteinG": 142,
-    "carbsG": 260,
-    "fatG": 33,
-    "dietaryTags": ["Dairy-Free"],
-    "possibleAdditions": ["Toasted flaked almonds", "A dollop of harissa on the side", "Extra dried apricots"],
-    "calorieReductions": ["Use 200g chicken breast instead of 300g", "Halve the dried apricots", "Cut the olive oil to 1 tsp"],
-    "description": "Moroccan-spiced chicken simmered with dried apricots and chickpeas, served over fluffy couscous — sweet, warm spice in every bite.",
-    "ingredients": [
-      { "id": "i25-01", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i25-02", "name": "onion", "quantity": 1, "unit": "medium" },
-      { "id": "i25-03", "name": "chicken breast", "quantity": 300, "unit": "g" },
-      { "id": "i25-04", "name": "cumin", "quantity": 1, "unit": "tsp" },
-      { "id": "i25-05", "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i25-06", "name": "dried apricots", "quantity": 80, "unit": "g" },
-      { "id": "i25-07", "name": "canned chickpeas", "quantity": 1, "unit": "can (400g)" },
-      { "id": "i25-08", "name": "couscous", "quantity": 200, "unit": "g" },
-      { "id": "i25-09", "name": "chicken stock", "quantity": 200, "unit": "ml" }
-    ],
-    "instructions": [
-      "Heat olive oil in a pan. Soften diced onion 5 minutes.",
-      "Add cubed chicken breast and brown lightly, then stir in cumin and cinnamon.",
-      "Add dried apricots and drained chickpeas with half the chicken stock. Simmer 15 minutes until the chicken is cooked through.",
-      "Meanwhile, pour the remaining boiling chicken stock over the couscous, cover, and let it steam for 5 minutes. Fluff with a fork.",
-      "Serve the chicken and apricot sauce spooned over the couscous."
-    ]
-  },
-  {
-    "id": "r26",
-    "title": "Beef and Broccoli Stir-Fry",
-    "cuisine": "Chinese",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 15,
-    "cookTimeMinutes": 10,
-    "servings": 4,
-    "estimatedCostEur": 13,
-    "totalCalories": 1228,
-    "proteinG": 131,
-    "carbsG": 34,
-    "fatG": 65,
-    "dietaryTags": ["Dairy-Free"],
-    "possibleAdditions": ["Toasted sesame seeds", "Sliced spring onion", "Steamed jasmine rice"],
-    "calorieReductions": ["Use 350g steak instead of 450g", "Cut the oil to 1 tbsp", "Bulk up with extra broccoli"],
-    "description": "Quick, glossy stir-fried steak and broccoli in a savoury soy sauce — faster than delivery and just as satisfying.",
-    "ingredients": [
-      { "id": "i26-01", "name": "sirloin steak", "quantity": 450, "unit": "g", "notes": "thinly sliced" },
-      { "id": "i26-02", "name": "soy sauce", "quantity": 2, "unit": "tbsp" },
-      { "id": "i26-03", "name": "oyster sauce", "quantity": 2, "unit": "tbsp" },
-      { "id": "i26-04", "name": "black pepper", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i26-05", "name": "chicken stock", "quantity": 60, "unit": "ml" },
-      { "id": "i26-06", "name": "broccoli", "quantity": 450, "unit": "g", "notes": "cut into florets" },
-      { "id": "i26-07", "name": "olive oil", "quantity": 2, "unit": "tbsp" },
-      { "id": "i26-08", "name": "garlic", "quantity": 2, "unit": "cloves" }
-    ],
-    "instructions": [
-      "Toss the sliced steak with 1 tbsp soy sauce and set aside to marinate 10 minutes.",
-      "Whisk the remaining soy sauce, oyster sauce, black pepper, and chicken stock into a sauce.",
-      "Heat 1 tbsp oil in a wok over high heat. Stir-fry the beef 2 minutes until browned. Remove.",
-      "Add remaining oil and garlic, then the broccoli. Stir-fry 3 minutes until bright green and just tender.",
-      "Return the beef to the wok, pour in the sauce, and toss 1–2 minutes until glossy and thickened.",
-      "Serve immediately."
-    ]
-  },
-  {
-    "id": "r27",
-    "title": "Adana Kebab",
-    "cuisine": "Turkish",
-    "difficulty": "Medium",
-    "prepTimeMinutes": 25,
-    "cookTimeMinutes": 12,
-    "servings": 4,
-    "estimatedCostEur": 11,
-    "totalCalories": 2627,
-    "proteinG": 205,
-    "carbsG": 27,
-    "fatG": 188,
-    "dietaryTags": ["Dairy-Free", "Gluten-Free"],
-    "possibleAdditions": ["Warm flatbread", "Grilled tomatoes and peppers on the skewer", "A squeeze of lemon"],
-    "calorieReductions": ["Use lean lamb mince", "Reduce the oil to 1 tbsp", "Serve with extra salad instead of bread"],
-    "description": "Hand-minced lamb skewers spiced with red pepper and chili, grilled hot and fast over charcoal-style heat — Turkey's answer to the kebab.",
-    "ingredients": [
-      { "id": "i27-01", "name": "lamb mince", "quantity": 800, "unit": "g" },
-      { "id": "i27-02", "name": "red bell pepper", "quantity": 2, "unit": "large" },
-      { "id": "i27-03", "name": "tomato paste", "quantity": 3, "unit": "tbsp" },
-      { "id": "i27-04", "name": "red chili flakes", "quantity": 1, "unit": "tbsp" },
-      { "id": "i27-05", "name": "olive oil", "quantity": 2, "unit": "tbsp" },
-      { "id": "i27-06", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i27-07", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
-    ],
-    "instructions": [
-      "Finely dice the red pepper and knead it into the lamb mince with tomato paste, chili flakes, oil, salt, and pepper until sticky and well combined.",
-      "Rest the mixture in the fridge for 20 minutes, then mould onto flat skewers into long, flattened kebabs.",
-      "Grill or griddle over high heat for 5–6 minutes per side until charred outside and cooked through.",
-      "Rest 3 minutes before serving."
-    ]
-  },
-  {
-    "id": "r28",
-    "title": "Beef Pho",
-    "cuisine": "Vietnamese",
-    "difficulty": "Medium",
+    "difficulty": "Hard",
     "prepTimeMinutes": 20,
-    "cookTimeMinutes": 40,
-    "servings": 2,
-    "estimatedCostEur": 9,
-    "totalCalories": 1301,
-    "proteinG": 86,
-    "carbsG": 190,
-    "fatG": 22,
-    "dietaryTags": ["Dairy-Free", "Gluten-Free"],
-    "possibleAdditions": ["Fresh bean sprouts on top", "Extra chili slices", "A squeeze of extra lime"],
-    "calorieReductions": ["Use 150g steak instead of 225g", "Skim the fat from the stock before serving", "Go light on the rice noodles"],
-    "description": "A fragrant, spiced beef broth ladled over rice noodles and paper-thin steak — the noodles cook right in the bowl from the heat of the broth.",
+    "cookTimeMinutes": 120,
+    "servings": 6,
+    "estimatedCostEur": 15,
+    "dietaryTags": [
+      "Gluten-Free"
+    ],
+    "description": "Lamb slow-braised with warm spices and dried apricots until it's soft enough to eat with a spoon. The kind of dish that's better the day after.",
     "ingredients": [
-      { "id": "i28-01", "name": "beef stock", "quantity": 1000, "unit": "ml" },
-      { "id": "i28-02", "name": "onion", "quantity": 1, "unit": "large" },
-      { "id": "i28-03", "name": "cinnamon", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i28-04", "name": "ground cloves", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i28-05", "name": "sirloin steak", "quantity": 225, "unit": "g", "notes": "very thinly sliced" },
-      { "id": "i28-06", "name": "honey", "quantity": 1, "unit": "tsp" },
-      { "id": "i28-07", "name": "fish sauce", "quantity": 1, "unit": "tbsp" },
-      { "id": "i28-08", "name": "soy sauce", "quantity": 1.5, "unit": "tbsp" },
-      { "id": "i28-09", "name": "rice noodles", "quantity": 200, "unit": "g" },
-      { "id": "i28-10", "name": "lime", "quantity": 1, "unit": "piece" }
+      {
+        "name": "lamb shoulder",
+        "quantity": 1,
+        "unit": "kg",
+        "notes": "cut into chunks",
+        "id": "i24-01"
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "notes": "sliced",
+        "id": "i24-02"
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "id": "i24-03"
+      },
+      {
+        "name": "dried apricots",
+        "quantity": 150,
+        "unit": "g",
+        "id": "i24-04"
+      },
+      {
+        "name": "cinnamon",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i24-05"
+      },
+      {
+        "name": "cumin",
+        "quantity": 1,
+        "unit": "tsp",
+        "id": "i24-06"
+      },
+      {
+        "name": "honey",
+        "quantity": 1,
+        "unit": "tbsp",
+        "id": "i24-07"
+      },
+      {
+        "name": "chicken stock",
+        "quantity": 500,
+        "unit": "ml",
+        "id": "i24-08"
+      },
+      {
+        "name": "olive oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "id": "i24-09"
+      }
     ],
     "instructions": [
-      "Char the onion halves directly over a flame or under the grill until blackened in spots.",
-      "Simmer the beef stock with the charred onion, cinnamon, and ground cloves for 25–30 minutes to infuse.",
-      "Strain the broth and season with honey, fish sauce, and soy sauce.",
-      "Soak the rice noodles in boiling water 5–8 minutes until soft, then divide between bowls.",
-      "Top the noodles with the raw sliced steak — the hot broth will cook it as you pour.",
-      "Ladle the hot broth over the top and serve immediately with lime wedges."
-    ]
-  },
-  {
-    "id": "r29",
-    "title": "Grilled Chicken & Quinoa Bowl",
-    "cuisine": "Contemporary",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 15,
-    "cookTimeMinutes": 20,
-    "servings": 2,
-    "estimatedCostEur": 8,
-    "totalCalories": 1508,
-    "proteinG": 126,
-    "carbsG": 116,
-    "fatG": 60,
-    "dietaryTags": ["Gluten-Free"],
-    "possibleAdditions": ["Toasted pine nuts", "A dollop of tzatziki", "Extra lemon zest"],
-    "calorieReductions": ["Use 200g chicken breast instead of 300g", "Halve the feta", "Cut the olive oil to 1 tbsp"],
-    "description": "A simple, protein-packed bowl — grilled chicken breast over lemony quinoa with cherry tomatoes, cucumber, and feta.",
-    "ingredients": [
-      { "id": "i29-01", "name": "chicken breast", "quantity": 300, "unit": "g" },
-      { "id": "i29-02", "name": "quinoa", "quantity": 150, "unit": "g" },
-      { "id": "i29-03", "name": "cherry tomatoes", "quantity": 100, "unit": "g" },
-      { "id": "i29-04", "name": "cucumber", "quantity": 0.5, "unit": "piece" },
-      { "id": "i29-05", "name": "feta cheese", "quantity": 60, "unit": "g" },
-      { "id": "i29-06", "name": "olive oil", "quantity": 2, "unit": "tbsp" },
-      { "id": "i29-07", "name": "lemon", "quantity": 1, "unit": "piece" },
-      { "id": "i29-08", "name": "salt", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i29-09", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
-    ],
-    "instructions": [
-      "Rinse quinoa and cook in salted water per packet instructions (about 15 minutes) until fluffy. Fluff with a fork.",
-      "Season chicken breast with salt and pepper. Grill or pan-sear 6–7 minutes per side until cooked through. Rest, then slice.",
-      "Halve the cherry tomatoes and dice the cucumber.",
-      "Divide quinoa between bowls, top with sliced chicken, tomatoes, cucumber, and crumbled feta.",
-      "Drizzle with olive oil and a squeeze of lemon before serving."
-    ]
-  },
-  {
-    "id": "r30",
-    "title": "Tuna & White Bean Salad",
-    "cuisine": "Mediterranean",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 10,
-    "cookTimeMinutes": 0,
-    "servings": 2,
-    "estimatedCostEur": 7,
-    "totalCalories": 986,
-    "proteinG": 85,
-    "carbsG": 63,
-    "fatG": 44,
-    "dietaryTags": ["Dairy-Free", "Gluten-Free"],
-    "possibleAdditions": ["Chopped celery for crunch", "Extra red onion", "Crusty bread on the side"],
-    "calorieReductions": ["Cut the olive oil to 1 tbsp", "Use tuna in water and skip draining oil", "Add extra beans and reduce tuna slightly"],
-    "description": "A five-minute, no-cook salad of flaked tuna and creamy cannellini beans, dressed simply with olive oil and lemon.",
-    "ingredients": [
-      { "id": "i30-01", "name": "canned tuna", "quantity": 240, "unit": "g", "notes": "drained" },
-      { "id": "i30-02", "name": "cannellini beans", "quantity": 1, "unit": "can (400g)", "notes": "drained" },
-      { "id": "i30-03", "name": "red onion", "quantity": 0.5, "unit": "medium" },
-      { "id": "i30-04", "name": "olive oil", "quantity": 3, "unit": "tbsp" },
-      { "id": "i30-05", "name": "lemon", "quantity": 1, "unit": "piece" },
-      { "id": "i30-06", "name": "salt", "quantity": 0.25, "unit": "tsp" },
-      { "id": "i30-07", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
-    ],
-    "instructions": [
-      "Drain the tuna and cannellini beans well.",
-      "Thinly slice the red onion.",
-      "Combine tuna, beans, and onion in a bowl.",
-      "Dress with olive oil, lemon juice, salt, and pepper. Toss gently to keep the beans mostly whole.",
-      "Serve at room temperature or chilled."
-    ]
-  },
-  {
-    "id": "r31",
-    "title": "Turkey Meatball Bake",
-    "cuisine": "Contemporary",
-    "difficulty": "Medium",
-    "prepTimeMinutes": 20,
-    "cookTimeMinutes": 30,
-    "servings": 4,
-    "estimatedCostEur": 10,
-    "totalCalories": 1475,
-    "proteinG": 152,
-    "carbsG": 48,
-    "fatG": 75,
-    "dietaryTags": [],
-    "possibleAdditions": ["Fresh basil on top", "Extra parmesan", "Serve over zucchini noodles"],
-    "calorieReductions": ["Use 500g turkey mince instead of 600g", "Halve the parmesan", "Skip the breadcrumbs for a lower-carb version"],
-    "description": "Lean turkey meatballs baked right in a simple tomato sauce — a lighter spin on the classic that's still deeply savoury.",
-    "ingredients": [
-      { "id": "i31-01", "name": "turkey mince", "quantity": 600, "unit": "g" },
-      { "id": "i31-02", "name": "eggs", "quantity": 1, "unit": "large" },
-      { "id": "i31-03", "name": "breadcrumbs", "quantity": 4, "unit": "tbsp" },
-      { "id": "i31-04", "name": "parmesan", "quantity": 40, "unit": "g" },
-      { "id": "i31-05", "name": "garlic", "quantity": 2, "unit": "cloves" },
-      { "id": "i31-06", "name": "dried oregano", "quantity": 1, "unit": "tsp" },
-      { "id": "i31-07", "name": "canned tomatoes", "quantity": 1, "unit": "can (400g)" },
-      { "id": "i31-08", "name": "olive oil", "quantity": 1, "unit": "tbsp" },
-      { "id": "i31-09", "name": "salt", "quantity": 1, "unit": "tsp" },
-      { "id": "i31-10", "name": "black pepper", "quantity": 0.5, "unit": "tsp" }
-    ],
-    "instructions": [
-      "Preheat oven to 200°C. Mix turkey mince, egg, breadcrumbs, half the parmesan, minced garlic, oregano, salt, and pepper until just combined.",
-      "Roll into 16–20 meatballs.",
-      "Heat olive oil in an oven-proof pan. Brown the meatballs 2 minutes per side.",
-      "Pour the canned tomatoes over the meatballs, crushing them with a spoon. Sprinkle remaining parmesan on top.",
-      "Transfer to the oven and bake 18–20 minutes until the meatballs are cooked through and the sauce is bubbling."
-    ]
-  },
-  {
-    "id": "r32",
-    "title": "Cottage Cheese Power Bowl",
-    "cuisine": "Contemporary",
-    "difficulty": "Easy",
-    "prepTimeMinutes": 5,
-    "cookTimeMinutes": 0,
-    "servings": 1,
-    "estimatedCostEur": 4,
-    "totalCalories": 467,
-    "proteinG": 31,
-    "carbsG": 56,
-    "fatG": 15,
-    "dietaryTags": ["Vegetarian", "Gluten-Free"],
-    "possibleAdditions": ["A sprinkle of granola", "Toasted almonds", "Cinnamon on top"],
-    "calorieReductions": ["Use low-fat cottage cheese", "Skip the honey — the fruit adds sweetness", "Use half a banana instead of a whole one"],
-    "description": "A no-cook, high-protein bowl — cold cottage cheese piled with banana, berries, and a drizzle of honey. Ready in 2 minutes.",
-    "ingredients": [
-      { "id": "i32-01", "name": "cottage cheese", "quantity": 250, "unit": "g" },
-      { "id": "i32-02", "name": "banana", "quantity": 1, "unit": "whole" },
-      { "id": "i32-03", "name": "mixed berries", "quantity": 80, "unit": "g" },
-      { "id": "i32-04", "name": "honey", "quantity": 1, "unit": "tsp" },
-      { "id": "i32-05", "name": "chia seeds", "quantity": 1, "unit": "tbsp" }
-    ],
-    "instructions": [
-      "Spoon the cottage cheese into a bowl.",
-      "Top with sliced banana and mixed berries.",
-      "Drizzle with honey and scatter chia seeds on top.",
-      "Serve immediately."
-    ]
-  },
-  {
-    "id": "r33",
-    "title": "Baked Egg White & Turkey Ham Muffins",
-    "cuisine": "Contemporary",
-    "difficulty": "Medium",
-    "prepTimeMinutes": 15,
-    "cookTimeMinutes": 20,
-    "servings": 3,
-    "estimatedCostEur": 8,
-    "totalCalories": 717,
-    "proteinG": 97,
-    "carbsG": 11,
-    "fatG": 29,
-    "dietaryTags": ["Gluten-Free"],
-    "possibleAdditions": ["Chopped chives on top", "A dash of hot sauce", "Swap ham for smoked salmon"],
-    "calorieReductions": ["Use 100g ham instead of 160g", "Halve the feta", "Add extra spinach and reduce egg white slightly"],
-    "description": "Savoury, oven-baked egg white muffins studded with turkey ham, spinach, and feta — a make-ahead, high-protein breakfast for the whole week.",
-    "ingredients": [
-      { "id": "i33-01", "name": "egg whites", "quantity": 500, "unit": "g" },
-      { "id": "i33-02", "name": "ham", "quantity": 160, "unit": "g", "notes": "diced, turkey ham" },
-      { "id": "i33-03", "name": "spinach", "quantity": 60, "unit": "g", "notes": "chopped" },
-      { "id": "i33-04", "name": "feta cheese", "quantity": 80, "unit": "g" },
-      { "id": "i33-05", "name": "salt", "quantity": 0.5, "unit": "tsp" },
-      { "id": "i33-06", "name": "black pepper", "quantity": 0.25, "unit": "tsp" }
-    ],
-    "instructions": [
-      "Preheat oven to 180°C and grease a 12-cup muffin tin.",
-      "Whisk egg whites with salt and pepper.",
-      "Divide diced ham, chopped spinach, and crumbled feta evenly among the muffin cups.",
-      "Pour the egg whites over the top, filling each cup about three-quarters full.",
-      "Bake 18–20 minutes until puffed and set. Cool 5 minutes before removing from the tin.",
-      "Store in the fridge and reheat through the week."
+      "Brown the lamb in batches in olive oil over high heat, then set aside.",
+      "In the same pot, cook the onion and garlic until soft.",
+      "Return the lamb to the pot with the cinnamon and cumin. Stir for a minute until fragrant.",
+      "Add the dried apricots, honey, and chicken stock. Bring to a gentle simmer.",
+      "Cover and cook on very low heat for 1.5-2 hours, checking occasionally and topping up with water if it looks dry, until the lamb is completely tender."
     ]
   }
 ]

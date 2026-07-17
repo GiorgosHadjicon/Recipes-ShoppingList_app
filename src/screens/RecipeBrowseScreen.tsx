@@ -14,16 +14,14 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RecipeCard } from '../components/RecipeCard';
-import { useAuth } from '../context/AuthContext';
-import { useTheme } from '../context/ThemeContext';
 import type { RecipesStackParamList } from '../navigation/types';
-import { getRecipes, isHealthy, isHighProtein, isOwnRecipe } from '../services/recipeService';
-import { fonts, spacing, radius, type Colors } from '../theme';
-import type { Difficulty, Recipe } from '../types';
+import { getRecipes } from '../services/recipeService';
+import { fonts, lightColors, spacing, radius, type Colors } from '../theme';
+import type { DifficultyLevel, Recipe } from '../types';
 import { getRecipeImageUrl } from '../utils/recipeImage';
 
-const FILTERS: Array<Difficulty | 'All'> = ['All', 'Easy', 'Medium', 'Hard'];
-const DIFFICULTY_ORDER: Record<Difficulty, number> = { Easy: 0, Medium: 1, Hard: 2 };
+const FILTERS: Array<DifficultyLevel | 'All'> = ['All', 'Easy', 'Medium', 'Hard'];
+const DIFFICULTY_ORDER: Record<DifficultyLevel, number> = { Easy: 0, Medium: 1, Hard: 2 };
 
 function greeting(): string {
   const hour = new Date().getHours();
@@ -38,8 +36,7 @@ function timeLabelFor(recipe: Recipe): string {
 }
 
 function FeaturedCard({ recipe, onPress }: { recipe: Recipe; onPress: () => void }) {
-  const { colors } = useTheme();
-  const styles = makeStyles(colors);
+  const styles = makeStyles(lightColors);
   return (
     <>
       <Text style={styles.featuredLabel}>Featured tonight</Text>
@@ -64,17 +61,13 @@ function FeaturedCard({ recipe, onPress }: { recipe: Recipe; onPress: () => void
 export function RecipeBrowseScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<RecipesStackParamList>>();
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [filter, setFilter] = useState<Difficulty | 'All'>('All');
-  const [healthyOnly, setHealthyOnly] = useState(false);
-  const [highProteinOnly, setHighProteinOnly] = useState(false);
-  const [myRecipesOnly, setMyRecipesOnly] = useState(false);
+  const [filter, setFilter] = useState<DifficultyLevel | 'All'>('All');
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [filterRowHeight, setFilterRowHeight] = useState(0);
   const scrollY = useRef(new Animated.Value(0)).current;
   const listRef = useRef<FlatList<Recipe>>(null);
-  const { user } = useAuth();
-  const { colors } = useTheme();
+  const colors = lightColors;
   const styles = makeStyles(colors);
 
   // Hides the filter row as you scroll down, reveals it as soon as you scroll back up —
@@ -95,33 +88,22 @@ export function RecipeBrowseScreen() {
       setRecipes(data);
       setLoading(false);
     });
-    // Refetch on focus so a recipe just added via AddRecipe shows up without a full reload.
-    const unsubscribe = navigation.addListener('focus', () => {
-      getRecipes().then(setRecipes);
-    });
-    return unsubscribe;
-  }, [navigation]);
+  }, []);
 
   const q = query.trim().toLowerCase();
   const filtered = recipes
     .filter((r) => !q || r.title.toLowerCase().includes(q) || r.cuisine.toLowerCase().includes(q))
     .filter((r) => filter === 'All' || r.difficulty === filter)
-    .filter((r) => !healthyOnly || isHealthy(r))
-    .filter((r) => !highProteinOnly || isHighProtein(r))
-    .filter((r) => !myRecipesOnly || isOwnRecipe(r, user?.id ?? null))
     .sort((a, b) => DIFFICULTY_ORDER[a.difficulty] - DIFFICULTY_ORDER[b.difficulty]);
 
-  const showFeatured = filter === 'All' && !q && !healthyOnly && !highProteinOnly && !myRecipesOnly;
+  const showFeatured = filter === 'All' && !q;
   const featured = showFeatured ? filtered[0] : undefined;
   const listData = featured ? filtered.slice(1) : filtered;
-  const hasActiveFilters = filter !== 'All' || !!q || healthyOnly || highProteinOnly || myRecipesOnly;
+  const hasActiveFilters = filter !== 'All' || !!q;
 
   function clearFilters() {
     setQuery('');
     setFilter('All');
-    setHealthyOnly(false);
-    setHighProteinOnly(false);
-    setMyRecipesOnly(false);
   }
 
   // Changing a filter/search while scrolled down (and the row hidden) shouldn't strand
@@ -129,7 +111,7 @@ export function RecipeBrowseScreen() {
   useEffect(() => {
     scrollY.setValue(0);
     listRef.current?.scrollToOffset({ offset: 0, animated: false });
-  }, [filter, healthyOnly, highProteinOnly, myRecipesOnly, query]);
+  }, [filter, query]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -139,9 +121,6 @@ export function RecipeBrowseScreen() {
             <Text style={styles.greeting}>{greeting()}</Text>
             <Text style={styles.heading}>What's cooking?</Text>
           </View>
-          <Pressable style={styles.addButton} onPress={() => navigation.navigate('AddRecipe')}>
-            <Text style={styles.addButtonText}>+ Add</Text>
-          </Pressable>
         </View>
       </View>
 
@@ -179,24 +158,6 @@ export function RecipeBrowseScreen() {
               <Text style={[styles.filterText, filter === f && styles.filterTextActive]}>{f}</Text>
             </Pressable>
           ))}
-          <Pressable
-            onPress={() => setHealthyOnly((v) => !v)}
-            style={[styles.filterPill, healthyOnly && styles.filterPillActive]}
-          >
-            <Text style={[styles.filterText, healthyOnly && styles.filterTextActive]}>🥗 Healthy</Text>
-          </Pressable>
-          <Pressable
-            onPress={() => setHighProteinOnly((v) => !v)}
-            style={[styles.filterPill, highProteinOnly && styles.filterPillActive]}
-          >
-            <Text style={[styles.filterText, highProteinOnly && styles.filterTextActive]}>💪 High Protein</Text>
-          </Pressable>
-          <Pressable
-            onPress={() => setMyRecipesOnly((v) => !v)}
-            style={[styles.filterPill, myRecipesOnly && styles.filterPillActive]}
-          >
-            <Text style={[styles.filterText, myRecipesOnly && styles.filterTextActive]}>👤 My Recipes</Text>
-          </Pressable>
         </View>
       </Animated.View>
 
@@ -238,9 +199,7 @@ export function RecipeBrowseScreen() {
               </View>
               <Text style={styles.emptyTitle}>Nothing on the menu</Text>
               <Text style={styles.emptySubtitle}>
-                {myRecipesOnly && !hasActiveFilters
-                  ? "You haven't added any recipes yet."
-                  : `No recipes match ${q ? `"${query.trim()}"` : 'these filters'} just yet. Loosen a filter and we'll find you something to cook.`}
+                {`No recipes match ${q ? `"${query.trim()}"` : 'these filters'} just yet. Loosen a filter and we'll find you something to cook.`}
               </Text>
               {hasActiveFilters && (
                 <Pressable style={styles.clearFiltersBtn} onPress={clearFilters}>
@@ -284,14 +243,6 @@ function makeStyles(colors: Colors) {
       color: colors.text,
       marginTop: 2,
     },
-    addButton: {
-      backgroundColor: colors.primary,
-      paddingHorizontal: spacing.md,
-      paddingVertical: spacing.sm,
-      borderRadius: 20,
-      marginTop: spacing.xs,
-    },
-    addButtonText: { fontFamily: fonts.bodyBold, fontSize: 14, color: '#fff' },
     searchRow: {
       flexDirection: 'row',
       alignItems: 'center',

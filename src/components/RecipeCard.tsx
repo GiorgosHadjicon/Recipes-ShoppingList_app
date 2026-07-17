@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { useTheme } from '../context/ThemeContext';
-import { fonts, radius, spacing, type Colors } from '../theme';
+import { DifficultyBadge } from './DifficultyBadge';
+import { fonts, lightColors, radius, spacing, type Colors } from '../theme';
 import type { Recipe } from '../types';
 import { getRecipeImageUrl } from '../utils/recipeImage';
 
@@ -11,8 +11,7 @@ interface Props {
 }
 
 export function RecipeCard({ recipe, onPress }: Props) {
-  const { colors } = useTheme();
-  const styles = makeStyles(colors);
+  const styles = makeStyles(lightColors);
   const totalMin = recipe.prepTimeMinutes + recipe.cookTimeMinutes;
   const timeLabel = totalMin < 60 ? `${totalMin} min` : `${Math.round(totalMin / 60)}h ${totalMin % 60 > 0 ? `${totalMin % 60}m` : ''}`.trim();
 
@@ -21,20 +20,17 @@ export function RecipeCard({ recipe, onPress }: Props) {
       <Image source={{ uri: getRecipeImageUrl(recipe.title) }} style={styles.thumb} />
 
       <View style={styles.body}>
-        <Text style={styles.title} numberOfLines={1}>{recipe.title}</Text>
-        <Text style={styles.meta}>
-          {timeLabel} · {recipe.difficulty} · €{recipe.estimatedCostEur.toFixed(2)}
-        </Text>
+        <Text style={styles.title} numberOfLines={2}>{recipe.title}</Text>
+        <Text style={styles.meta}>{timeLabel} · €{recipe.estimatedCostEur.toFixed(2)}</Text>
 
-        {recipe.dietaryTags.length > 0 && (
-          <View style={styles.tags}>
-            {recipe.dietaryTags.map((tag) => (
-              <View key={tag} style={styles.tag}>
-                <Text style={styles.tagText}>{tag}</Text>
-              </View>
-            ))}
-          </View>
-        )}
+        <View style={styles.badgeRow}>
+          <DifficultyBadge difficulty={recipe.difficulty} />
+          {recipe.dietaryTags.length > 0 && (
+            <View style={styles.tag}>
+              <Text style={styles.tagText}>{recipe.dietaryTags[0]}</Text>
+            </View>
+          )}
+        </View>
       </View>
     </Pressable>
   );
@@ -46,35 +42,37 @@ function makeStyles(colors: Colors) {
       flexDirection: 'row',
       gap: spacing.md,
       marginHorizontal: spacing.md,
-      marginBottom: spacing.md,
+      marginBottom: spacing.lg,
     },
     pressed: {
       opacity: 0.85,
     },
     thumb: {
-      width: 84,
-      height: 84,
+      width: 96,
+      height: 96,
       borderRadius: radius.md,
       backgroundColor: colors.border,
     },
     body: {
       flex: 1,
       justifyContent: 'center',
-      gap: spacing.xs,
+      gap: spacing.sm,
     },
     title: {
-      fontFamily: fonts.bodySemiBold,
-      fontSize: 16,
+      fontFamily: fonts.display,
+      fontSize: 18,
       color: colors.text,
+      lineHeight: 22,
     },
     meta: {
       fontFamily: fonts.body,
       fontSize: 13,
       color: colors.textSecondary,
     },
-    tags: {
+    badgeRow: {
       flexDirection: 'row',
       flexWrap: 'wrap',
+      alignItems: 'center',
       gap: spacing.xs,
     },
     tag: {
